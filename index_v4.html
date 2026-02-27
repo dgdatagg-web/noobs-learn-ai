@@ -7,13 +7,13 @@
   <meta name="description" content="AI đang xóa sổ từng ngành nghề. Bạn không cần code. Bạn cần AI agent chạy thật — ngay bây giờ."/>
   <style>
     :root {
-      --black: #0d1117;
+      --black: #080808;
       --white: #f0f0f0;
-      --yellow: #54C8DB;
-      --yellow-dark: #3ab4c8;
-      --red: #FF5C5C;
-      --gray: #161b22;
-      --gray2: #1c2230;
+      --yellow: #FFD600;
+      --yellow-dark: #e6c200;
+      --red: #FF3B3B;
+      --gray: #141414;
+      --gray2: #1e1e1e;
       --gray3: #999;
       --font: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     }
@@ -41,24 +41,24 @@
       border-bottom: 1px solid #1a1a1a;
     }
     .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
-    .nav-logo img { height: 36px; width: auto; mix-blend-mode: screen; filter: brightness(1.1); transition: filter 0.2s; }
-    .nav-logo img:hover { mix-blend-mode: screen; filter: brightness(1.3) drop-shadow(0 0 8px rgba(84,200,219,0.6)); }
+    .nav-logo img { height: 36px; width: auto; filter: brightness(0) invert(1) sepia(1) saturate(5) hue-rotate(5deg); transition: filter 0.2s; }
+    .nav-logo img:hover { filter: brightness(0) invert(1) sepia(1) saturate(8) hue-rotate(5deg) drop-shadow(0 0 8px rgba(255,214,0,0.6)); }
     .nav-logo span { font-size: 1rem; font-weight: 900; letter-spacing: -0.5px; color: var(--yellow); }
     /* Hero logo */
     .hero-logo { width: 100px; height: 100px; object-fit: contain; margin-bottom: 24px;
-      mix-blend-mode: screen; filter: drop-shadow(0 0 30px rgba(84,200,219,0.5)) drop-shadow(0 0 80px rgba(136,100,160,0.2));
+      filter: drop-shadow(0 0 24px rgba(255,214,0,0.4)) drop-shadow(0 0 60px rgba(255,214,0,0.15));
       animation: float 3s ease-in-out infinite; }
     @keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-8px)} }
     /* Footer logo */
-    .footer-logo { height: 32px; width: auto; mix-blend-mode: screen; filter: brightness(1.0); opacity: 0.8; }
+    .footer-logo { height: 32px; width: auto; filter: brightness(0) invert(1) sepia(1) saturate(3) hue-rotate(5deg); opacity: 0.8; }
     .nav-links { display: flex; gap: 8px; align-items: center; }
     .nav-cta {
       background: var(--yellow); color: var(--black); padding: 10px 22px;
       border-radius: 8px; font-weight: 800; font-size: 0.85rem; text-decoration: none;
       transition: transform 0.15s, box-shadow 0.15s;
-      box-shadow: 0 0 20px rgba(84,200,219,0.2);
+      box-shadow: 0 0 20px rgba(255,214,0,0.2);
     }
-    .nav-cta:hover { transform: translateY(-1px); box-shadow: 0 0 30px rgba(84,200,219,0.35); }
+    .nav-cta:hover { transform: translateY(-1px); box-shadow: 0 0 30px rgba(255,214,0,0.35); }
     .nav-community {
       border: 1px solid #333; color: #ccc; padding: 10px 18px;
       border-radius: 8px; font-weight: 600; font-size: 0.85rem; text-decoration: none;
@@ -83,7 +83,7 @@
     .hero::before {
       content: ''; position: absolute; top: -40%; left: 50%; transform: translateX(-50%);
       width: 800px; height: 800px;
-      background: radial-gradient(ellipse, rgba(84,200,219,0.07) 0%, transparent 65%);
+      background: radial-gradient(ellipse, rgba(255,214,0,0.07) 0%, transparent 65%);
       pointer-events: none;
     }
     .hero-eyebrow {
@@ -117,9 +117,9 @@
       background: var(--yellow); color: var(--black); padding: 18px 36px;
       border-radius: 10px; font-weight: 900; font-size: 1.05rem; text-decoration: none;
       display: inline-block; transition: transform 0.15s, box-shadow 0.15s;
-      box-shadow: 0 0 50px rgba(84,200,219,0.35); letter-spacing: -0.3px;
+      box-shadow: 0 0 50px rgba(255,214,0,0.35); letter-spacing: -0.3px;
     }
-    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 0 70px rgba(84,200,219,0.5); }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 0 70px rgba(255,214,0,0.5); }
     .btn-ghost {
       background: transparent; color: var(--white); padding: 18px 32px;
       border-radius: 10px; font-weight: 700; font-size: 1rem; text-decoration: none;
@@ -164,10 +164,10 @@
     .for-card {
       background: var(--gray); border: 1px solid #222; border-radius: 14px; padding: 28px 24px;
     }
-    .for-card.yes { border-color: rgba(84,200,219,0.2); }
+    .for-card.yes { border-color: rgba(255,214,0,0.2); }
     .for-card.no { opacity: 0.5; }
     .for-tag { font-size: 0.7rem; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 16px; padding: 4px 10px; border-radius: 6px; display: inline-block; }
-    .for-tag.yes { background: rgba(84,200,219,0.15); color: var(--yellow); }
+    .for-tag.yes { background: rgba(255,214,0,0.15); color: var(--yellow); }
     .for-tag.no { background: rgba(255,59,59,0.1); color: var(--red); }
     .for-list { list-style: none; }
     .for-list li { padding: 8px 0; font-size: 0.9rem; color: #ccc; border-bottom: 1px solid #222; display: flex; gap: 10px; align-items: flex-start; }
@@ -201,7 +201,7 @@
       display: flex; flex-direction: column;
     }
     .price-card.featured {
-      border-color: var(--yellow); background: linear-gradient(135deg, rgba(84,200,219,0.05) 0%, var(--gray) 60%);
+      border-color: var(--yellow); background: linear-gradient(135deg, rgba(255,214,0,0.05) 0%, var(--gray) 60%);
     }
     .price-tier { font-size: 0.7rem; font-weight: 800; letter-spacing: 2px; text-transform: uppercase; color: var(--yellow); margin-bottom: 10px; }
     .price-name { font-size: 1.5rem; font-weight: 900; margin-bottom: 10px; letter-spacing: -0.5px; }
@@ -218,7 +218,7 @@
       font-weight: 800; text-decoration: none; font-size: 0.95rem; transition: all 0.15s;
     }
     .price-cta.primary { background: var(--yellow); color: var(--black); }
-    .price-cta.primary:hover { transform: translateY(-1px); box-shadow: 0 0 30px rgba(84,200,219,0.3); }
+    .price-cta.primary:hover { transform: translateY(-1px); box-shadow: 0 0 30px rgba(255,214,0,0.3); }
     .price-cta.outline { border: 1px solid #333; color: var(--white); }
     .price-cta.outline:hover { border-color: var(--yellow); color: var(--yellow); }
     .after-note { text-align: center; margin-top: 20px; font-size: 0.82rem; color: #555; }
@@ -232,7 +232,7 @@
     .support-list { list-style: none; }
     .support-item { display: flex; gap: 20px; padding: 20px 0; border-bottom: 1px solid #1e1e1e; align-items: flex-start; }
     .support-item:last-child { border-bottom: none; }
-    .support-num { width: 36px; height: 36px; border-radius: 50%; background: rgba(84,200,219,0.12); border: 1px solid rgba(84,200,219,0.3); display: flex; align-items: center; justify-content: center; font-size: 0.85rem; font-weight: 800; color: var(--yellow); flex-shrink: 0; }
+    .support-num { width: 36px; height: 36px; border-radius: 50%; background: rgba(255,214,0,0.12); border: 1px solid rgba(255,214,0,0.3); display: flex; align-items: center; justify-content: center; font-size: 0.85rem; font-weight: 800; color: var(--yellow); flex-shrink: 0; }
     .support-content h4 { font-size: 0.95rem; font-weight: 700; margin-bottom: 4px; }
     .support-content p { font-size: 0.85rem; color: #888; line-height: 1.6; }
 
@@ -248,8 +248,8 @@
     .final-section { padding: 0 24px 100px; }
     .final-box {
       max-width: 900px; margin: 0 auto; text-align: center;
-      background: linear-gradient(135deg, rgba(84,200,219,0.07), rgba(84,200,219,0.02));
-      border: 1px solid rgba(84,200,219,0.2); border-radius: 24px; padding: 80px 40px;
+      background: linear-gradient(135deg, rgba(255,214,0,0.07), rgba(255,214,0,0.02));
+      border: 1px solid rgba(255,214,0,0.2); border-radius: 24px; padding: 80px 40px;
     }
     .final-box h2 { font-size: clamp(1.8rem, 4vw, 3rem); font-weight: 900; letter-spacing: -1.5px; margin-bottom: 20px; line-height: 1.15; }
     .final-box h2 span { color: var(--yellow); }
@@ -606,7 +606,7 @@
         </div>
       </li>
     </ul>
-    <div style="margin-top:32px; padding:20px 24px; background:rgba(84,200,219,0.05); border:1px solid rgba(84,200,219,0.15); border-radius:12px;">
+    <div style="margin-top:32px; padding:20px 24px; background:rgba(255,214,0,0.05); border:1px solid rgba(255,214,0,0.15); border-radius:12px;">
       <p style="font-size:0.88rem; color:#aaa; line-height:1.7;" class="vi">
         <strong style="color:var(--yellow)">Sau 30 ngày:</strong> Bạn chọn tiếp tục với <strong>Basic 500.000₫/tháng</strong> (hỏi đáp cơ bản + community access) hoặc nâng cấp <strong>Expert $99/tháng</strong> (unlimited 1-1 với Will, priority response, advanced setup — dành cho international founders). Không tự động charge. Bạn chủ động chọn.
       </p>
