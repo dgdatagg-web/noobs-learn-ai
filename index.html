@@ -40,7 +40,17 @@
       padding: 14px 32px; display: flex; justify-content: space-between; align-items: center;
       border-bottom: 1px solid #1a1a1a;
     }
-    .nav-logo { font-size: 1rem; font-weight: 900; letter-spacing: -0.5px; color: var(--yellow); }
+    .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .nav-logo img { height: 36px; width: auto; filter: brightness(0) invert(1) sepia(1) saturate(5) hue-rotate(5deg); transition: filter 0.2s; }
+    .nav-logo img:hover { filter: brightness(0) invert(1) sepia(1) saturate(8) hue-rotate(5deg) drop-shadow(0 0 8px rgba(255,214,0,0.6)); }
+    .nav-logo span { font-size: 1rem; font-weight: 900; letter-spacing: -0.5px; color: var(--yellow); }
+    /* Hero logo */
+    .hero-logo { width: 100px; height: 100px; object-fit: contain; margin-bottom: 24px;
+      filter: drop-shadow(0 0 24px rgba(255,214,0,0.4)) drop-shadow(0 0 60px rgba(255,214,0,0.15));
+      animation: float 3s ease-in-out infinite; }
+    @keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-8px)} }
+    /* Footer logo */
+    .footer-logo { height: 32px; width: auto; filter: brightness(0) invert(1) sepia(1) saturate(3) hue-rotate(5deg); opacity: 0.8; }
     .nav-links { display: flex; gap: 8px; align-items: center; }
     .nav-cta {
       background: var(--yellow); color: var(--black); padding: 10px 22px;
@@ -291,7 +301,10 @@
 
 <!-- NAV -->
 <nav>
-  <div class="nav-logo">⚡ NOOBS-LEARN-AI</div>
+  <a class="nav-logo" href="#">
+    <img src="logo.jpg" alt="NOOBS-LEARN-AI"/>
+    <span>NOOBS-LEARN-AI</span>
+  </a>
   <div class="nav-links">
     <a href="#community" class="nav-community vi">Tham gia community miễn phí</a>
     <a href="#community" class="nav-community en" style="display:none">Join free community</a>
@@ -304,8 +317,8 @@
 
 <!-- HERO -->
 <div class="hero">
-  <div class="hero-eyebrow">
-    <div class="blink"></div>
+  <img src="logo.jpg" alt="NOOBS-LEARN-AI Robot" class="hero-logo"/>
+  <div class="hero-eyebrow">    <div class="blink"></div>
     <span class="vi">AI đang disrupting mọi ngành — ngay lúc này</span>
     <span class="en">AI is disrupting every industry — right now</span>
   </div>
@@ -646,7 +659,10 @@
 <!-- FOOTER -->
 <footer>
   <div class="footer-left">
-    <div class="brand">⚡ NOOBS-LEARN-AI</div>
+    <div style="display:flex;align-items:center;gap:10px;margin-bottom:6px">
+      <img src="logo.jpg" alt="logo" class="footer-logo"/>
+      <div class="brand">NOOBS-LEARN-AI</div>
+    </div>
     <div class="tagline vi">Trusted Hands to Guide You Through the Gateway — Made by a founder, for founders.</div>
     <div class="tagline en">Trusted Hands to Guide You Through the Gateway — Made by a founder, for founders.</div>
   </div>
