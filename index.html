@@ -781,6 +781,48 @@
       100% { transform: translate(-50%,-50%) scale(2.2); opacity: 0; }
     }
 
+    /* ── HERO AGENT VOICE LOG ── */
+    .hero-agent-voice {
+      margin: 28px 0 0 0;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--accent);
+      border-radius: 0 12px 12px 0;
+      overflow: hidden;
+    }
+    .hav-item {
+      display: flex;
+      align-items: baseline;
+      gap: 12px;
+      padding: 10px 16px;
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+      font-size: 13px;
+      opacity: 0;
+      transform: translateX(-8px);
+      transition: opacity 0.4s ease, transform 0.4s ease;
+    }
+    .hav-item.hav-show { opacity: 1; transform: translateX(0); }
+    .hav-time {
+      font-family: monospace;
+      font-size: 11px;
+      color: var(--accent);
+      font-weight: 700;
+      flex-shrink: 0;
+      min-width: 52px;
+    }
+    .hav-action { color: var(--light); line-height: 1.4; }
+    .hav-win {
+      color: #22c55e;
+      font-weight: 700;
+    }
+    .hav-footer {
+      padding: 10px 16px;
+      font-size: 12px;
+      color: var(--gray);
+      font-style: italic;
+      background: rgba(255,60,0,0.04);
+    }
+
     /* ── HERO CHAT MOCKUP ── */
     .hero-layout {
       min-height: 100vh;
@@ -1429,21 +1471,41 @@
     <div class="hero-text-col reveal-left">
       <div class="ticker">
         <div class="ticker-dot"></div>
-        RIGHT NOW — your competitor's agent is working
+        3:00 AM — I'm working. My owner is asleep.
       </div>
 
       <h1>
-        How much are you<br/>
-        making at <span class="highlight glitch" data-text="3am?">3am?</span>
+        I made $180<br/>
+        for my boss<br/>
+        <span class="highlight glitch" data-text="last night.">last night.</span>
       </h1>
 
       <p class="hero-sub">
-        Your competitor just set up an AI agent. It handles orders, sends reports, flags problems, and closes leads — <strong>while they sleep.</strong> You're reading this. They're already ahead.
+        I'm an AI agent. Right now I'm closing orders, flagging low stock, and sending the morning brief — so my owner doesn't have to touch a thing.
+        <br/><br/>
+        <strong>They're sleeping. I'm earning.</strong><br/>
+        How about you — are you doing okay?
       </p>
 
-      <div class="hero-ctas">
-        <a href="#live-demo" class="btn-primary">See it live — free →</a>
-        <a href="#pricing" class="btn-secondary">Get your agent in 48h</a>
+      <div class="hero-agent-voice">
+        <div class="hav-item">
+          <span class="hav-time">2:14 AM</span>
+          <span class="hav-action">Closed 3 late-night orders. <span class="hav-win">+$124</span></span>
+        </div>
+        <div class="hav-item">
+          <span class="hav-time">3:02 AM</span>
+          <span class="hav-action">Stock alert sent. Reorder triggered. <span class="hav-win">0 human needed</span></span>
+        </div>
+        <div class="hav-item">
+          <span class="hav-time">6:00 AM</span>
+          <span class="hav-action">Morning brief delivered. Owner wakes up informed. <span class="hav-win">Every day.</span></span>
+        </div>
+        <div class="hav-footer">My owner hasn't logged in since Tuesday. <span style="color:var(--accent);">I don't need them to.</span></div>
+      </div>
+
+      <div class="hero-ctas" style="margin-top: 32px;">
+        <a href="#live-demo" class="btn-primary">Talk to an agent — free →</a>
+        <a href="#pricing" class="btn-secondary">Get yours in 48h</a>
       </div>
 
       <div class="social-proof">
@@ -1453,7 +1515,7 @@
           <div class="face">🧑‍💻</div>
           <div class="face">👨‍🍳</div>
         </div>
-        <span>The window is still open — barely.</span>
+        <span>Their agents are already running. The window is barely open.</span>
       </div>
     </div>
 
@@ -2529,6 +2591,11 @@ document.querySelectorAll('[data-prompt]').forEach(el => {
     demoInput.value = el.dataset.prompt;
     demoInput.focus();
   });
+});
+
+// ── HERO AGENT VOICE LOG — stagger in on load ──
+document.querySelectorAll('.hav-item').forEach((el, i) => {
+  setTimeout(() => el.classList.add('hav-show'), 600 + i * 300);
 });
 
 // ── SCROLL PROGRESS BAR ──
