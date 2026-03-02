@@ -697,9 +697,14 @@
     @keyframes orbDrift2 { from { transform: translate(0,0);       } to { transform: translate(4vw, -5vh); } }
 
     /* ── SHIMMER on card hover ── */
-    .cap-card, .price-card, .vision-card, .cred-stat, .pain-card, .esc-col {
+    /* shimmer — price-card excluded from overflow:hidden so badge shows */
+    .cap-card, .vision-card, .cred-stat, .pain-card, .esc-col {
       position: relative;
       overflow: hidden;
+    }
+    .price-card {
+      position: relative;
+      overflow: visible; /* badges need to overflow the top edge */
     }
     .cap-card::after, .price-card::after, .vision-card::after,
     .cred-stat::after, .pain-card::after, .esc-col::after {
@@ -709,6 +714,8 @@
       background: linear-gradient(105deg, transparent 40%, rgba(255,255,255,0.04) 50%, transparent 60%);
       transform: translateX(-100%);
       pointer-events: none;
+      border-radius: inherit;
+      overflow: hidden;
     }
     .cap-card:hover::after, .price-card:hover::after, .vision-card:hover::after,
     .cred-stat:hover::after, .pain-card:hover::after, .esc-col:hover::after {
