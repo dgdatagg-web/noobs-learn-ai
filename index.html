@@ -634,7 +634,7 @@
       display: grid;
       grid-template-columns: 1fr 40px 1fr;
       gap: 0;
-      align-items: start;
+      align-items: stretch;
     }
     @media(max-width: 640px) {
       .esc-cols { grid-template-columns: 1fr; }
@@ -642,9 +642,8 @@
     }
     .esc-divider {
       display: flex;
-      align-items: flex-start;
+      align-items: center;
       justify-content: center;
-      padding-top: 24px;
     }
     .esc-vs-badge {
       background: #1a1a1a;
@@ -661,6 +660,8 @@
     .esc-col {
       padding: 24px;
       border-radius: 14px;
+      display: flex;
+      flex-direction: column;
     }
     .esc-col.them-col {
       background: rgba(34,197,94,0.04);
@@ -2035,21 +2036,44 @@ function showHeroMsg() {
 
 setTimeout(showHeroMsg, heroMessages[0].delay);
 
-// ── CLIMAX COUNTER ──
+// ── CLIMAX COUNTER — random bursts, feels organic ──
 const counterEl = document.getElementById('climaxCounter');
-const startTime = Date.now();
-const ratePerSecond = 0.8; // ~2880/hour globally (believable est)
+let counterVal = 0;
+let counterRunning = false;
 
-function updateCounter() {
-  const elapsed = (Date.now() - startTime) / 1000;
-  const val = Math.floor(elapsed * ratePerSecond);
-  counterEl.textContent = val.toLocaleString();
-  requestAnimationFrame(updateCounter);
+function randomBetween(a, b) { return a + Math.random() * (b - a); }
+
+function runCounter() {
+  if (!counterRunning) return;
+
+  // random increment: sometimes 1, sometimes 2-3, occasionally 0 (pause)
+  const roll = Math.random();
+  let increment = 0;
+  if (roll < 0.15) {
+    increment = 0; // pause — nothing happens
+  } else if (roll < 0.70) {
+    increment = 1;
+  } else if (roll < 0.90) {
+    increment = 2;
+  } else {
+    increment = 3; // rare burst
+  }
+
+  counterVal += increment;
+  counterEl.textContent = counterVal.toLocaleString();
+
+  // next tick: random delay 400ms–2200ms
+  const nextDelay = Math.floor(randomBetween(400, 2200));
+  setTimeout(runCounter, nextDelay);
 }
 
-// Only start counter when section is visible
+// Only start when visible
 const climaxObs = new IntersectionObserver((entries) => {
-  if (entries[0].isIntersecting) { updateCounter(); climaxObs.disconnect(); }
+  if (entries[0].isIntersecting && !counterRunning) {
+    counterRunning = true;
+    runCounter();
+    climaxObs.disconnect();
+  }
 }, { threshold: 0.3 });
 climaxObs.observe(counterEl);
 
