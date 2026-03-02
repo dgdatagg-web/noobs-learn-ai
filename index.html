@@ -587,6 +587,17 @@
     .mt-16 { margin-top: 16px; }
     .mt-24 { margin-top: 24px; }
 
+
+    /* ── AVATAR IMAGES ── */
+    .av-img {
+      display: block;
+      width: 100%; height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+    .av-agent-bg { background: url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20viewBox%3D%270%200%2040%2040%27%3E%20%3Ccircle%20cx%3D%2720%27%20cy%3D%2720%27%20r%3D%2720%27%20fill%3D%27%25231a0d0a%27/%3E%20%3Ccircle%20cx%3D%2720%27%20cy%3D%2715%27%20r%3D%277%27%20fill%3D%27%2523c8845a%27/%3E%20%3Cpath%20d%3D%27M6%2038%20Q6%2026%2020%2026%20Q34%2026%2034%2038%27%20fill%3D%27%2523c8845a%27/%3E%20%3Cpath%20d%3D%27M13%2012%20Q14%206%2020%206%20Q26%206%2027%2012%27%20fill%3D%27%2523301a10%27/%3E%20%3Ccircle%20cx%3D%2717%27%20cy%3D%2715%27%20r%3D%271.2%27%20fill%3D%27%2523301a10%27/%3E%20%3Ccircle%20cx%3D%2723%27%20cy%3D%2715%27%20r%3D%271.2%27%20fill%3D%27%2523301a10%27/%3E%20%3Cpath%20d%3D%27M17%2018.5%20Q20%2021%2023%2018.5%27%20stroke%3D%27%2523301a10%27%20stroke-width%3D%271.2%27%20fill%3D%27none%27%20stroke-linecap%3D%27round%27/%3E%3C/svg%3E") center/cover no-repeat; }
+    .av-user-bg  { background: url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20viewBox%3D%270%200%2040%2040%27%3E%20%3Ccircle%20cx%3D%2720%27%20cy%3D%2720%27%20r%3D%2720%27%20fill%3D%27%25230d1520%27/%3E%20%3Ccircle%20cx%3D%2720%27%20cy%3D%2715%27%20r%3D%277%27%20fill%3D%27%2523a0785a%27/%3E%20%3Cpath%20d%3D%27M6%2038%20Q6%2026%2020%2026%20Q34%2026%2034%2038%27%20fill%3D%27%25231e2d40%27/%3E%20%3Cpath%20d%3D%27M14%2010%20Q15%205%2020%205%20Q25%205%2026%2010%27%20fill%3D%27%2523301a10%27/%3E%20%3Ccircle%20cx%3D%2717%27%20cy%3D%2714.5%27%20r%3D%271.2%27%20fill%3D%27%2523301a10%27/%3E%20%3Ccircle%20cx%3D%2723%27%20cy%3D%2714.5%27%20r%3D%271.2%27%20fill%3D%27%2523301a10%27/%3E%20%3Cpath%20d%3D%27M17%2018%20Q20%2020.5%2023%2018%27%20stroke%3D%27%2523301a10%27%20stroke-width%3D%271.2%27%20fill%3D%27none%27%20stroke-linecap%3D%27round%27/%3E%20%3Crect%20x%3D%2716%27%20y%3D%2726%27%20width%3D%278%27%20height%3D%273%27%20rx%3D%271%27%20fill%3D%27%2523fff%27%20opacity%3D%270.15%27/%3E%3C/svg%3E")  center/cover no-repeat; }
+
     /* ── SCROLL PROGRESS BAR ── */
     #scroll-bar {
       position: fixed;
@@ -1437,9 +1448,9 @@
       <div class="hero-phone">
         <div class="phone-status-bar">
           <div class="phone-contact">
-            <div class="phone-avatar">🤖</div>
+            <div class="phone-avatar av-agent-bg"></div>
             <div>
-              <div class="phone-name">Your AI Agent</div>
+              <div class="phone-name">Alex · Your AI Agent</div>
               <div class="phone-online">● active now</div>
             </div>
           </div>
@@ -1575,20 +1586,20 @@
       <div class="dcw-dot" style="background:#f5c518;margin-left:4px"></div>
       <div class="dcw-dot" style="background:#22c55e;margin-left:4px"></div>
       <div class="dcw-info" style="margin-left:8px;">
-        <div class="dcw-name">🤖 Your AI Agent — Demo</div>
+        <div class="dcw-name">Alex · Your AI Agent — Demo</div>
         <div class="dcw-status">● online</div>
       </div>
     </div>
     <div class="dcw-msgs" id="demoMsgs">
       <div class="dcw-msg">
-        <div class="dcw-av bot">🤖</div>
+        <div class="dcw-av bot av-agent-bg"></div>
         <div>
           <div class="dcw-bbl bot">Hey 👋 I'm your AI agent demo. Ask me anything — how I'd handle your ops, what I can automate, what a morning brief looks like. I'll show you what's possible.</div>
         </div>
       </div>
     </div>
     <div class="dcw-typing" id="demoTyping">
-      <div class="dcw-av bot" style="margin-left:0;width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px;background:rgba(255,60,0,0.15);border:1px solid rgba(255,60,0,0.3);">🤖</div>
+      <div class="dcw-av bot av-agent-bg" style="width:30px;height:30px;border-radius:50%;flex-shrink:0;"></div>
       <div class="dcw-typing-dots"><span></span><span></span><span></span></div>
     </div>
     <div class="dcw-input-row">
@@ -1894,11 +1905,11 @@
       <div class="demo-dot" style="background:#ef4444"></div>
       <div class="demo-dot" style="background:#f5c518;margin-left:4px"></div>
       <div class="demo-dot" style="background:#22c55e;margin-left:4px"></div>
-      <div class="demo-title">🤖 Your AI Agent · Telegram</div>
+      <div class="demo-title">Alex · Your AI Agent · Telegram</div>
     </div>
     <div class="demo-body">
       <div class="demo-msg">
-        <div class="demo-avatar avatar-agent">🤖</div>
+        <div class="demo-avatar avatar-agent av-agent-bg"></div>
         <div>
           <div class="demo-bubble agent-bubble">
             <div class="bold">📊 Morning Brief — Monday 9 Jun</div><br/>
@@ -1911,7 +1922,7 @@
         </div>
       </div>
       <div class="demo-msg">
-        <div class="demo-avatar avatar-user">👨‍💼</div>
+        <div class="demo-avatar avatar-user av-user-bg"></div>
         <div>
           <div class="demo-bubble">
             what were our top 3 skus last week?
@@ -1920,7 +1931,7 @@
         </div>
       </div>
       <div class="demo-msg">
-        <div class="demo-avatar avatar-agent">🤖</div>
+        <div class="demo-avatar avatar-agent av-agent-bg"></div>
         <div>
           <div class="demo-bubble agent-bubble">
             Last 7 days (Grab + Fabi):<br/><br/>
@@ -1933,7 +1944,7 @@
         </div>
       </div>
       <div class="demo-msg">
-        <div class="demo-avatar avatar-user">👨‍💼</div>
+        <div class="demo-avatar avatar-user av-user-bg"></div>
         <div>
           <div class="demo-bubble">
             remind me to review pricing on Friday
@@ -1942,7 +1953,7 @@
         </div>
       </div>
       <div class="demo-msg">
-        <div class="demo-avatar avatar-agent">🤖</div>
+        <div class="demo-avatar avatar-agent av-agent-bg"></div>
         <div>
           <div class="demo-bubble agent-bubble">
             ✅ Noted. Pricing review reminder set for <span class="gold">Friday 9am</span>.<br/>
@@ -2352,7 +2363,8 @@ function showHeroMsg() {
 
   const av = document.createElement('div');
   av.className = 'pmsg-av ' + (m.role === 'agent' ? 'agent' : 'user');
-  av.textContent = m.role === 'agent' ? '🤖' : '👤';
+  av.textContent = '';
+  av.classList.add(m.role === 'agent' ? 'av-agent-bg' : 'av-user-bg');
 
   const col = document.createElement('div');
   const bbl = document.createElement('div');
@@ -2456,7 +2468,8 @@ function addDemoMsg(html, role) {
   row.className = 'dcw-msg' + (role === 'user' ? ' out' : '');
   const av = document.createElement('div');
   av.className = 'dcw-av ' + (role === 'bot' ? 'bot' : 'usr');
-  av.textContent = role === 'bot' ? '🤖' : '👤';
+  av.textContent = '';
+  av.classList.add(role === 'bot' ? 'av-agent-bg' : 'av-user-bg');
   const bbl = document.createElement('div');
   bbl.className = 'dcw-bbl ' + (role === 'bot' ? 'bot' : 'usr');
   bbl.innerHTML = html;
