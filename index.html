@@ -464,6 +464,327 @@
     .mt-16 { margin-top: 16px; }
     .mt-24 { margin-top: 24px; }
 
+    /* ── HERO CHAT MOCKUP ── */
+    .hero-layout {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      gap: 60px;
+      padding-top: 120px;
+      padding-bottom: 80px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    @media(max-width: 860px) {
+      .hero-layout { grid-template-columns: 1fr; gap: 40px; padding-top: 100px; }
+      .hero-chat-col { order: -1; }
+    }
+    .hero-text-col {}
+    .hero-chat-col {
+      position: relative;
+    }
+    .hero-chat-glow {
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: 300px; height: 300px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(255,60,0,0.12) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero-phone {
+      background: #111;
+      border: 1px solid #2a2a2a;
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: 0 40px 80px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,60,0,0.1);
+      position: relative;
+      z-index: 1;
+    }
+    .phone-status-bar {
+      background: #0d0d0d;
+      padding: 10px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    .phone-contact {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .phone-avatar {
+      width: 32px; height: 32px;
+      border-radius: 50%;
+      background: rgba(255,60,0,0.2);
+      border: 1px solid rgba(255,60,0,0.4);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 16px;
+    }
+    .phone-name { font-size: 13px; font-weight: 700; }
+    .phone-online { font-size: 11px; color: #22c55e; }
+    .phone-msgs {
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      min-height: 320px;
+    }
+    .pmsg {
+      display: flex;
+      gap: 8px;
+      align-items: flex-end;
+    }
+    .pmsg.out { flex-direction: row-reverse; }
+    .pmsg-av {
+      width: 26px; height: 26px;
+      border-radius: 50%;
+      flex-shrink: 0;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 12px;
+    }
+    .pmsg-av.agent { background: rgba(255,60,0,0.2); border: 1px solid rgba(255,60,0,0.3); }
+    .pmsg-av.user { background: rgba(255,255,255,0.06); border: 1px solid #2a2a2a; }
+    .pmsg-bubble {
+      max-width: 75%;
+      padding: 9px 12px;
+      border-radius: 14px;
+      font-size: 12px;
+      line-height: 1.5;
+      color: var(--light);
+    }
+    .pmsg-bubble.agent { background: rgba(255,60,0,0.1); border: 1px solid rgba(255,60,0,0.2); border-bottom-left-radius: 4px; }
+    .pmsg-bubble.user { background: #222; border: 1px solid #333; border-bottom-right-radius: 4px; }
+    .pmsg-bubble .g { color: #22c55e; font-weight: 700; }
+    .pmsg-bubble .r { color: var(--accent); font-weight: 700; }
+    .pmsg-bubble .y { color: var(--gold); font-weight: 700; }
+    .pmsg-bubble .b { font-weight: 700; color: var(--white); }
+    .pmsg-time { font-size: 9px; color: #555; margin-top: 3px; }
+    .pmsg.out .pmsg-time { text-align: right; }
+    .typing-indicator {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      padding: 0 0 4px 0;
+    }
+    .typing-dots {
+      display: flex;
+      gap: 4px;
+      background: rgba(255,60,0,0.08);
+      border: 1px solid rgba(255,60,0,0.15);
+      padding: 8px 12px;
+      border-radius: 14px;
+      border-bottom-left-radius: 4px;
+    }
+    .typing-dots span {
+      width: 6px; height: 6px;
+      background: var(--accent);
+      border-radius: 50%;
+      opacity: 0.4;
+      animation: blink 1.2s infinite;
+    }
+    .typing-dots span:nth-child(2) { animation-delay: 0.2s; }
+    .typing-dots span:nth-child(3) { animation-delay: 0.4s; }
+    @keyframes blink {
+      0%, 100% { opacity: 0.4; transform: translateY(0); }
+      50% { opacity: 1; transform: translateY(-3px); }
+    }
+    /* message reveal animation */
+    .pmsg { opacity: 0; transform: translateY(8px); transition: opacity 0.4s ease, transform 0.4s ease; }
+    .pmsg.visible { opacity: 1; transform: translateY(0); }
+    .typing-indicator { opacity: 0; transition: opacity 0.3s ease; }
+    .typing-indicator.visible { opacity: 1; }
+
+    /* ── ESCALATION SECTION ── */
+    .escalation-wrap {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 100px 24px;
+    }
+    .esc-item {
+      display: grid;
+      grid-template-columns: 80px 1fr;
+      gap: 32px;
+      align-items: center;
+      padding: 40px 0;
+      border-bottom: 1px solid var(--border);
+      position: relative;
+    }
+    .esc-item:last-child { border-bottom: none; }
+    .esc-time {
+      font-size: 13px;
+      font-weight: 800;
+      color: var(--gray);
+      text-align: center;
+      line-height: 1.3;
+    }
+    .esc-content {}
+    .esc-label {
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+    .esc-label.them { color: #ef4444; }
+    .esc-label.you { color: var(--accent); }
+    .esc-headline {
+      font-size: clamp(18px, 2.5vw, 26px);
+      font-weight: 900;
+      line-height: 1.2;
+      margin-bottom: 10px;
+    }
+    .esc-sub { font-size: 14px; color: var(--gray); line-height: 1.6; }
+    .esc-vs {
+      position: absolute;
+      left: 80px;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      background: var(--border);
+      color: var(--gray);
+      font-size: 10px;
+      font-weight: 800;
+      padding: 3px 6px;
+      border-radius: 4px;
+      letter-spacing: 1px;
+    }
+
+    /* ── CLIMAX COUNTER ── */
+    .climax-section {
+      background: #0d0000;
+      border-top: 1px solid rgba(255,60,0,0.2);
+      border-bottom: 1px solid rgba(255,60,0,0.2);
+      padding: 80px 24px;
+      text-align: center;
+    }
+    .climax-number {
+      font-size: clamp(60px, 10vw, 120px);
+      font-weight: 900;
+      color: var(--accent);
+      letter-spacing: -4px;
+      line-height: 1;
+      display: block;
+    }
+    .climax-label {
+      font-size: clamp(16px, 2.5vw, 24px);
+      color: var(--light);
+      margin-top: 16px;
+      font-weight: 600;
+    }
+    .climax-sub {
+      font-size: 14px;
+      color: var(--gray);
+      margin-top: 8px;
+    }
+
+    /* ── LIVE DEMO INPUT ── */
+    .demo-input-section {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 100px 24px;
+      text-align: center;
+    }
+    .demo-chat-window {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      overflow: hidden;
+      margin-top: 40px;
+      text-align: left;
+    }
+    .dcw-topbar {
+      background: #1a1a1a;
+      padding: 14px 20px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      border-bottom: 1px solid var(--border);
+    }
+    .dcw-dot { width: 10px; height: 10px; border-radius: 50%; }
+    .dcw-info { flex: 1; }
+    .dcw-name { font-size: 13px; font-weight: 700; }
+    .dcw-status { font-size: 11px; color: #22c55e; }
+    .dcw-msgs {
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      min-height: 200px;
+      max-height: 320px;
+      overflow-y: auto;
+    }
+    .dcw-msg { display: flex; gap: 10px; }
+    .dcw-msg.out { flex-direction: row-reverse; }
+    .dcw-av {
+      width: 30px; height: 30px;
+      border-radius: 50%;
+      flex-shrink: 0;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 14px;
+    }
+    .dcw-av.bot { background: rgba(255,60,0,0.15); border: 1px solid rgba(255,60,0,0.3); }
+    .dcw-av.usr { background: rgba(255,255,255,0.06); border: 1px solid #333; }
+    .dcw-bbl {
+      max-width: 80%;
+      padding: 10px 14px;
+      border-radius: 14px;
+      font-size: 13px;
+      line-height: 1.6;
+      color: var(--light);
+    }
+    .dcw-bbl.bot { background: rgba(255,60,0,0.08); border: 1px solid rgba(255,60,0,0.15); border-bottom-left-radius: 4px; }
+    .dcw-bbl.usr { background: #222; border: 1px solid #333; border-bottom-right-radius: 4px; }
+    .dcw-bbl .g { color: #22c55e; font-weight: 700; }
+    .dcw-bbl .r { color: var(--accent); font-weight: 700; }
+    .dcw-bbl .b { font-weight: 700; color: var(--white); }
+    .dcw-typing { display: none; }
+    .dcw-typing.show { display: flex; gap: 10px; align-items: center; }
+    .dcw-typing-dots { display: flex; gap: 4px; padding: 10px 14px; background: rgba(255,60,0,0.08); border: 1px solid rgba(255,60,0,0.15); border-radius: 14px; border-bottom-left-radius: 4px; }
+    .dcw-typing-dots span { width: 6px; height: 6px; background: var(--accent); border-radius: 50%; opacity: 0.4; animation: blink 1.2s infinite; }
+    .dcw-typing-dots span:nth-child(2) { animation-delay: 0.2s; }
+    .dcw-typing-dots span:nth-child(3) { animation-delay: 0.4s; }
+    .dcw-input-row {
+      padding: 16px 20px;
+      border-top: 1px solid var(--border);
+      display: flex;
+      gap: 10px;
+    }
+    .dcw-input {
+      flex: 1;
+      background: #1a1a1a;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 10px 14px;
+      font-size: 13px;
+      color: var(--white);
+      font-family: inherit;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .dcw-input:focus { border-color: rgba(255,60,0,0.4); }
+    .dcw-input::placeholder { color: #555; }
+    .dcw-send {
+      background: var(--accent);
+      color: white;
+      border: none;
+      border-radius: 10px;
+      padding: 10px 18px;
+      font-size: 13px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .dcw-send:hover { background: var(--accent2); }
+    .demo-cta-note {
+      margin-top: 20px;
+      font-size: 13px;
+      color: var(--gray);
+    }
+    .demo-cta-note a { color: var(--accent); text-decoration: none; font-weight: 700; }
+    .demo-cta-note a:hover { text-decoration: underline; }
+
     /* ── BEFORE/AFTER ── */
     .ba-wrapper {
       display: grid;
@@ -737,39 +1058,189 @@
   <a href="#pricing" class="nav-cta">Get Started →</a>
 </nav>
 
-<!-- HERO -->
-<div style="padding: 0 24px;">
-  <div class="hero">
-    <div class="ticker">
-      <div class="ticker-dot"></div>
-      RIGHT NOW — your competitor is setting up their AI agent
-    </div>
+<!-- HERO — split layout: text left, live chat right -->
+<div style="padding: 0 24px; background: radial-gradient(ellipse at 70% 50%, rgba(255,60,0,0.06) 0%, transparent 60%);">
+  <div class="hero-layout">
 
-    <h1>
-      You've been building<br/>
-      for <span class="highlight">years.</span><br/>
-      <span class="dim">Don't get lapped in</span><br/>
-      <span class="highlight">90 days.</span>
-    </h1>
-
-    <p class="hero-sub">
-      Your AI agent, built for your exact ops, live in 48 hours. No code. No IT team. No guesswork. Just a system that runs while you sleep — starting at <strong>$99</strong>.
-    </p>
-
-    <div class="hero-ctas">
-      <a href="#pricing" class="btn-primary">See Plans & Pricing →</a>
-      <a href="#story" class="btn-secondary">See proof it works</a>
-    </div>
-
-    <div class="social-proof">
-      <div class="social-proof-faces">
-        <div class="face">👨‍💼</div>
-        <div class="face">👩‍💼</div>
-        <div class="face">🧑‍💻</div>
-        <div class="face">👨‍🍳</div>
+    <!-- LEFT: hook copy -->
+    <div class="hero-text-col">
+      <div class="ticker">
+        <div class="ticker-dot"></div>
+        RIGHT NOW — your competitor's agent is working
       </div>
-      <span>Early movers are already live. The window is still open — barely.</span>
+
+      <h1>
+        How much are you<br/>
+        making at <span class="highlight">3am?</span>
+      </h1>
+
+      <p class="hero-sub">
+        Your competitor just set up an AI agent. It handles orders, sends reports, flags problems, and closes leads — <strong>while they sleep.</strong> You're reading this. They're already ahead.
+      </p>
+
+      <div class="hero-ctas">
+        <a href="#live-demo" class="btn-primary">See it live — free →</a>
+        <a href="#pricing" class="btn-secondary">Get your agent in 48h</a>
+      </div>
+
+      <div class="social-proof">
+        <div class="social-proof-faces">
+          <div class="face">👨‍💼</div>
+          <div class="face">👩‍💼</div>
+          <div class="face">🧑‍💻</div>
+          <div class="face">👨‍🍳</div>
+        </div>
+        <span>The window is still open — barely.</span>
+      </div>
     </div>
+
+    <!-- RIGHT: live phone chat mockup -->
+    <div class="hero-chat-col">
+      <div class="hero-chat-glow"></div>
+      <div class="hero-phone">
+        <div class="phone-status-bar">
+          <div class="phone-contact">
+            <div class="phone-avatar">🤖</div>
+            <div>
+              <div class="phone-name">Your AI Agent</div>
+              <div class="phone-online">● active now</div>
+            </div>
+          </div>
+          <div style="font-size:11px;color:#555;">Telegram</div>
+        </div>
+        <div class="phone-msgs" id="heroMsgs">
+          <!-- injected by JS -->
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ESCALATION — emotional build -->
+<div class="escalation-wrap">
+  <div class="section-label">The Gap Is Compounding</div>
+  <h2>Every day without an agent<br/><span class="dim">is a day they pull further.</span></h2>
+
+  <div style="margin-top: 48px;">
+
+    <div class="esc-item">
+      <div class="esc-time">3:00<br/>AM</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:32px;">
+        <div class="esc-content">
+          <div class="esc-label them">THEM</div>
+          <div class="esc-headline">Their agent closes 4 late-night orders. <span style="color:#22c55e;">+$180 in revenue.</span></div>
+          <div class="esc-sub">No staff. No overhead. Chatbot handles it end-to-end.</div>
+        </div>
+        <div class="esc-content">
+          <div class="esc-label you">YOU</div>
+          <div class="esc-headline">You're asleep. <span style="color:#ef4444;">Those customers gave up.</span></div>
+          <div class="esc-sub">No one replied. They ordered from somewhere that did.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="esc-item">
+      <div class="esc-time">6:00<br/>AM</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:32px;">
+        <div class="esc-content">
+          <div class="esc-label them">THEM</div>
+          <div class="esc-headline">They wake up to a <span style="color:#22c55e;">3-line brief.</span> Revenue, issues, today's plan — done.</div>
+          <div class="esc-sub">Agent ran the numbers at 2am. They start the day with full context.</div>
+        </div>
+        <div class="esc-content">
+          <div class="esc-label you">YOU</div>
+          <div class="esc-headline">You open <span style="color:#ef4444;">47 WhatsApp messages</span> before breakfast.</div>
+          <div class="esc-sub">Staff questions. Missing data. Same chaos as yesterday.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="esc-item">
+      <div class="esc-time">Mon<br/>AM</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:32px;">
+        <div class="esc-content">
+          <div class="esc-label them">THEM</div>
+          <div class="esc-headline">Weekly P&L auto-generated. <span style="color:#22c55e;">Margin per SKU. Anomalies flagged.</span></div>
+          <div class="esc-sub">Their agent compiled it overnight. They review in 5 minutes.</div>
+        </div>
+        <div class="esc-content">
+          <div class="esc-label you">YOU</div>
+          <div class="esc-headline">You open Excel. <span style="color:#ef4444;">Again.</span></div>
+          <div class="esc-sub">Copy-pasting numbers that already exist somewhere. For the 47th Monday in a row.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="esc-item">
+      <div class="esc-time">Month<br/>3</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:32px;">
+        <div class="esc-content">
+          <div class="esc-label them">THEM</div>
+          <div class="esc-headline">They're <span style="color:#22c55e;">opening a second location.</span> Agent handles ops of the first.</div>
+          <div class="esc-sub">The system freed up their time. They used it to grow.</div>
+        </div>
+        <div class="esc-content">
+          <div class="esc-label you">YOU</div>
+          <div class="esc-headline">You're still the <span style="color:#ef4444;">single point of failure.</span></div>
+          <div class="esc-sub">Business stops when you stop. You know it. You just haven't fixed it yet.</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- CLIMAX COUNTER -->
+<div class="climax-section">
+  <span class="climax-number" id="climaxCounter">0</span>
+  <div class="climax-label">businesses set up their first AI agent while you read this page</div>
+  <div class="climax-sub">Estimated from global agent deployment trends — updating in real time</div>
+  <div style="margin-top: 36px; display:flex; gap:16px; justify-content:center; flex-wrap:wrap;">
+    <a href="#live-demo" class="btn-primary" style="font-size:17px;padding:16px 36px;">Try the demo — free →</a>
+    <a href="#pricing" class="btn-secondary" style="font-size:17px;padding:16px 36px;">Get yours in 48h</a>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- LIVE DEMO -->
+<div class="demo-input-section" id="live-demo">
+  <div class="section-label">Try It Now</div>
+  <h2 style="text-align:center;">Your agent.<br/><span class="dim">Right here. Right now.</span></h2>
+  <p style="text-align:center;font-size:16px;color:var(--gray);margin-top:12px;">No signup. No install. Ask it anything about running a business.</p>
+
+  <div class="demo-chat-window">
+    <div class="dcw-topbar">
+      <div class="dcw-dot" style="background:#ef4444"></div>
+      <div class="dcw-dot" style="background:#f5c518;margin-left:4px"></div>
+      <div class="dcw-dot" style="background:#22c55e;margin-left:4px"></div>
+      <div class="dcw-info" style="margin-left:8px;">
+        <div class="dcw-name">🤖 Your AI Agent — Demo</div>
+        <div class="dcw-status">● online</div>
+      </div>
+    </div>
+    <div class="dcw-msgs" id="demoMsgs">
+      <div class="dcw-msg">
+        <div class="dcw-av bot">🤖</div>
+        <div>
+          <div class="dcw-bbl bot">Hey 👋 I'm your AI agent demo. Ask me anything — how I'd handle your ops, what I can automate, what a morning brief looks like. I'll show you what's possible.</div>
+        </div>
+      </div>
+    </div>
+    <div class="dcw-typing" id="demoTyping">
+      <div class="dcw-av bot" style="margin-left:0;width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px;background:rgba(255,60,0,0.15);border:1px solid rgba(255,60,0,0.3);">🤖</div>
+      <div class="dcw-typing-dots"><span></span><span></span><span></span></div>
+    </div>
+    <div class="dcw-input-row">
+      <input class="dcw-input" id="demoInput" type="text" placeholder="Ask: What would my morning brief look like? · What can you automate? · How do you handle orders?" maxlength="200" />
+      <button class="dcw-send" id="demoSend">Send →</button>
+    </div>
+  </div>
+  <div class="demo-cta-note">
+    Like what you see? <a href="https://calendly.com/noobslearnai" target="_blank">Book a free call → we'll build yours in 48 hours.</a>
   </div>
 </div>
 
@@ -1442,6 +1913,164 @@
 <footer>
   <p>© 2026 NOOBS-LEARN-AI · Built by founders, for founders · <a href="mailto:hello@noobslearnai.com" style="color: var(--gray);">hello@noobslearnai.com</a></p>
 </footer>
+
+<script>
+// ── HERO PHONE CHAT ANIMATION ──
+const heroMessages = [
+  { role: 'agent', delay: 400, html: `<span class="b">📊 Morning Brief — Today</span><br/>Revenue yesterday: <span class="g">4.2M ↑ 14%</span><br/>Best seller: Kare Tonkatsu · 51 orders<br/><span class="r">⚠ Udon stock critical</span> — reorder sent` },
+  { role: 'user',  delay: 1600, html: `what happened at midnight?` },
+  { role: 'agent', delay: 2600, html: `3 orders came in at 11:58pm. All fulfilled via chatbot. <span class="g">+$94 revenue while you slept.</span> No staff involved.` },
+  { role: 'user',  delay: 3800, html: `remind me to review pricing friday` },
+  { role: 'agent', delay: 4700, html: `✅ Reminder set for <span class="y">Friday 9am.</span><br/>I'll pull margin data before you wake up.` },
+];
+
+const heroMsgs = document.getElementById('heroMsgs');
+let heroIndex = 0;
+
+function showHeroMsg() {
+  if (heroIndex >= heroMessages.length) {
+    // loop after pause
+    setTimeout(() => {
+      heroMsgs.innerHTML = '';
+      heroIndex = 0;
+      setTimeout(showHeroMsg, 600);
+    }, 4000);
+    return;
+  }
+  const m = heroMessages[heroIndex];
+  const wrap = document.createElement('div');
+  wrap.className = 'pmsg' + (m.role === 'user' ? ' out' : '');
+
+  const av = document.createElement('div');
+  av.className = 'pmsg-av ' + (m.role === 'agent' ? 'agent' : 'user');
+  av.textContent = m.role === 'agent' ? '🤖' : '👤';
+
+  const col = document.createElement('div');
+  const bbl = document.createElement('div');
+  bbl.className = 'pmsg-bubble ' + (m.role === 'agent' ? 'agent' : 'user');
+  bbl.innerHTML = m.html;
+  const ts = document.createElement('div');
+  ts.className = 'pmsg-time';
+  ts.textContent = m.role === 'agent' ? 'delivered automatically' : 'just now';
+  col.appendChild(bbl);
+  col.appendChild(ts);
+
+  wrap.appendChild(av);
+  wrap.appendChild(col);
+  heroMsgs.appendChild(wrap);
+
+  requestAnimationFrame(() => { wrap.classList.add('visible'); });
+  heroMsgs.scrollTop = heroMsgs.scrollHeight;
+
+  heroIndex++;
+  if (heroIndex < heroMessages.length) {
+    setTimeout(showHeroMsg, heroMessages[heroIndex].delay - m.delay);
+  } else {
+    setTimeout(showHeroMsg, 100);
+  }
+}
+
+setTimeout(showHeroMsg, heroMessages[0].delay);
+
+// ── CLIMAX COUNTER ──
+const counterEl = document.getElementById('climaxCounter');
+const startTime = Date.now();
+const ratePerSecond = 0.8; // ~2880/hour globally (believable est)
+
+function updateCounter() {
+  const elapsed = (Date.now() - startTime) / 1000;
+  const val = Math.floor(elapsed * ratePerSecond);
+  counterEl.textContent = val.toLocaleString();
+  requestAnimationFrame(updateCounter);
+}
+
+// Only start counter when section is visible
+const climaxObs = new IntersectionObserver((entries) => {
+  if (entries[0].isIntersecting) { updateCounter(); climaxObs.disconnect(); }
+}, { threshold: 0.3 });
+climaxObs.observe(counterEl);
+
+// ── LIVE DEMO CHAT ──
+const demoInput  = document.getElementById('demoInput');
+const demoSend   = document.getElementById('demoSend');
+const demoMsgs   = document.getElementById('demoMsgs');
+const demoTyping = document.getElementById('demoTyping');
+
+const demoResponses = {
+  default: [
+    `Great question. Here's what I'd do for that: pull the relevant data automatically every morning, flag anything outside normal range, and send it to you in a 4-line summary. No manual work on your end.`,
+    `That's exactly the kind of thing I handle. Setup takes about 48 hours — then it runs on its own. You'd never have to touch it unless you want to change something.`,
+    `Honestly, this is one of the first things I'd automate for you. It's repetitive, predictable, and currently eating your time. Let me show you what the output looks like →`,
+  ],
+  morning: `Every morning at 6am, you'd get something like this:\n\n📊 <b>Monday Brief</b>\nRevenue yesterday: <span class="g">+12% vs last week</span>\nTop SKU: Product A · 47 units\n<span class="r">⚠ Stock alert: Item X below reorder threshold</span>\nToday's target: on track\n\nRead it in 20 seconds. Start your day with full context.`,
+  automate: `Here's what I can take off your plate right now:\n\n✅ Daily revenue & ops report (auto, 6am)\n✅ Stock alerts when threshold hit\n✅ Shift report collection from staff\n✅ Lead intake & FAQ replies (24/7)\n✅ Weekly P&L digest\n✅ Payment & renewal reminders\n\nAll wired into Telegram. No new apps.`,
+  orders: `At 2am, when a customer messages, I:\n1. Respond instantly with menu/info\n2. Qualify their request\n3. Route to the right channel\n4. Log the interaction\n\nYour competitor set this up last month. They made <span class="g">$180 in late-night orders</span> this week. You didn't.`,
+  staff: `Staff management I can handle:\n\n📝 Shift check-in/out via Telegram command\n📊 Auto-compile weekly attendance\n🔔 Alert you if someone doesn't check in\n📋 Store shift notes & incident logs\n\nHiếu types <b>/baoca</b>. I handle the rest.`,
+  cost: `Starting at <b>$99 one-time</b> for a custom agent built for your ops — live in 48 hours. Or <b>$199/month</b> to have us as your ongoing AI team. The Founder deal is $1,000 for a full year.\n\nCompare that to: <span class="r">$5,000+ dev quote · $200/hr consultant · 6 months DIY</span>.\n\n<a href="https://calendly.com/noobslearnai" target="_blank" style="color:var(--accent);">Book a free call →</a>`,
+};
+
+function getDemoReply(input) {
+  const q = input.toLowerCase();
+  if (q.includes('morning') || q.includes('brief') || q.includes('report')) return demoResponses.morning;
+  if (q.includes('automat') || q.includes('what can') || q.includes('do for me')) return demoResponses.automate;
+  if (q.includes('order') || q.includes('3am') || q.includes('night') || q.includes('midnight')) return demoResponses.orders;
+  if (q.includes('staff') || q.includes('shift') || q.includes('employee') || q.includes('team')) return demoResponses.staff;
+  if (q.includes('cost') || q.includes('price') || q.includes('how much') || q.includes('$')) return demoResponses.cost;
+  return demoResponses.default[Math.floor(Math.random() * demoResponses.default.length)];
+}
+
+function addDemoMsg(html, role) {
+  const row = document.createElement('div');
+  row.className = 'dcw-msg' + (role === 'user' ? ' out' : '');
+  const av = document.createElement('div');
+  av.className = 'dcw-av ' + (role === 'bot' ? 'bot' : 'usr');
+  av.textContent = role === 'bot' ? '🤖' : '👤';
+  const bbl = document.createElement('div');
+  bbl.className = 'dcw-bbl ' + (role === 'bot' ? 'bot' : 'usr');
+  bbl.innerHTML = html;
+  row.appendChild(av);
+  row.appendChild(bbl);
+  demoMsgs.appendChild(row);
+  demoMsgs.scrollTop = demoMsgs.scrollHeight;
+}
+
+function sendDemo() {
+  const text = demoInput.value.trim();
+  if (!text) return;
+  demoInput.value = '';
+  addDemoMsg(text, 'user');
+
+  // show typing
+  demoMsgs.appendChild(demoTyping);
+  demoTyping.classList.add('show');
+  demoMsgs.scrollTop = demoMsgs.scrollHeight;
+
+  setTimeout(() => {
+    demoTyping.classList.remove('show');
+    const reply = getDemoReply(text);
+    addDemoMsg(reply, 'bot');
+
+    // after 2 replies, nudge to book
+    const msgCount = demoMsgs.querySelectorAll('.dcw-msg.out').length;
+    if (msgCount >= 2) {
+      setTimeout(() => {
+        addDemoMsg(`This is just a taste. Your real agent knows <b>your</b> business — your SKUs, your team, your ops. <a href="https://calendly.com/noobslearnai" target="_blank" style="color:var(--accent);font-weight:700;">Book a free call → we'll build yours in 48 hours.</a>`, 'bot');
+      }, 1200);
+    }
+  }, 1400 + Math.random() * 600);
+}
+
+demoSend.addEventListener('click', sendDemo);
+demoInput.addEventListener('keydown', (e) => { if (e.key === 'Enter') sendDemo(); });
+
+// Suggested prompts auto-fill
+document.querySelectorAll('[data-prompt]').forEach(el => {
+  el.addEventListener('click', () => {
+    demoInput.value = el.dataset.prompt;
+    demoInput.focus();
+  });
+});
+</script>
 
 </body>
 </html>
