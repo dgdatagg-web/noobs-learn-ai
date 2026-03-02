@@ -424,7 +424,7 @@
       background: var(--card);
       border: 1px solid var(--border);
       border-radius: 16px;
-      padding: 36px 28px;
+      padding: 28px 22px;
       display: flex;
       flex-direction: column;
       position: relative;
@@ -441,30 +441,42 @@
     }
     .badge {
       position: absolute;
-      top: -12px;
+      top: -13px;
       left: 50%;
       transform: translateX(-50%);
-      padding: 4px 14px;
+      padding: 5px 16px;
       border-radius: 100px;
-      font-size: 11px;
-      font-weight: 800;
-      letter-spacing: 1px;
+      font-size: 10px;
+      font-weight: 900;
+      letter-spacing: 1.5px;
       text-transform: uppercase;
       white-space: nowrap;
+      z-index: 2;
     }
     .badge-red { background: var(--accent); color: white; }
     .badge-gold { background: var(--gold); color: #0a0a0a; }
     .price-tier { font-size: 12px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--gray); margin-bottom: 12px; }
     .price-name { font-size: 22px; font-weight: 900; margin-bottom: 8px; }
     .price-amount {
-      font-size: 48px;
+      display: flex;
+      align-items: baseline;
+      gap: 4px;
+      flex-wrap: nowrap;
+      font-size: clamp(32px, 4vw, 48px);
       font-weight: 900;
       letter-spacing: -2px;
       line-height: 1;
-      margin-bottom: 4px;
+      margin-bottom: 8px;
+      white-space: nowrap;
     }
-    .price-amount span { font-size: 20px; font-weight: 600; color: var(--gray); }
-    .price-desc { font-size: 13px; color: var(--gray); margin-bottom: 24px; }
+    .price-amount span {
+      font-size: clamp(13px, 1.5vw, 16px);
+      font-weight: 600;
+      color: var(--gray);
+      letter-spacing: 0;
+      white-space: nowrap;
+    }
+    .price-desc { font-size: 13px; color: var(--gray); margin-bottom: 24px; line-height: 1.5; }
     .price-features {
       list-style: none;
       margin-bottom: 32px;
@@ -2212,7 +2224,7 @@
       <div class="badge badge-gold">⚡ 30 DAYS ONLY</div>
       <div class="price-tier">Founder</div>
       <div class="price-name">Locked In</div>
-      <div class="price-amount" style="color: var(--gold);">$1,000<span> one-time</span></div>
+      <div class="price-amount" style="color: var(--gold);">$1,000<span style="color:rgba(245,197,24,0.6);"> one-time</span></div>
       <div class="price-desc">Full Pro plan. 1 year. Never at this price again.</div>
       <ul class="price-features">
         <li><span class="check-gold">✓</span> Everything in Pro — for 12 months</li>
