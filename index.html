@@ -464,6 +464,170 @@
     .mt-16 { margin-top: 16px; }
     .mt-24 { margin-top: 24px; }
 
+    /* ── SCROLL PROGRESS BAR ── */
+    #scroll-bar {
+      position: fixed;
+      top: 0; left: 0;
+      height: 2px;
+      width: 0%;
+      background: linear-gradient(90deg, var(--accent), var(--gold));
+      z-index: 999;
+      transition: width 0.08s linear;
+    }
+
+    /* ── SCROLL REVEAL ── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.65s ease, transform 0.65s ease;
+    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal-left {
+      opacity: 0;
+      transform: translateX(-28px);
+      transition: opacity 0.65s ease, transform 0.65s ease;
+    }
+    .reveal-left.visible { opacity: 1; transform: translateX(0); }
+    .reveal-right {
+      opacity: 0;
+      transform: translateX(28px);
+      transition: opacity 0.65s ease, transform 0.65s ease;
+    }
+    .reveal-right.visible { opacity: 1; transform: translateX(0); }
+
+    /* stagger children */
+    .stagger > * {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+    .stagger.visible > *:nth-child(1)  { opacity:1; transform:none; transition-delay:0.00s; }
+    .stagger.visible > *:nth-child(2)  { opacity:1; transform:none; transition-delay:0.07s; }
+    .stagger.visible > *:nth-child(3)  { opacity:1; transform:none; transition-delay:0.14s; }
+    .stagger.visible > *:nth-child(4)  { opacity:1; transform:none; transition-delay:0.21s; }
+    .stagger.visible > *:nth-child(5)  { opacity:1; transform:none; transition-delay:0.28s; }
+    .stagger.visible > *:nth-child(6)  { opacity:1; transform:none; transition-delay:0.35s; }
+    .stagger.visible > *:nth-child(7)  { opacity:1; transform:none; transition-delay:0.42s; }
+    .stagger.visible > *:nth-child(8)  { opacity:1; transform:none; transition-delay:0.49s; }
+
+    /* ── PARTICLES ── */
+    #particles {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      pointer-events: none;
+      z-index: 0;
+      overflow: hidden;
+    }
+    .particle {
+      position: absolute;
+      border-radius: 50%;
+      animation: floatUp linear infinite;
+    }
+    @keyframes floatUp {
+      0%   { opacity: 0;   transform: translateY(0) scale(1); }
+      8%   { opacity: 0.5; }
+      85%  { opacity: 0.15; }
+      100% { opacity: 0;   transform: translateY(-100vh) scale(0.3); }
+    }
+
+    /* ── SHIMMER on card hover ── */
+    .cap-card, .price-card, .vision-card, .cred-stat, .pain-card, .esc-col {
+      position: relative;
+      overflow: hidden;
+    }
+    .cap-card::after, .price-card::after, .vision-card::after,
+    .cred-stat::after, .pain-card::after, .esc-col::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(105deg, transparent 40%, rgba(255,255,255,0.04) 50%, transparent 60%);
+      transform: translateX(-100%);
+      pointer-events: none;
+    }
+    .cap-card:hover::after, .price-card:hover::after, .vision-card:hover::after,
+    .cred-stat:hover::after, .pain-card:hover::after, .esc-col:hover::after {
+      transform: translateX(100%);
+      transition: transform 0.55s ease;
+    }
+
+    /* ── GLITCH on hero headline ── */
+    .glitch {
+      position: relative;
+      display: inline;
+    }
+    .glitch::before, .glitch::after {
+      content: attr(data-text);
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%;
+      opacity: 0;
+      pointer-events: none;
+    }
+    .glitch::before {
+      color: var(--accent);
+      animation: glA 9s infinite;
+    }
+    .glitch::after {
+      color: #00cfff;
+      animation: glB 9s infinite;
+    }
+    @keyframes glA {
+      0%,88%,100% { opacity:0; clip-path:none; transform:none; }
+      89% { opacity:.8; clip-path:inset(15% 0 65% 0); transform:translateX(-4px); }
+      90% { opacity:.8; clip-path:inset(55% 0 15% 0); transform:translateX(3px); }
+      91% { opacity:0; }
+    }
+    @keyframes glB {
+      0%,88%,100% { opacity:0; clip-path:none; transform:none; }
+      90% { opacity:0; }
+      91% { opacity:.6; clip-path:inset(35% 0 45% 0); transform:translateX(5px); }
+      92% { opacity:0; }
+    }
+
+    /* ── ESC ITEM — top line sweep on scroll ── */
+    .esc-item { position: relative; }
+    .esc-item::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      height: 1px; width: 0;
+      background: linear-gradient(90deg, var(--accent), transparent);
+      transition: width 0.9s ease;
+    }
+    .esc-item.line-in::before { width: 100%; }
+
+    /* ── TIMELINE DOT pulse when enters view ── */
+    .tl-dot.lit {
+      border-color: var(--accent) !important;
+      animation: dotGlow 1.6s ease-out 3;
+    }
+    @keyframes dotGlow {
+      0%   { box-shadow: 0 0 0 0   rgba(255,60,0,0.5); }
+      60%  { box-shadow: 0 0 0 10px rgba(255,60,0,0);  }
+      100% { box-shadow: 0 0 0 0   rgba(255,60,0,0);   }
+    }
+
+    /* ── CLIMAX RING ── */
+    .climax-ring {
+      position: relative;
+      display: inline-block;
+    }
+    .climax-ring::after {
+      content: '';
+      position: absolute;
+      top: 50%; left: 50%;
+      width: 100%; height: 100%;
+      border-radius: 50%;
+      border: 1px solid rgba(255,60,0,0.3);
+      transform: translate(-50%,-50%);
+      animation: ringOut 2.5s ease-out infinite;
+    }
+    @keyframes ringOut {
+      0%   { transform: translate(-50%,-50%) scale(0.5); opacity: 0.8; }
+      100% { transform: translate(-50%,-50%) scale(2.2); opacity: 0; }
+    }
+
     /* ── HERO CHAT MOCKUP ── */
     .hero-layout {
       min-height: 100vh;
@@ -1096,6 +1260,12 @@
 </head>
 <body>
 
+<!-- SCROLL BAR -->
+<div id="scroll-bar"></div>
+
+<!-- PARTICLES -->
+<div id="particles"></div>
+
 <!-- NAV -->
 <nav>
   <div class="nav-logo">NOOBS<span>-LEARN-AI</span></div>
@@ -1107,7 +1277,7 @@
   <div class="hero-layout">
 
     <!-- LEFT: hook copy -->
-    <div class="hero-text-col">
+    <div class="hero-text-col reveal-left">
       <div class="ticker">
         <div class="ticker-dot"></div>
         RIGHT NOW — your competitor's agent is working
@@ -1115,7 +1285,7 @@
 
       <h1>
         How much are you<br/>
-        making at <span class="highlight">3am?</span>
+        making at <span class="highlight glitch" data-text="3am?">3am?</span>
       </h1>
 
       <p class="hero-sub">
@@ -1139,7 +1309,7 @@
     </div>
 
     <!-- RIGHT: live phone chat mockup -->
-    <div class="hero-chat-col">
+    <div class="hero-chat-col reveal-right">
       <div class="hero-chat-glow"></div>
       <div class="hero-phone">
         <div class="phone-status-bar">
@@ -1315,13 +1485,13 @@
   <div class="section-label">The Hard Truth</div>
   <h2>Look around you.<br/><span class="dim">This already happened.</span></h2>
 
-  <div class="wakeup-block" style="margin-top: 40px;">
+  <div class="wakeup-block reveal" style="margin-top: 40px;">
     <p>Last month, a sales rep <span class="em">lost a deal</span> to a competitor whose AI had already researched the client, prepared the pitch, and followed up — before the sales rep even opened his laptop.</p>
     <p>This month, a restaurant <span class="em">lost 30% of late-night orders</span> because the place down the street had a chatbot closing orders at 2am. No staff. No overhead. Just revenue.</p>
     <p>Next month? <span class="em2">That restaurant could be yours.</span> Or you could be the one with the chatbot.</p>
   </div>
 
-  <div class="wakeup-block">
+  <div class="wakeup-block reveal">
     <p>You're not behind because you're lazy or not smart enough.</p>
     <p>You're behind because <span class="em">nobody showed you the door.</span></p>
     <p style="color: var(--white); font-size: clamp(20px,3vw,28px); font-weight: 900; margin-top: 8px;">We're showing you the door.</p>
@@ -1336,7 +1506,7 @@
   <h2>One week from now,<br/><span class="dim">your Monday looks different.</span></h2>
   <p class="section-desc">Not theory. A direct comparison of two realities — one you're living now, one you could wake up in.</p>
 
-  <div class="ba-wrapper">
+  <div class="ba-wrapper reveal">
     <div class="ba-side ba-before">
       <div class="ba-label red"><div class="ba-dot red"></div> WITHOUT AI AGENT</div>
       <div class="ba-item">
@@ -1424,8 +1594,8 @@
   <h2>Not a chatbot.<br/><span class="dim">A teammate.</span></h2>
   <p class="section-desc">ChatGPT waits for you. Your agent acts. Here's what it looks like in the wild.</p>
 
-  <div class="cap-grid">
-    <div class="cap-card">
+  <div class="cap-grid stagger">
+    <div class="cap-card reveal">
       <span class="cap-emoji">📊</span>
       <div class="cap-title">Daily Ops Report</div>
       <div class="cap-desc">Every morning: yesterday's numbers, top-selling SKUs, revenue vs target — delivered to your Telegram before you open your eyes.</div>
@@ -1484,7 +1654,7 @@
   <h2>What your agent does<br/><span class="dim">while you're living.</span></h2>
   <p class="section-desc">One full day. No staff. No oversight. Just your agent running the backend — so you run the business.</p>
 
-  <div class="timeline">
+  <div class="timeline stagger">
     <div class="tl-item">
       <div class="tl-dot">2:00<br/>AM</div>
       <div class="tl-content">
@@ -1618,7 +1788,7 @@
   <h2>Where this takes you<br/><span class="dim">in 90 days.</span></h2>
   <p class="section-desc">The founders who start now won't just save time. They'll be building a different kind of company — one that scales without headcount.</p>
 
-  <div class="vision-grid">
+  <div class="vision-grid stagger">
     <div class="vision-card">
       <div class="vision-phase">Week 1</div>
       <div class="vision-title">Your first agent is live</div>
@@ -1690,8 +1860,8 @@
   <h2>You already know<br/><span class="dim">something's off.</span></h2>
   <p class="section-desc">You've felt it. That nagging sense that the playing field is tilting — and you're on the wrong side.</p>
 
-  <div class="pain-grid">
-    <div class="pain-card">
+  <div class="pain-grid stagger">
+    <div class="pain-card reveal">
       <div class="pain-icon">😰</div>
       <h3>"I open ChatGPT and just stare at it"</h3>
       <p>You know AI is important. You just don't know where to start — or what's actually worth your time.</p>
@@ -1731,7 +1901,7 @@
   <div class="section-label">Why It Works</div>
   <h2>This isn't theory.<br/><span class="dim">It's already running.</span></h2>
 
-  <div class="story-block" style="margin-top: 40px;">
+  <div class="story-block reveal" style="margin-top: 40px;">
     <p>
       A real F&B kitchen. <strong>Zero IT team. Zero coding.</strong> Six months of building the hard way — manual ops, WhatsApp chaos, spreadsheets everywhere.
     </p>
@@ -1743,7 +1913,7 @@
     </p>
   </div>
 
-  <div class="cred-block">
+  <div class="cred-block stagger">
     <div class="cred-stat">
       <div class="number">48h</div>
       <div class="label">From zero to your first live AI agent</div>
@@ -1811,7 +1981,7 @@
   <h2>No bloat.<br/><span class="dim">Three choices.</span></h2>
   <p class="section-desc">Pick the level that fits where you are. All three start with a real agent live in 48 hours.</p>
 
-  <div class="pricing-grid">
+  <div class="pricing-grid stagger">
 
     <!-- STARTER -->
     <div class="price-card">
@@ -1882,7 +2052,7 @@
   <div class="section-label">The Alternative</div>
   <h2>What you're comparing<br/><span class="dim">us against.</span></h2>
 
-  <table class="compare-table">
+  <table class="compare-table reveal">
     <thead>
       <tr>
         <th>Option</th>
@@ -2157,6 +2327,72 @@ document.querySelectorAll('[data-prompt]').forEach(el => {
     demoInput.focus();
   });
 });
+
+// ── SCROLL PROGRESS BAR ──
+const scrollBar = document.getElementById('scroll-bar');
+window.addEventListener('scroll', () => {
+  const pct = window.scrollY / (document.body.scrollHeight - window.innerHeight) * 100;
+  scrollBar.style.width = pct + '%';
+}, { passive: true });
+
+// ── PARTICLES ──
+const pCanvas = document.getElementById('particles');
+const PARTICLE_COUNT = 18;
+for (let i = 0; i < PARTICLE_COUNT; i++) {
+  const p = document.createElement('div');
+  p.className = 'particle';
+  const size = 2 + Math.random() * 3;
+  const x    = Math.random() * 100;
+  const dur  = 12 + Math.random() * 20;
+  const del  = Math.random() * 15;
+  const color = Math.random() > 0.6 ? 'rgba(255,60,0,0.35)' : 'rgba(245,197,24,0.2)';
+  p.style.cssText = `
+    width:${size}px; height:${size}px;
+    left:${x}%; bottom:-10px;
+    background:${color};
+    animation-duration:${dur}s;
+    animation-delay:${del}s;
+    filter: blur(${Math.random() > 0.5 ? 1 : 0}px);
+  `;
+  pCanvas.appendChild(p);
+}
+
+// ── INTERSECTION OBSERVER — scroll reveal + stagger ──
+const revealObs = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('visible');
+      revealObs.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.12 });
+
+document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .stagger').forEach(el => {
+  revealObs.observe(el);
+});
+
+// ── ESC ITEM — line sweep ──
+const escObs = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('line-in');
+      escObs.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.2 });
+document.querySelectorAll('.esc-item').forEach(el => escObs.observe(el));
+
+// ── TIMELINE DOTS — pulse on enter ──
+const tlObs = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      const dot = e.target.querySelector('.tl-dot');
+      if (dot) { dot.classList.add('lit'); }
+      tlObs.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.4 });
+document.querySelectorAll('.tl-item').forEach(el => tlObs.observe(el));
 </script>
 
 </body>
