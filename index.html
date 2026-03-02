@@ -189,7 +189,137 @@
       margin: 0 auto;
     }
 
-    /* ── WAKE UP ── */
+    /* ── TRUTH CARDS SECTION ── */
+    .truth-section { padding: 100px 24px; max-width: 900px; margin: 0 auto; }
+    .truth-cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-top: 48px;
+    }
+    @media(max-width: 768px) { .truth-cards { grid-template-columns: 1fr; } }
+
+    .truth-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      transition: border-color 0.3s, transform 0.3s;
+      position: relative;
+      overflow: hidden;
+    }
+    .truth-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--accent), transparent);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.6s ease 0.3s;
+    }
+    .truth-card.visible::before { transform: scaleX(1); }
+    .truth-card:hover { border-color: rgba(255,60,0,0.3); transform: translateY(-4px); }
+    .truth-card-you {
+      border-color: rgba(245,197,24,0.2);
+      background: #141208;
+    }
+    .truth-card-you::before { background: linear-gradient(90deg, var(--gold), transparent); }
+    .truth-card-you:hover { border-color: rgba(245,197,24,0.4); }
+
+    .truth-card-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .truth-icon { font-size: 28px; flex-shrink: 0; }
+    .truth-meta { flex: 1; }
+    .truth-tag {
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--accent);
+      border: 1px solid rgba(255,60,0,0.25);
+      border-radius: 4px;
+      padding: 2px 7px;
+      display: inline-block;
+      margin-bottom: 3px;
+    }
+    .truth-when { font-size: 12px; color: var(--gray); }
+    .truth-stat-pill {
+      font-size: 12px;
+      font-weight: 800;
+      padding: 5px 10px;
+      border-radius: 100px;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+    .truth-stat-pill.loss { background: rgba(239,68,68,0.12); color: #ef4444; border: 1px solid rgba(239,68,68,0.2); }
+    .truth-stat-pill.choice { background: rgba(245,197,24,0.1); color: var(--gold); border: 1px solid rgba(245,197,24,0.2); }
+
+    .truth-body {
+      font-size: 14px;
+      color: var(--light);
+      line-height: 1.7;
+      flex: 1;
+    }
+    .truth-body strong { color: var(--white); }
+
+    .truth-footer {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding-top: 14px;
+      border-top: 1px solid var(--border);
+      font-size: 13px;
+    }
+    .truth-culprit { color: var(--gray); flex-shrink: 0; }
+    .truth-weapon {
+      color: var(--accent);
+      font-weight: 700;
+      background: rgba(255,60,0,0.08);
+      padding: 3px 8px;
+      border-radius: 5px;
+    }
+
+    .truth-statement {
+      margin-top: 56px;
+      text-align: center;
+      padding: 48px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      position: relative;
+      overflow: hidden;
+    }
+    .truth-statement::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at center bottom, rgba(255,60,0,0.06), transparent 70%);
+      pointer-events: none;
+    }
+    .truth-stmt-line {
+      font-size: clamp(16px, 2.2vw, 20px);
+      color: var(--gray);
+      margin-bottom: 10px;
+      line-height: 1.5;
+    }
+    .stmt-em { color: var(--accent); font-weight: 700; }
+    .truth-stmt-big {
+      font-size: clamp(24px, 4vw, 40px);
+      font-weight: 900;
+      color: var(--white);
+      letter-spacing: -1px;
+      margin-top: 16px;
+      line-height: 1.2;
+    }
+
+    /* ── WAKE UP (legacy — keep for compat) ── */
     .wakeup-block {
       background: var(--card);
       border: 1px solid var(--border);
@@ -197,13 +327,6 @@
       padding: 48px;
       margin-bottom: 40px;
     }
-    .wakeup-block p {
-      font-size: clamp(18px, 3vw, 26px);
-      font-weight: 700;
-      line-height: 1.5;
-      margin-bottom: 20px;
-    }
-    .wakeup-block p:last-child { margin-bottom: 0; }
     .wakeup-block .em { color: var(--accent); }
     .wakeup-block .em2 { color: var(--gold); }
 
@@ -1480,22 +1603,74 @@
 
 <div class="divider"></div>
 
-<!-- WAKE UP CALL -->
-<section>
-  <div class="section-label">The Hard Truth</div>
-  <h2>Look around you.<br/><span class="dim">This already happened.</span></h2>
+<!-- WAKE UP CALL — redesigned as story cards -->
+<section class="truth-section">
+  <div class="section-label reveal">The Hard Truth</div>
+  <h2 class="reveal">While you read this,<br/><span class="dim">it's already happening.</span></h2>
 
-  <div class="wakeup-block reveal" style="margin-top: 40px;">
-    <p>Last month, a sales rep <span class="em">lost a deal</span> to a competitor whose AI had already researched the client, prepared the pitch, and followed up — before the sales rep even opened his laptop.</p>
-    <p>This month, a restaurant <span class="em">lost 30% of late-night orders</span> because the place down the street had a chatbot closing orders at 2am. No staff. No overhead. Just revenue.</p>
-    <p>Next month? <span class="em2">That restaurant could be yours.</span> Or you could be the one with the chatbot.</p>
+  <div class="truth-cards">
+
+    <!-- Card 1 -->
+    <div class="truth-card reveal" data-delay="0">
+      <div class="truth-card-header">
+        <div class="truth-icon">📉</div>
+        <div class="truth-meta">
+          <div class="truth-tag">SALES</div>
+          <div class="truth-when">Last month</div>
+        </div>
+        <div class="truth-stat-pill loss">−1 deal</div>
+      </div>
+      <p class="truth-body">A sales rep lost a deal to a competitor whose AI had already <strong>researched the client, written the pitch, and followed up</strong> — before the rep opened his laptop.</p>
+      <div class="truth-footer">
+        <span class="truth-culprit">Their weapon:</span>
+        <span class="truth-weapon">AI research + outreach agent</span>
+      </div>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="truth-card reveal" data-delay="120">
+      <div class="truth-card-header">
+        <div class="truth-icon">🍽️</div>
+        <div class="truth-meta">
+          <div class="truth-tag">F&B</div>
+          <div class="truth-when">This month</div>
+        </div>
+        <div class="truth-stat-pill loss">−30% orders</div>
+      </div>
+      <p class="truth-body">A restaurant lost 30% of late-night orders because the place down the street had a chatbot <strong>closing orders at 2am. No staff. No overhead.</strong> Just revenue flowing in.</p>
+      <div class="truth-footer">
+        <span class="truth-culprit">Their weapon:</span>
+        <span class="truth-weapon">24/7 order intake bot</span>
+      </div>
+    </div>
+
+    <!-- Card 3 — YOU, next month -->
+    <div class="truth-card truth-card-you reveal" data-delay="240">
+      <div class="truth-card-header">
+        <div class="truth-icon">📅</div>
+        <div class="truth-meta">
+          <div class="truth-tag" style="color:var(--gold);border-color:rgba(245,197,24,0.3);">YOUR INDUSTRY</div>
+          <div class="truth-when">Next month</div>
+        </div>
+        <div class="truth-stat-pill choice">your call</div>
+      </div>
+      <p class="truth-body">That restaurant could be <strong>you</strong>. Or you could be the one with the agent. The only variable is whether you move before someone else in your market does.</p>
+      <div class="truth-footer" style="border-color:rgba(245,197,24,0.15);">
+        <span class="truth-culprit" style="color:var(--gold);">The window:</span>
+        <span class="truth-weapon" style="color:var(--gold);">still open — barely</span>
+      </div>
+    </div>
+
   </div>
 
-  <div class="wakeup-block reveal">
-    <p>You're not behind because you're lazy or not smart enough.</p>
-    <p>You're behind because <span class="em">nobody showed you the door.</span></p>
-    <p style="color: var(--white); font-size: clamp(20px,3vw,28px); font-weight: 900; margin-top: 8px;">We're showing you the door.</p>
+  <!-- Bottom truth statement — animated word by word -->
+  <div class="truth-statement reveal">
+    <div class="truth-stmt-line">You're not behind because you're lazy.</div>
+    <div class="truth-stmt-line">You're behind because <span class="stmt-em">nobody showed you the door.</span></div>
+    <div class="truth-stmt-big">We're showing you the door.</div>
+    <a href="#live-demo" class="btn-primary" style="margin-top:32px;display:inline-block;">Try the demo — free →</a>
   </div>
+
 </section>
 
 <div class="divider"></div>
@@ -2361,7 +2536,8 @@ for (let i = 0; i < PARTICLE_COUNT; i++) {
 const revealObs = new IntersectionObserver((entries) => {
   entries.forEach(e => {
     if (e.isIntersecting) {
-      e.target.classList.add('visible');
+      const delay = e.target.dataset.delay ? parseInt(e.target.dataset.delay) : 0;
+      setTimeout(() => e.target.classList.add('visible'), delay);
       revealObs.unobserve(e.target);
     }
   });
