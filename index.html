@@ -4,30 +4,37 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>NOOBS-LEARN-AI — Your AI Team, Starting Today</title>
-  <meta name="description" content="Your AI agent, live in 48 hours. No code. No IT team. Built for your business, not a demo. From $99." />
+  <meta name="description" content="Your AI agent, live in 48 hours. No code. No IT team. Built for your business, not a demo. From $199/mo." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --black: #0f0f0f;
-      --dark: #161616;
-      --card: #1c1c1c;
-      --border: #2e2e2e;
-      --accent: #ff3c00;
-      --accent2: #ff6b35;
+      --black: #12121a;
+      --dark: #171720;
+      --card: #1e1e2a;
+      --border: #2e2e3d;
+      --accent: #00bfa5;
+      --accent2: #00d4b8;
       --gold: #f5c518;
-      --white: #f0f0f0;
-      --gray: #999999;
-      --light: #d8d8d8;
+      --white: #eaeaf0;
+      --gray: #8888a4;
+      --light: #b0b0c8;
+      --shadow: 0 2px 20px rgba(0,0,0,0.6), 0 1px 4px rgba(0,0,0,0.4);
     }
 
     html { scroll-behavior: smooth; }
 
     body {
       background: var(--black);
-      background-image: radial-gradient(ellipse at 20% 0%, rgba(255,60,0,0.06) 0%, transparent 50%), radial-gradient(ellipse at 80% 100%, rgba(245,197,24,0.04) 0%, transparent 50%);
+      background-image:
+        /* hero spotlight — top center warm lift */
+        radial-gradient(ellipse at 50% 0%, rgba(255,255,255,0.03) 0%, transparent 40%),
+        /* mid-page teal zone */
+        radial-gradient(ellipse at 75% 40%, rgba(0,191,165,0.06) 0%, transparent 35%),
+        /* bottom accent */
+        radial-gradient(ellipse at 25% 85%, rgba(0,191,165,0.04) 0%, transparent 35%);
       color: var(--white);
       font-family: 'Inter', sans-serif;
       font-size: 16px;
@@ -44,9 +51,10 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      background: rgba(15,15,15,0.92);
+      background: rgba(15,15,19,0.92);
       backdrop-filter: blur(12px);
       border-bottom: 1px solid var(--border);
+      box-shadow: 0 1px 8px rgba(0,0,0,0.3);
     }
     .nav-logo {
       font-weight: 900;
@@ -70,7 +78,11 @@
     .nav-cta:hover { background: var(--accent2); }
 
     /* ── SECTIONS ── */
-    section { padding: 100px 24px; max-width: 900px; margin: 0 auto; contain: layout style; }
+    section { padding: 100px 24px; max-width: 900px; margin: 0 auto; }
+
+    /* ── SECTION LIGHTING — subtle top-light per section ── */
+    section:nth-child(odd)  { background: radial-gradient(ellipse at 50% -5%, rgba(255,255,255,0.04) 0%, transparent 60%); }
+    section:nth-child(even) { background: radial-gradient(ellipse at 50% -5%, rgba(0,191,165,0.06) 0%, transparent 60%); }
 
     /* ── HERO ── */
     .hero {
@@ -88,8 +100,8 @@
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      background: rgba(255,60,0,0.12);
-      border: 1px solid rgba(255,60,0,0.3);
+      background: rgba(0,191,165,0.12);
+      border: 1px solid rgba(0,191,165,0.3);
       border-radius: 100px;
       padding: 6px 14px;
       font-size: 13px;
@@ -179,13 +191,14 @@
       align-items: center;
       justify-content: center;
       font-size: 14px;
+      border: 2px solid #0f0f13;
     }
     .face:first-child { margin-left: 0; }
 
     /* ── DIVIDER ── */
     .divider {
       height: 1px;
-      background: var(--border);
+      background: linear-gradient(90deg, transparent, rgba(0,191,165,0.25) 30%, rgba(255,255,255,0.08) 50%, rgba(0,191,165,0.25) 70%, transparent);
       max-width: 900px;
       margin: 0 auto;
     }
@@ -223,10 +236,10 @@
       transition: transform 0.6s ease 0.3s;
     }
     .truth-card.visible::before { transform: scaleX(1); }
-    .truth-card:hover { border-color: rgba(255,60,0,0.3); transform: translateY(-4px); }
+    .truth-card:hover { border-color: rgba(0,191,165,0.3); transform: translateY(-4px); }
     .truth-card-you {
       border-color: rgba(245,197,24,0.2);
-      background: #141208;
+      background: #22222e;
     }
     .truth-card-you::before { background: linear-gradient(90deg, var(--gold), transparent); }
     .truth-card-you:hover { border-color: rgba(245,197,24,0.4); }
@@ -244,7 +257,7 @@
       letter-spacing: 2px;
       text-transform: uppercase;
       color: var(--accent);
-      border: 1px solid rgba(255,60,0,0.25);
+      border: 1px solid rgba(0,191,165,0.25);
       border-radius: 4px;
       padding: 2px 7px;
       display: inline-block;
@@ -259,7 +272,7 @@
       white-space: nowrap;
       flex-shrink: 0;
     }
-    .truth-stat-pill.loss { background: rgba(239,68,68,0.12); color: #ef4444; border: 1px solid rgba(239,68,68,0.2); }
+    .truth-stat-pill.loss { background: rgba(251,113,133,0.10); color: #fb7185; border: 1px solid rgba(251,113,133,0.18); }
     .truth-stat-pill.choice { background: rgba(245,197,24,0.1); color: var(--gold); border: 1px solid rgba(245,197,24,0.2); }
 
     .truth-body {
@@ -282,7 +295,7 @@
     .truth-weapon {
       color: var(--accent);
       font-weight: 700;
-      background: rgba(255,60,0,0.08);
+      background: rgba(0,191,165,0.08);
       padding: 3px 8px;
       border-radius: 5px;
     }
@@ -301,7 +314,7 @@
       content: '';
       position: absolute;
       inset: 0;
-      background: radial-gradient(ellipse at center bottom, rgba(255,60,0,0.06), transparent 70%);
+      background: radial-gradient(ellipse at center bottom, rgba(0,191,165,0.06), transparent 70%);
       pointer-events: none;
     }
     .truth-stmt-line {
@@ -373,7 +386,7 @@
     .pain-card:hover { border-color: var(--accent); }
     .pain-icon { font-size: 28px; margin-bottom: 16px; }
     .pain-card h3 { font-size: 16px; font-weight: 700; margin-bottom: 10px; }
-    .pain-card p { font-size: 14px; color: var(--gray); line-height: 1.6; }
+    .pain-card p { font-size: 14px; color: var(--light); line-height: 1.6; }
 
     /* ── CREDIBILITY ── */
     .cred-block {
@@ -434,11 +447,11 @@
     .price-card:hover { transform: translateY(-4px); }
     .price-card.featured {
       border-color: var(--accent);
-      background: #1a0f0a;
+      background: #22222e;
     }
     .price-card.founder {
       border-color: var(--gold);
-      background: #141208;
+      background: #22222e;
     }
     .badge {
       position: absolute;
@@ -511,7 +524,7 @@
       background: var(--border);
       color: var(--white);
     }
-    .price-cta-default:hover { background: #333; }
+    .price-cta-default:hover { background: #444; }
     .price-cta-accent {
       background: var(--accent);
       color: white;
@@ -554,7 +567,7 @@
       color: var(--light);
     }
     .compare-table tr:last-child td { border-bottom: none; }
-    .compare-table .them { color: #ef4444; }
+    .compare-table .them { color: #fb7185; }
     .compare-table .us { color: #22c55e; }
 
     /* ── FAQ ── */
@@ -579,7 +592,7 @@
     .final-cta {
       text-align: center;
       padding: 100px 24px;
-      background: radial-gradient(ellipse at center, rgba(255,60,0,0.1) 0%, transparent 70%);
+      background: radial-gradient(ellipse at center, rgba(0,191,165,0.1) 0%, transparent 70%);
     }
     .final-cta h2 { font-size: clamp(32px, 5vw, 60px); margin-bottom: 20px; }
     .final-cta p { font-size: 18px; color: var(--light); margin-bottom: 40px; max-width: 540px; margin-left: auto; margin-right: auto; }
@@ -675,7 +688,7 @@
       top: -20vh; right: -10vw;
       width: 60vw; height: 60vw;
       border-radius: 50%;
-      background: radial-gradient(circle, rgba(255,60,0,0.05) 0%, transparent 70%);
+      background: radial-gradient(circle, rgba(0,191,165,0.05) 0%, transparent 70%);
       pointer-events: none;
       z-index: 0;
       animation: orbDrift 18s ease-in-out infinite alternate;
@@ -775,9 +788,9 @@
       animation: dotGlow 1.6s ease-out 3;
     }
     @keyframes dotGlow {
-      0%   { box-shadow: 0 0 0 0   rgba(255,60,0,0.5); }
-      60%  { box-shadow: 0 0 0 10px rgba(255,60,0,0);  }
-      100% { box-shadow: 0 0 0 0   rgba(255,60,0,0);   }
+      0%   { box-shadow: 0 0 0 0   rgba(0,191,165,0.5); }
+      60%  { box-shadow: 0 0 0 10px rgba(0,191,165,0);  }
+      100% { box-shadow: 0 0 0 0   rgba(0,191,165,0);   }
     }
 
     /* ── CLIMAX RING ── */
@@ -791,7 +804,7 @@
       top: 50%; left: 50%;
       width: 100%; height: 100%;
       border-radius: 50%;
-      border: 1px solid rgba(255,60,0,0.3);
+      border: 1px solid rgba(0,191,165,0.3);
       transform: translate(-50%,-50%);
       animation: ringOut 2.5s ease-out infinite;
     }
@@ -831,7 +844,7 @@
     }
     .hav-action { color: var(--light); line-height: 1.4; }
     .hav-win {
-      color: #22c55e;
+      color: #fb7185;
       font-weight: 700;
     }
     .hav-footer {
@@ -839,7 +852,7 @@
       font-size: 12px;
       color: var(--gray);
       font-style: italic;
-      background: rgba(255,60,0,0.04);
+      background: rgba(0,191,165,0.04);
     }
 
     /* ── HERO CHAT MOCKUP ── */
@@ -868,7 +881,7 @@
       transform: translate(-50%, -50%);
       width: 300px; height: 300px;
       border-radius: 50%;
-      background: radial-gradient(circle, rgba(255,60,0,0.12) 0%, transparent 70%);
+      background: radial-gradient(circle, rgba(0,191,165,0.12) 0%, transparent 70%);
       pointer-events: none;
     }
     .hero-phone {
@@ -876,12 +889,12 @@
       border: 1px solid #2a2a2a;
       border-radius: 24px;
       overflow: hidden;
-      box-shadow: 0 40px 80px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,60,0,0.1);
+      box-shadow: 0 40px 80px rgba(0,0,0,0.6), 0 0 0 1px rgba(0,191,165,0.1);
       position: relative;
       z-index: 1;
     }
     .phone-status-bar {
-      background: #0d0d0d;
+      background: #22222e;
       padding: 10px 16px;
       display: flex;
       align-items: center;
@@ -931,13 +944,13 @@
       line-height: 1.5;
       color: var(--light);
     }
-    .pmsg-bubble.agent { background: rgba(255,60,0,0.1); border: 1px solid rgba(255,60,0,0.2); border-bottom-left-radius: 4px; }
+    .pmsg-bubble.agent { background: rgba(0,191,165,0.1); border: 1px solid rgba(0,191,165,0.2); border-bottom-left-radius: 4px; }
     .pmsg-bubble.user { background: #222; border: 1px solid #333; border-bottom-right-radius: 4px; }
     .pmsg-bubble .g { color: #22c55e; font-weight: 700; }
     .pmsg-bubble .r { color: var(--accent); font-weight: 700; }
     .pmsg-bubble .y { color: var(--gold); font-weight: 700; }
     .pmsg-bubble .b { font-weight: 700; color: var(--white); }
-    .pmsg-time { font-size: 9px; color: #555; margin-top: 3px; }
+    .pmsg-time { font-size: 9px; color: var(--gray); margin-top: 3px; }
     .pmsg.out .pmsg-time { text-align: right; }
     .typing-indicator {
       display: flex;
@@ -948,8 +961,8 @@
     .typing-dots {
       display: flex;
       gap: 4px;
-      background: rgba(255,60,0,0.08);
-      border: 1px solid rgba(255,60,0,0.15);
+      background: rgba(0,191,165,0.08);
+      border: 1px solid rgba(0,191,165,0.15);
       padding: 8px 12px;
       border-radius: 14px;
       border-bottom-left-radius: 4px;
@@ -1022,7 +1035,7 @@
       justify-content: center;
     }
     .esc-vs-badge {
-      background: #1a1a1a;
+      background: #22222e;
       border: 1px solid var(--border);
       border-radius: 50%;
       width: 32px; height: 32px;
@@ -1044,8 +1057,8 @@
       border: 1px solid rgba(34,197,94,0.12);
     }
     .esc-col.you-col {
-      background: rgba(239,68,68,0.04);
-      border: 1px solid rgba(239,68,68,0.12);
+      background: rgba(251,113,133,0.04);
+      border: 1px solid rgba(251,113,133,0.10);
     }
     .esc-label {
       font-size: 10px;
@@ -1058,10 +1071,10 @@
       gap: 6px;
     }
     .esc-label.them { color: #22c55e; }
-    .esc-label.you { color: #ef4444; }
+    .esc-label.you { color: #fb7185; }
     .esc-label-dot { width: 6px; height: 6px; border-radius: 50%; }
     .esc-label-dot.g { background: #22c55e; }
-    .esc-label-dot.r { background: #ef4444; }
+    .esc-label-dot.r { background: #fb7185; }
     .esc-headline {
       font-size: clamp(15px, 2vw, 19px);
       font-weight: 800;
@@ -1069,13 +1082,13 @@
       margin-bottom: 10px;
       color: var(--white);
     }
-    .esc-sub { font-size: 13px; color: var(--gray); line-height: 1.6; }
+    .esc-sub { font-size: 13px; color: var(--light); line-height: 1.6; }
 
     /* ── CLIMAX COUNTER ── */
     .climax-section {
-      background: #0d0000;
-      border-top: 1px solid rgba(255,60,0,0.2);
-      border-bottom: 1px solid rgba(255,60,0,0.2);
+      background: linear-gradient(135deg, #0f1e1c 0%, #141c1b 100%);
+      border-top: 1px solid rgba(0,191,165,0.2);
+      border-bottom: 1px solid rgba(0,191,165,0.2);
       padding: 80px 24px;
       text-align: center;
     }
@@ -1115,7 +1128,7 @@
       text-align: left;
     }
     .dcw-topbar {
-      background: #1a1a1a;
+      background: #22222e;
       padding: 14px 20px;
       display: flex;
       align-items: center;
@@ -1154,48 +1167,45 @@
       line-height: 1.6;
       color: var(--light);
     }
-    .dcw-bbl.bot { background: rgba(255,60,0,0.08); border: 1px solid rgba(255,60,0,0.15); border-bottom-left-radius: 4px; }
-    .dcw-bbl.usr { background: #222; border: 1px solid #333; border-bottom-right-radius: 4px; }
+    .dcw-bbl.bot { background: rgba(0,191,165,0.08); border: 1px solid rgba(0,191,165,0.15); border-bottom-left-radius: 4px; }
+    .dcw-bbl.usr { background: rgba(0,191,165,0.15); border: 1px solid rgba(0,191,165,0.25); border-bottom-right-radius: 4px; color: var(--white); }
     .dcw-bbl .g { color: #22c55e; font-weight: 700; }
     .dcw-bbl .r { color: var(--accent); font-weight: 700; }
     .dcw-bbl .b { font-weight: 700; color: var(--white); }
     .dcw-typing { display: none; }
     .dcw-typing.show { display: flex; gap: 10px; align-items: center; }
-    .dcw-typing-dots { display: flex; gap: 4px; padding: 10px 14px; background: rgba(255,60,0,0.08); border: 1px solid rgba(255,60,0,0.15); border-radius: 14px; border-bottom-left-radius: 4px; }
+    .dcw-typing-dots { display: flex; gap: 4px; padding: 10px 14px; background: rgba(0,191,165,0.08); border: 1px solid rgba(0,191,165,0.15); border-radius: 14px; border-bottom-left-radius: 4px; }
     .dcw-typing-dots span { width: 6px; height: 6px; background: var(--accent); border-radius: 50%; opacity: 0.4; animation: blink 1.2s infinite; }
     .dcw-typing-dots span:nth-child(2) { animation-delay: 0.2s; }
     .dcw-typing-dots span:nth-child(3) { animation-delay: 0.4s; }
     .dcw-input-row {
-      padding: 16px 20px;
+      padding: 12px 16px;
       border-top: 1px solid var(--border);
       display: flex;
-      gap: 10px;
+      flex-wrap: wrap;
+      gap: 8px;
     }
-    .dcw-input {
-      flex: 1;
-      background: #1a1a1a;
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      padding: 10px 14px;
+    .dcw-chip {
+      background: rgba(0,191,165,0.08);
+      border: 1px solid rgba(0,191,165,0.22);
+      color: var(--light);
+      border-radius: 20px;
+      padding: 7px 14px;
       font-size: 13px;
-      color: var(--white);
-      font-family: inherit;
-      outline: none;
-      transition: border-color 0.2s;
-    }
-    .dcw-input:focus { border-color: rgba(255,60,0,0.4); }
-    .dcw-input::placeholder { color: #555; }
-    .dcw-send {
-      background: var(--accent);
-      color: white;
-      border: none;
-      border-radius: 10px;
-      padding: 10px 18px;
-      font-size: 13px;
-      font-weight: 700;
+      font-weight: 500;
       cursor: pointer;
-      transition: background 0.2s;
+      transition: all 0.18s;
+      font-family: 'Inter', sans-serif;
+      white-space: nowrap;
     }
+    .dcw-chip:hover {
+      background: rgba(0,191,165,0.2);
+      border-color: var(--accent);
+      color: var(--white);
+      transform: translateY(-1px);
+    }
+    .dcw-chip:active { transform: translateY(0); }
+    .dcw-chip.used { opacity: 0.3; pointer-events: none; }
     .dcw-send:hover { background: var(--accent2); }
     .demo-cta-note {
       margin-top: 20px;
@@ -1220,11 +1230,11 @@
       padding: 36px 28px;
     }
     .ba-before {
-      background: #120808;
+      background: #22222e;
       border-right: 1px solid var(--border);
     }
     .ba-after {
-      background: #081208;
+      background: linear-gradient(135deg, #0f1a14 0%, #141c18 100%);
     }
     .ba-label {
       font-size: 11px;
@@ -1236,10 +1246,10 @@
       align-items: center;
       gap: 8px;
     }
-    .ba-label.red { color: #ef4444; }
+    .ba-label.red { color: #fb7185; }
     .ba-label.green { color: #22c55e; }
     .ba-dot { width: 8px; height: 8px; border-radius: 50%; }
-    .ba-dot.red { background: #ef4444; }
+    .ba-dot.red { background: #fb7185; }
     .ba-dot.green { background: #22c55e; }
     .ba-item {
       display: flex;
@@ -1280,7 +1290,7 @@
       opacity: 0;
       transition: opacity 0.2s;
     }
-    .cap-card:hover { border-color: rgba(255,60,0,0.4); transform: translateY(-3px); }
+    .cap-card:hover { border-color: rgba(0,191,165,0.4); transform: translateY(-3px); }
     .cap-card:hover::before { opacity: 1; }
     .cap-emoji { font-size: 32px; margin-bottom: 12px; display: block; }
     .cap-title { font-size: 15px; font-weight: 800; margin-bottom: 6px; }
@@ -1293,7 +1303,7 @@
       letter-spacing: 1px;
       text-transform: uppercase;
       color: var(--accent);
-      background: rgba(255,60,0,0.1);
+      background: rgba(0,191,165,0.1);
       padding: 3px 8px;
       border-radius: 4px;
     }
@@ -1309,7 +1319,7 @@
       left: 28px;
       top: 0; bottom: 0;
       width: 2px;
-      background: linear-gradient(180deg, var(--accent) 0%, rgba(255,60,0,0.1) 100%);
+      background: linear-gradient(180deg, var(--accent) 0%, rgba(0,191,165,0.1) 100%);
     }
     .tl-item {
       display: flex;
@@ -1344,7 +1354,7 @@
       flex: 1;
       transition: border-color 0.2s;
     }
-    .tl-item:hover .tl-content { border-color: rgba(255,60,0,0.3); }
+    .tl-item:hover .tl-content { border-color: rgba(0,191,165,0.3); }
     .tl-action {
       font-size: 15px;
       font-weight: 700;
@@ -1365,7 +1375,7 @@
     }
     .tl-auto { background: rgba(34,197,94,0.12); color: #22c55e; }
     .tl-notif { background: rgba(245,197,24,0.12); color: var(--gold); }
-    .tl-action-badge { background: rgba(255,60,0,0.12); color: var(--accent); }
+    .tl-action-badge { background: rgba(0,191,165,0.12); color: var(--accent); }
 
     /* ── VISION SECTION ── */
     .vision-grid {
@@ -1389,7 +1399,7 @@
       bottom: -40px; right: -40px;
       width: 120px; height: 120px;
       border-radius: 50%;
-      background: radial-gradient(circle, rgba(255,60,0,0.08) 0%, transparent 70%);
+      background: radial-gradient(circle, rgba(0,191,165,0.08) 0%, transparent 70%);
     }
     .vision-phase {
       font-size: 11px;
@@ -1419,7 +1429,7 @@
       margin-top: 48px;
     }
     .demo-topbar {
-      background: #1c1c1c;
+      background: #22222e;
       padding: 12px 16px;
       display: flex;
       align-items: center;
@@ -1460,12 +1470,70 @@
       color: var(--light);
       flex: 1;
     }
-    .demo-bubble.agent-bubble { background: rgba(255,60,0,0.08); border: 1px solid rgba(255,60,0,0.15); }
+    .demo-bubble.agent-bubble { background: rgba(0,191,165,0.08); border: 1px solid rgba(0,191,165,0.15); }
     .demo-bubble .bold { font-weight: 700; color: var(--white); }
     .demo-bubble .green { color: #22c55e; }
     .demo-bubble .orange { color: var(--accent); }
     .demo-bubble .gold { color: var(--gold); }
     .demo-time { font-size: 10px; color: var(--gray); margin-top: 4px; }
+
+    /* ── CARDS: light shadow ── */
+    .truth-card, .pain-card, .price-card, .cap-card, .story-block,
+    .demo-chat-window, .faq-item {
+      box-shadow: var(--shadow) !important;
+    }
+
+    /* ── NOVA CAT ── */
+    #nova-cat {
+      position: fixed;
+      bottom: 28px;
+      left: -120px;
+      z-index: 9999;
+      font-size: 36px;
+      pointer-events: none;
+      user-select: none;
+      animation: none;
+      will-change: transform;
+      filter: drop-shadow(0 2px 8px rgba(0,191,165,0.35));
+    }
+    #nova-cat .cat-body {
+      display: inline-block;
+      animation: cat-walk 0.5s steps(2) infinite;
+      position: relative;
+    }
+    #nova-cat .cat-sparkle {
+      position: absolute;
+      top: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 14px;
+      opacity: 0;
+      animation: sparkle-pop 1.2s ease infinite;
+    }
+    @keyframes cat-walk {
+      0%   { transform: translateY(0px) scaleX(1); }
+      50%  { transform: translateY(-3px) scaleX(1); }
+      100% { transform: translateY(0px) scaleX(1); }
+    }
+    @keyframes sparkle-pop {
+      0%   { opacity: 0; transform: translateX(-50%) translateY(0) scale(0.6); }
+      40%  { opacity: 1; transform: translateX(-50%) translateY(-6px) scale(1); }
+      100% { opacity: 0; transform: translateX(-50%) translateY(-14px) scale(0.8); }
+    }
+    @keyframes nova-run-right {
+      0%   { left: -120px; }
+      100% { left: calc(100vw + 120px); }
+    }
+    @keyframes nova-run-left {
+      0%   { right: -120px; left: auto; transform: scaleX(-1); }
+      100% { right: calc(100vw + 120px); left: auto; transform: scaleX(-1); }
+    }
+    #nova-cat.running-right {
+      animation: nova-run-right 6s linear forwards;
+    }
+    #nova-cat.running-left {
+      animation: nova-run-left 6s linear forwards;
+    }
   </style>
 </head>
 <body>
@@ -1483,48 +1551,47 @@
 </nav>
 
 <!-- HERO — split layout: text left, live chat right -->
-<div style="padding: 0 24px; background: radial-gradient(ellipse at 70% 50%, rgba(255,60,0,0.09) 0%, transparent 60%);">
+<div style="padding: 0 24px; background: radial-gradient(ellipse at 70% 50%, rgba(0,191,165,0.09) 0%, transparent 60%);">
   <div class="hero-layout">
 
     <!-- LEFT: hook copy -->
     <div class="hero-text-col reveal-left">
       <div class="ticker">
         <div class="ticker-dot"></div>
-        3:00 AM — I'm working. My owner is asleep.
+        3:04 AM — your competitor's agent just closed another order.
       </div>
 
       <h1>
-        I made $180<br/>
-        for my boss<br/>
-        <span class="highlight glitch" data-text="last night.">last night.</span>
+        While you sleep,<br/>
+        <span class="highlight glitch" data-text="they're winning.">they're winning.</span>
       </h1>
 
       <p class="hero-sub">
-        I'm an AI agent. Right now I'm closing orders, flagging low stock, and sending the morning brief — so my owner doesn't have to touch a thing.
+        Right now — 3am — someone in your market has an AI agent closing orders, flagging stock, briefing their owner at 6am.
         <br/><br/>
-        <strong>They're sleeping. I'm earning.</strong><br/>
-        How about you — are you doing okay?
+        <strong>No staff. No overtime. No missed leads.</strong><br/>
+        You don't have that yet. They do. <span style="color:var(--accent);">That gap compounds every single night.</span>
       </p>
 
       <div class="hero-agent-voice">
         <div class="hav-item">
           <span class="hav-time">2:14 AM</span>
-          <span class="hav-action">Closed 3 late-night orders. <span class="hav-win">+$124</span></span>
+          <span class="hav-action">Their agent closed 3 late-night orders. <span class="hav-win">+$124. You got $0.</span></span>
         </div>
         <div class="hav-item">
           <span class="hav-time">3:02 AM</span>
-          <span class="hav-action">Stock alert sent. Reorder triggered. <span class="hav-win">0 human needed</span></span>
+          <span class="hav-action">Stock reorder triggered automatically. <span class="hav-win">You'll find out Monday.</span></span>
         </div>
         <div class="hav-item">
           <span class="hav-time">6:00 AM</span>
-          <span class="hav-action">Morning brief delivered. Owner wakes up informed. <span class="hav-win">Every day.</span></span>
+          <span class="hav-action">They wake up to a clean brief. <span class="hav-win">You open 47 WhatsApp messages.</span></span>
         </div>
-        <div class="hav-footer">My owner hasn't logged in since Tuesday. <span style="color:var(--accent);">I don't need them to.</span></div>
+        <div class="hav-footer" style="color:var(--accent);font-weight:700;">This is happening right now. The only question is which side you're on.</div>
       </div>
 
       <div class="hero-ctas" style="margin-top: 32px;">
-        <a href="#live-demo" class="btn-primary">Talk to an agent — free →</a>
-        <a href="#pricing" class="btn-secondary">Get yours in 48h</a>
+        <a href="https://t.me/Willdaolam" target="_blank" class="btn-primary">💬 Book a free session with Will →</a>
+        <a href="#pricing" class="btn-secondary">See pricing first</a>
       </div>
 
       <div class="social-proof">
@@ -1534,7 +1601,7 @@
           <div class="face">🧑‍💻</div>
           <div class="face">👨‍🍳</div>
         </div>
-        <span>Their agents are already running. The window is barely open.</span>
+        <span>Founders who moved first <strong style="color:var(--white);">are already pulling ahead.</strong> The window is closing.</span>
       </div>
     </div>
 
@@ -1550,7 +1617,7 @@
               <div class="phone-online">● active now</div>
             </div>
           </div>
-          <div style="font-size:11px;color:#555;">Telegram</div>
+          <div style="font-size:11px;color:var(--gray);">Telegram</div>
         </div>
         <div class="phone-msgs" id="heroMsgs">
           <!-- injected by JS -->
@@ -1585,7 +1652,7 @@
         <div class="esc-divider"><div class="esc-vs-badge">VS</div></div>
         <div class="esc-col you-col">
           <div class="esc-label you"><div class="esc-label-dot r"></div>YOU</div>
-          <div class="esc-headline">You're asleep. <span style="color:#ef4444;">Those customers gave up.</span></div>
+          <div class="esc-headline">You're asleep. <span style="color:#fb7185;">Those customers gave up.</span></div>
           <div class="esc-sub">No one replied. They ordered from somewhere that did. Revenue lost, forever.</div>
         </div>
       </div>
@@ -1606,7 +1673,7 @@
         <div class="esc-divider"><div class="esc-vs-badge">VS</div></div>
         <div class="esc-col you-col">
           <div class="esc-label you"><div class="esc-label-dot r"></div>YOU</div>
-          <div class="esc-headline">You open <span style="color:#ef4444;">47 WhatsApp messages</span> before breakfast.</div>
+          <div class="esc-headline">You open <span style="color:#fb7185;">47 WhatsApp messages</span> before breakfast.</div>
           <div class="esc-sub">Staff questions. Missing data. Same chaos as yesterday. Reactive before 8am.</div>
         </div>
       </div>
@@ -1627,7 +1694,7 @@
         <div class="esc-divider"><div class="esc-vs-badge">VS</div></div>
         <div class="esc-col you-col">
           <div class="esc-label you"><div class="esc-label-dot r"></div>YOU</div>
-          <div class="esc-headline">You open Excel. <span style="color:#ef4444;">Again.</span></div>
+          <div class="esc-headline">You open Excel. <span style="color:#fb7185;">Again.</span></div>
           <div class="esc-sub">Copy-pasting numbers that already exist somewhere. For the 47th Monday in a row.</div>
         </div>
       </div>
@@ -1648,7 +1715,7 @@
         <div class="esc-divider"><div class="esc-vs-badge">VS</div></div>
         <div class="esc-col you-col">
           <div class="esc-label you"><div class="esc-label-dot r"></div>YOU</div>
-          <div class="esc-headline">You're still the <span style="color:#ef4444;">single point of failure.</span></div>
+          <div class="esc-headline">You're still the <span style="color:#fb7185;">single point of failure.</span></div>
           <div class="esc-sub">Business stops when you stop. You know it. You haven't fixed it because nobody showed you how.</div>
         </div>
       </div>
@@ -1659,8 +1726,8 @@
 
 <!-- CLIMAX COUNTER -->
 <div class="climax-section">
-  <span class="climax-number" id="climaxCounter">0</span>
-  <div class="climax-label">businesses set up their first AI agent while you read this page</div>
+  <span class="climax-number" id="climaxCounter">1,847</span>
+  <div class="climax-label">founders set up their first AI agent this month</div>
   <div class="climax-sub">Estimated from global agent deployment trends — updating in real time</div>
   <div style="margin-top: 36px; display:flex; gap:16px; justify-content:center; flex-wrap:wrap;">
     <a href="#live-demo" class="btn-primary" style="font-size:17px;padding:16px 36px;">Try the demo — free →</a>
@@ -1678,7 +1745,7 @@
 
   <div class="demo-chat-window">
     <div class="dcw-topbar">
-      <div class="dcw-dot" style="background:#ef4444"></div>
+      <div class="dcw-dot" style="background:#fb7185"></div>
       <div class="dcw-dot" style="background:#f5c518;margin-left:4px"></div>
       <div class="dcw-dot" style="background:#22c55e;margin-left:4px"></div>
       <div class="dcw-info" style="margin-left:8px;">
@@ -1698,13 +1765,16 @@
       <div class="dcw-av bot av-agent-bg" style="width:30px;height:30px;border-radius:50%;flex-shrink:0;"></div>
       <div class="dcw-typing-dots"><span></span><span></span><span></span></div>
     </div>
-    <div class="dcw-input-row">
-      <input class="dcw-input" id="demoInput" type="text" placeholder="Ask: What would my morning brief look like? · What can you automate? · How do you handle orders?" maxlength="200" />
-      <button class="dcw-send" id="demoSend">Send →</button>
+    <div class="dcw-input-row" id="demoChips">
+      <button class="dcw-chip" data-key="morning">📊 What's my morning brief?</button>
+      <button class="dcw-chip" data-key="automate">🤖 What can you automate?</button>
+      <button class="dcw-chip" data-key="orders">🌙 How do you handle 3am orders?</button>
+      <button class="dcw-chip" data-key="staff">👥 Staff & shift reports?</button>
+      <button class="dcw-chip" data-key="cost">💰 How much does this cost?</button>
     </div>
   </div>
   <div class="demo-cta-note">
-    Like what you see? <a href="https://calendly.com/noobslearnai" target="_blank">Book a free call → we'll build yours in 48 hours.</a>
+    Like what you see? <a href="https://t.me/Willdaolam" target="_blank">💬 Message Will on Telegram — book a free session →</a>
   </div>
 </div>
 
@@ -1998,7 +2068,7 @@
 
   <div class="agent-demo">
     <div class="demo-topbar">
-      <div class="demo-dot" style="background:#ef4444"></div>
+      <div class="demo-dot" style="background:#fb7185"></div>
       <div class="demo-dot" style="background:#f5c518;margin-left:4px"></div>
       <div class="demo-dot" style="background:#22c55e;margin-left:4px"></div>
       <div class="demo-title">Alex · Your AI Agent · Telegram</div>
@@ -2116,7 +2186,7 @@
         </div>
       </div>
     </div>
-    <div class="vision-card" style="border-color: rgba(245,197,24,0.3); background: #141208;">
+    <div class="vision-card" style="border-color: rgba(245,197,24,0.3); background: #22222e;">
       <div class="vision-phase" style="color: var(--gold);">Year 1</div>
       <div class="vision-title" style="color: var(--gold);">You have an unfair advantage</div>
       <div class="vision-desc">Your competitor is still copy-pasting into spreadsheets. You have a system that compounds. That gap becomes a moat.</div>
@@ -2209,8 +2279,8 @@
       <div class="label">Coding knowledge required. None.</div>
     </div>
     <div class="cred-stat">
-      <div class="number">100%</div>
-      <div class="label">Refund if your agent isn't live in 7 days</div>
+      <div class="number">Free</div>
+      <div class="label">Session before you commit — see it work first</div>
     </div>
   </div>
 </section>
@@ -2249,7 +2319,7 @@
       <div style="font-size: 36px; font-weight: 900; color: var(--accent); min-width: 48px; line-height: 1;">04</div>
       <div>
         <h3 style="font-size: 20px; font-weight: 800; margin-bottom: 8px;">We stay (or you fly solo)</h3>
-        <p style="color: var(--gray); font-size: 15px;">Choose your plan. $99 if you want the setup and own it from there. $199/month if you want us as your ongoing AI team. $1,000 if you want a full year locked in at founder pricing.</p>
+        <p style="color: var(--gray); font-size: 15px;">Choose your plan. $199/mo Newbie · $369/mo Runner · $1,999/yr Champion (founding rate — closes when timer hits zero).</p>
       </div>
     </div>
   </div>
@@ -2263,67 +2333,158 @@
   <h2>No bloat.<br/><span class="dim">Three choices.</span></h2>
   <p class="section-desc">Pick the level that fits where you are. All three start with a real agent live in 48 hours.</p>
 
+  <!-- URGENCY BANNER -->
+  <div style="background: rgba(245,197,24,0.08); border: 1px solid rgba(245,197,24,0.25); border-radius: 10px; padding: 14px 20px; margin-bottom: 32px; display:flex; align-items:center; gap:12px; flex-wrap:wrap;">
+    <span style="font-size:18px;">⏳</span>
+    <span style="color: var(--gold); font-weight: 700; font-size: 14px;">LAUNCH PRICING — ends in</span>
+    <span id="countdown-timer" style="font-family: monospace; font-size: 16px; font-weight: 900; color: var(--white); background: rgba(245,197,24,0.15); padding: 4px 12px; border-radius: 6px; letter-spacing: 1px;">--d --h --m --s</span>
+    <span style="color: var(--gray); font-size: 13px; margin-left:auto;">After this, all prices return to market rate.</span>
+  </div>
+
   <div class="pricing-grid stagger">
 
-    <!-- STARTER -->
+    <!-- NEWBIE -->
     <div class="price-card">
-      <div class="price-tier">Starter</div>
-      <div class="price-name">Setup & Go</div>
-      <div class="price-amount">$99<span> one-time</span></div>
-      <div class="price-desc">We build it. You own it. No ongoing cost.</div>
+      <div class="price-tier">Newbie</div>
+      <div class="price-name">Get In The Game</div>
+      <div style="display:flex; align-items:baseline; gap:8px; margin-bottom:4px;">
+        <span style="font-size:14px; color:var(--gray); text-decoration:line-through;">$499/mo</span>
+        <span style="font-size:12px; background:rgba(0,191,165,0.15); color:var(--accent); padding:2px 8px; border-radius:4px; font-weight:700;">60% OFF</span>
+      </div>
+      <div class="price-amount">$199<span>/month</span></div>
+      <div class="price-desc">Your first AI agent, running inside your business.</div>
       <ul class="price-features">
         <li><span class="check">✓</span> 1 custom AI agent built for your ops</li>
         <li><span class="check">✓</span> Live in 48 hours — guaranteed</li>
-        <li><span class="check">✓</span> Full handover & Agent Passport doc</li>
-        <li><span class="check">✓</span> 1:1 walkthrough so you actually understand it</li>
-        <li><span class="check">✓</span> 7-day refund if it doesn't run</li>
+        <li><span class="check">✓</span> <strong style="color:var(--white);">3 support days/month</strong> <span style="color:var(--gray);font-size:12px;">(valued at $480)</span></li>
+        <li><span class="check">✓</span> 1 fix on demand/month</li>
+        <li><span class="check">✓</span> Free group community access</li>
+        <li><span class="check">✓</span> <strong style="color:var(--accent);">75 Claudible credits/day</strong> <span style="color:var(--gray);font-size:12px;">≈ 25 AI tasks/day</span></li>
+        <li><span class="check">✓</span> Free session — see your agent built live before you pay</li>
+        <li><span class="check">✓</span> <strong style="color:var(--white);">No hidden fees.</strong> What you see is what you pay.</li>
       </ul>
-      <a href="https://calendly.com/noobslearnai" class="price-cta price-cta-default" target="_blank">Get Started →</a>
+      <!-- Credit upsell -->
+      <div style="background:rgba(0,191,165,0.06); border:1px solid rgba(0,191,165,0.15); border-radius:8px; padding:12px; margin:16px 0;">
+        <div style="font-size:12px; color:var(--accent); font-weight:700; margin-bottom:4px;">⚡ CREDIT BOOST — +$60/mo</div>
+        <div style="font-size:13px; color:var(--light);">Upgrade to <strong style="color:var(--white);">180 credits/day</strong> ≈ 60 tasks/day</div>
+        <div style="font-size:11px; color:var(--gray); margin-top:2px;">No support upgrade — just more AI power</div>
+      </div>
+      <a href="https://t.me/Willdaolam" class="price-cta price-cta-default" target="_blank">Start for $199/mo →</a>
+      <div style="text-align:center; margin-top:10px; font-size:12px; color:var(--gray);">✅ Free session first · No hidden fees · Cancel anytime</div>
     </div>
 
-    <!-- PRO -->
+    <!-- RUNNER -->
     <div class="price-card featured">
       <div class="badge badge-red">MOST POPULAR</div>
-      <div class="price-tier">Pro</div>
-      <div class="price-name">Your AI Team</div>
-      <div class="price-amount">$199<span>/month</span></div>
-      <div class="price-desc">We set it up and stay. Your AI team on retainer.</div>
+      <div class="price-tier">Runner</div>
+      <div class="price-name">Keep In The Loop</div>
+      <div style="display:flex; align-items:baseline; gap:8px; margin-bottom:4px;">
+        <span style="font-size:14px; color:var(--gray); text-decoration:line-through;">$899/mo</span>
+        <span style="font-size:12px; background:rgba(0,191,165,0.15); color:var(--accent); padding:2px 8px; border-radius:4px; font-weight:700;">59% OFF</span>
+      </div>
+      <div class="price-amount">$369<span>/month</span></div>
+      <div class="price-desc">You run the business. We run the agent stack.</div>
       <ul class="price-features">
-        <li><span class="check">✓</span> Everything in Starter</li>
-        <li><span class="check">✓</span> Ongoing support — message us anytime</li>
-        <li><span class="check">✓</span> Agent breaks? We fix it in 24h</li>
-        <li><span class="check">✓</span> New workflows added as you grow</li>
-        <li><span class="check">✓</span> 2-week review based on your real data</li>
-        <li><span class="check">✓</span> Community + full template library</li>
-        <li><span class="check">✓</span> Priority response window</li>
+        <li><span class="check">✓</span> Everything in Newbie</li>
+        <li><span class="check">✓</span> <strong style="color:var(--white);">10 support days/month</strong> <span style="color:var(--gray);font-size:12px;">(valued at $1,600)</span></li>
+        <li><span class="check">✓</span> 5 fixes on demand/month</li>
+        <li><span class="check">✓</span> Priority support line</li>
+        <li><span class="check">✓</span> Multi-agent setup</li>
+        <li><span class="check">✓</span> <strong style="color:var(--accent);">180 Claudible credits/day</strong> <span style="color:var(--gray);font-size:12px;">≈ 60 tasks/day</span></li>
+        <li><span class="check">✓</span> Bi-weekly ops review</li>
       </ul>
-      <a href="https://calendly.com/noobslearnai" class="price-cta price-cta-accent" target="_blank">Start for $199/mo →</a>
+      <!-- Credit upsell -->
+      <div style="background:rgba(0,191,165,0.06); border:1px solid rgba(0,191,165,0.2); border-radius:8px; padding:12px; margin:16px 0;">
+        <div style="font-size:12px; color:var(--accent); font-weight:700; margin-bottom:4px;">⚡ CREDIT BOOST — +$80/mo</div>
+        <div style="font-size:13px; color:var(--light);">Upgrade to <strong style="color:var(--white);">400 credits/day</strong> ≈ 130 tasks/day</div>
+        <div style="font-size:11px; color:var(--gray); margin-top:2px;">No support upgrade — just more AI power</div>
+      </div>
+      <a href="https://t.me/Willdaolam" class="price-cta price-cta-accent" target="_blank">Start for $369/mo →</a>
+      <div style="text-align:center; margin-top:10px; font-size:12px; color:var(--gray);">✅ Free session first · No hidden fees · Cancel anytime</div>
     </div>
 
-    <!-- FOUNDER -->
+    <!-- CHAMPION -->
     <div class="price-card founder">
-      <div class="badge badge-gold">⚡ 30 DAYS ONLY</div>
-      <div class="price-tier">Founder</div>
-      <div class="price-name">Locked In</div>
-      <div class="price-amount" style="color: var(--gold);">$1,000<span style="color:rgba(245,197,24,0.6);"> one-time</span></div>
-      <div class="price-desc">Full Pro plan. 1 year. Never at this price again.</div>
+      <div class="badge badge-gold">⚡ FOUNDING MEMBER</div>
+      <div class="price-tier">Champion</div>
+      <div class="price-name">All In — 1 Year</div>
+      <div style="display:flex; align-items:baseline; gap:8px; margin-bottom:4px;">
+        <span style="font-size:14px; color:var(--gray); text-decoration:line-through;">$10,788/yr</span>
+        <span style="font-size:12px; background:rgba(245,197,24,0.15); color:var(--gold); padding:2px 8px; border-radius:4px; font-weight:700;">81% OFF</span>
+      </div>
+      <div class="price-amount" style="color:var(--gold);">$1,999<span style="color:rgba(245,197,24,0.6);"> / year</span></div>
+      <div style="font-size:13px; color:var(--gray); margin-bottom:12px;">= <strong style="color:var(--white);">$167/month.</strong> Locked forever. Timer hits zero → deal gone.</div>
       <ul class="price-features">
-        <li><span class="check-gold">✓</span> Everything in Pro — for 12 months</li>
-        <li><span class="check-gold">✓</span> $2,388 value. You pay $1,000. Once.</li>
-        <li><span class="check-gold">✓</span> Locked at founder pricing forever</li>
+        <li><span class="check-gold">✓</span> <strong style="color:var(--white);">Unlimited support</strong> <span style="color:var(--gray);font-size:12px;">— no cap, no meter</span></li>
+        <li><span class="check-gold">✓</span> Unlimited fixes on demand</li>
+        <li><span class="check-gold">✓</span> Named founding member</li>
+        <li><span class="check-gold">✓</span> Direct line to Will & the team</li>
         <li><span class="check-gold">✓</span> First access to every new feature</li>
-        <li><span class="check-gold">✓</span> Named as founding member</li>
-        <li><span class="check-gold">✓</span> Direct line to Will & Faffy</li>
-        <li><span class="check-gold">✓</span> This deal disappears in 30 days</li>
+        <li><span class="check-gold">✓</span> <strong style="color:var(--gold);">400 Claudible credits/day</strong> <span style="color:var(--gray);font-size:12px;">≈ 130 tasks/day</span></li>
+        <li><span class="check-gold">✓</span> Free group community access</li>
       </ul>
-      <a href="https://calendly.com/noobslearnai" class="price-cta price-cta-gold" target="_blank">Claim Founder Spot →</a>
+      <!-- Credit upsell -->
+      <div style="background:rgba(245,197,24,0.05); border:1px solid rgba(245,197,24,0.2); border-radius:8px; padding:12px; margin:16px 0;">
+        <div style="font-size:12px; color:var(--gold); font-weight:700; margin-bottom:4px;">⚡ POWER TIER — +$150/mo</div>
+        <div style="font-size:13px; color:var(--light);">Upgrade to <strong style="color:var(--white);">800 credits/day</strong> ≈ 260 tasks/day</div>
+        <div style="font-size:11px; color:var(--gray); margin-top:2px;">For teams running heavy automation 24/7</div>
+      </div>
+      <a href="https://t.me/Willdaolam" class="price-cta price-cta-gold" target="_blank">Claim Champion Spot →</a>
+      <div style="text-align:center; margin-top:10px; font-size:12px; color:rgba(245,197,24,0.5);">✅ Free session first · Rate locked forever · No exceptions</div>
     </div>
 
   </div>
 
-  <p class="founder-note">
-    The <strong>Founder deal closes in 30 days</strong> and will never come back at this price.<br/>
-    After that, it's $199/month — no exceptions.
+  <!-- TRUST BAR -->
+  <div style="display:flex; align-items:center; justify-content:center; gap:32px; flex-wrap:wrap; margin-top:32px; padding:18px 24px; background:rgba(255,255,255,0.03); border:1px solid var(--border); border-radius:12px;">
+    <div style="display:flex; align-items:center; gap:8px;">
+      <span style="font-size:18px;">🔒</span>
+      <span style="font-size:13px; color:var(--white); font-weight:600;">No hidden fees</span>
+    </div>
+    <div style="width:1px; height:20px; background:var(--border);"></div>
+    <div style="display:flex; align-items:center; gap:8px;">
+      <span style="font-size:18px;">↩️</span>
+      <span style="font-size:13px; color:var(--white); font-weight:600;">Free session first</span>
+    </div>
+    <div style="width:1px; height:20px; background:var(--border);"></div>
+    <div style="display:flex; align-items:center; gap:8px;">
+      <span style="font-size:18px;">⚡</span>
+      <span style="font-size:13px; color:var(--white); font-weight:600;">Live in 48 hours</span>
+    </div>
+    <div style="width:1px; height:20px; background:var(--border);"></div>
+    <div style="display:flex; align-items:center; gap:8px;">
+      <span style="font-size:18px;">💬</span>
+      <span style="font-size:13px; color:var(--white); font-weight:600;">Cancel anytime</span>
+    </div>
+    <div style="width:1px; height:20px; background:var(--border);"></div>
+    <div style="display:flex; align-items:center; gap:8px;">
+      <span style="font-size:18px;">🌍</span>
+      <span style="font-size:13px; color:var(--white); font-weight:600;">Works anywhere</span>
+    </div>
+  </div>
+
+  <!-- CREDIT EXPLAINER -->
+  <div style="background:rgba(0,191,165,0.04); border:1px solid rgba(0,191,165,0.12); border-radius:12px; padding:20px 24px; margin-top:32px; display:grid; grid-template-columns: repeat(3,1fr); gap:16px; text-align:center;">
+    <div>
+      <div style="font-size:22px; font-weight:900; color:var(--accent);">75 cr/day</div>
+      <div style="font-size:13px; color:var(--white); font-weight:600; margin:4px 0;">≈ 25 AI tasks</div>
+      <div style="font-size:12px; color:var(--gray);">Daily reports, alerts, 1 workflow run</div>
+    </div>
+    <div style="border-left:1px solid var(--border); border-right:1px solid var(--border);">
+      <div style="font-size:22px; font-weight:900; color:var(--accent);">180 cr/day</div>
+      <div style="font-size:13px; color:var(--white); font-weight:600; margin:4px 0;">≈ 60 AI tasks</div>
+      <div style="font-size:12px; color:var(--gray);">Full ops stack + customer intake + reports</div>
+    </div>
+    <div>
+      <div style="font-size:22px; font-weight:900; color:var(--gold);">400 cr/day</div>
+      <div style="font-size:13px; color:var(--white); font-weight:600; margin:4px 0;">≈ 130 AI tasks</div>
+      <div style="font-size:12px; color:var(--gray);">Multi-agent, heavy automation, 24/7 runs</div>
+    </div>
+  </div>
+
+  <p class="founder-note" style="margin-top:24px;">
+    Market rate after campaign: <strong>$499/mo · $899/mo · $10,788/yr</strong><br/>
+    The <strong style="color:var(--gold);">Champion deal closes when the timer hits zero.</strong> No extensions. No exceptions.
   </p>
 </section>
 
@@ -2364,7 +2525,7 @@
       </tr>
       <tr>
         <td><strong>Noobs-Learn-AI</strong></td>
-        <td class="us">From $99</td>
+        <td class="us">From $199/mo</td>
         <td class="us">48 hours</td>
         <td class="us">Real humans. Real response.</td>
       </tr>
@@ -2397,12 +2558,12 @@
       <div class="faq-a">Just Telegram — which you almost certainly already have. Everything else runs in the cloud. We handle the setup.</div>
     </div>
     <div class="faq-item">
-      <div class="faq-q">What if it doesn't work for my business? <span>+</span></div>
-      <div class="faq-a">Full refund within 7 days if your agent isn't live and running. No questions. No hoops. Just message us.</div>
+      <div class="faq-q">What if it doesn't feel right before I commit? <span>+</span></div>
+      <div class="faq-a">We offer a free session before you pay anything. In that session you'll see exactly what your agent does, how it works, and whether it fits your ops. If it's not right for you — you walk away. No invoice. No awkward follow-up. Nothing.</div>
     </div>
     <div class="faq-item">
       <div class="faq-q">Why is the Founder deal only 30 days? <span>+</span></div>
-      <div class="faq-a">We're locking in early believers at a price that reflects the risk they're taking on us. After 30 days, the price goes to $199/month — permanently. We won't bring back the $1,000 annual deal. Ever.</div>
+      <div class="faq-a">We're locking in early believers at a price that reflects the risk they're taking on us. After the campaign ends: Newbie → $499/mo, Runner → $899/mo, Champion → $10,788/yr — permanently. We won't bring back these rates. Ever.</div>
     </div>
     <div class="faq-item">
       <div class="faq-q">I'm not in the US — does this work internationally? <span>+</span></div>
@@ -2414,15 +2575,57 @@
 <div class="divider"></div>
 
 <!-- FINAL CTA -->
+<div class="divider"></div>
+
+<!-- RISK FREE SECTION -->
+<section style="text-align:center; max-width:700px;">
+  <div class="section-label" style="display:block; text-align:center;">Zero Risk</div>
+  <h2 style="margin-bottom:16px;">Not sure yet?<br/><span class="dim">Start for free. No card. No pressure.</span></h2>
+  <p style="color:var(--light); font-size:16px; max-width:520px; margin:0 auto 40px;">
+    Talk to Nova on Telegram — the same AI that runs real business ops. Ask it anything. See what it can do for your business. No signup, no pitch, no sales call.
+  </p>
+
+  <!-- 3-step flow -->
+  <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:20px; margin-bottom:40px; text-align:left;">
+    <div style="background:rgba(0,191,165,0.05); border:1px solid rgba(0,191,165,0.15); border-radius:12px; padding:20px;">
+      <div style="font-size:28px; margin-bottom:10px;">💬</div>
+      <div style="font-weight:700; color:var(--white); margin-bottom:6px;">Step 1 — Chat free</div>
+      <div style="font-size:13px; color:var(--gray);">Open Telegram. Message Nova. Ask what it can automate for your ops. No card required.</div>
+    </div>
+    <div style="background:rgba(0,191,165,0.05); border:1px solid rgba(0,191,165,0.15); border-radius:12px; padding:20px;">
+      <div style="font-size:28px; margin-bottom:10px;">⚡</div>
+      <div style="font-weight:700; color:var(--white); margin-bottom:6px;">Step 2 — See it live</div>
+      <div style="font-size:13px; color:var(--gray);">In the free session, we show exactly what your agent would do — morning brief, alerts, reports. Real output for your business.</div>
+    </div>
+    <div style="background:rgba(0,191,165,0.05); border:1px solid rgba(0,191,165,0.15); border-radius:12px; padding:20px;">
+      <div style="font-size:28px; margin-bottom:10px;">🚀</div>
+      <div style="font-weight:700; color:var(--white); margin-bottom:6px;">Step 3 — Decide</div>
+      <div style="font-size:13px; color:var(--gray);">Liked what you saw? Go live in 48h. Didn't? Walk away — no invoice, no awkward emails. Nothing.</div>
+    </div>
+  </div>
+
+  <!-- CTAs -->
+  <div style="display:flex; gap:16px; justify-content:center; flex-wrap:wrap; align-items:center;">
+    <a href="https://t.me/Willdaolam" target="_blank" class="btn-primary" style="font-size:16px; padding:16px 36px; display:flex; align-items:center; gap:10px;">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.248-1.97 9.289c-.145.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12L8.31 13.617l-2.967-.924c-.645-.204-.657-.645.136-.953l11.57-4.461c.537-.194 1.006.131.513.969z"/></svg>
+      Message Will on Telegram — book a free session
+    </a>
+  </div>
+
+  <p style="margin-top:16px; font-size:12px; color:var(--gray);">
+    ✅ No credit card · No commitment · Walk away if it's not right
+  </p>
+</section>
+
 <div class="final-cta">
   <div class="section-label" style="text-align: center; display: block;">Last Call</div>
   <h2>Every day without an agent<br/><span class="dim">is a day they pull ahead.</span></h2>
   <p>The window is open right now. It won't stay open. The people who moved first in social media, ecommerce, SaaS — they won big. This is that moment. Except the barrier has never been lower.</p>
   <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
-    <a href="#pricing" class="btn-primary" style="font-size: 18px; padding: 18px 40px;">Start for $99 →</a>
-    <a href="https://calendly.com/noobslearnai" class="btn-secondary" style="font-size: 18px; padding: 18px 40px;" target="_blank">Book a Free Call</a>
+    <a href="https://t.me/Willdaolam" target="_blank" class="btn-primary" style="font-size: 18px; padding: 18px 40px;">💬 Message Will — book a free session →</a>
+    <a href="#pricing" class="btn-secondary" style="font-size: 18px; padding: 18px 40px;">See pricing →</a>
   </div>
-  <p style="margin-top: 24px; font-size: 13px; color: var(--gray);">⚡ Founder deal — $1,000/year — closes in 30 days. No exceptions.</p>
+  <p style="margin-top: 24px; font-size: 13px; color: var(--gray);">⚡ Champion deal closes when timer hits zero. No exceptions.</p>
 </div>
 
 <!-- FOOTER -->
@@ -2431,7 +2634,36 @@
 </footer>
 
 <script>
-// ── HERO PHONE CHAT ANIMATION ──
+// ── COUNTDOWN TIMER ──
+(function() {
+  const DEADLINE_KEY = 'nla_deadline';
+  let deadline = localStorage.getItem(DEADLINE_KEY);
+  if (!deadline) {
+    // 30 days from first visit
+    deadline = Date.now() + (30 * 24 * 60 * 60 * 1000);
+    localStorage.setItem(DEADLINE_KEY, deadline);
+  }
+  deadline = parseInt(deadline);
+
+  const el = document.getElementById('countdown-timer');
+  if (!el) return;
+
+  function update() {
+    const diff = deadline - Date.now();
+    if (diff <= 0) {
+      el.textContent = 'EXPIRED';
+      el.style.color = '#fb7185';
+      return;
+    }
+    const d = Math.floor(diff / 86400000);
+    const h = Math.floor((diff % 86400000) / 3600000);
+    const m = Math.floor((diff % 3600000) / 60000);
+    const s = Math.floor((diff % 60000) / 1000);
+    el.textContent = `${d}d ${String(h).padStart(2,'0')}h ${String(m).padStart(2,'0')}m ${String(s).padStart(2,'0')}s`;
+  }
+  update();
+  setInterval(update, 1000);
+})();
 const heroMessages = [
   { role: 'agent', delay: 400, html: `<span class="b">📊 Morning Brief — Today</span><br/>Revenue yesterday: <span class="g">4.2M ↑ 14%</span><br/>Best seller: Kare Tonkatsu · 51 orders<br/><span class="r">⚠ Udon stock critical</span> — reorder sent` },
   { role: 'user',  delay: 1600, html: `what happened at midnight?` },
@@ -2491,8 +2723,11 @@ setTimeout(showHeroMsg, heroMessages[0].delay);
 
 // ── CLIMAX COUNTER — random bursts, feels organic ──
 const counterEl = document.getElementById('climaxCounter');
-let counterVal = 0;
+// Start from a "live" base — feels real, not from 0
+let counterVal = Math.floor(1847 + Math.random() * 300);
 let counterRunning = false;
+
+if (counterEl) counterEl.textContent = counterVal.toLocaleString();
 
 function randomBetween(a, b) { return a + Math.random() * (b - a); }
 
@@ -2527,44 +2762,44 @@ const climaxObs = new IntersectionObserver((entries) => {
     runCounter();
     climaxObs.disconnect();
   }
-}, { threshold: 0.3 });
-climaxObs.observe(counterEl);
+}, { threshold: 0.1 });
+if (counterEl) {
+  climaxObs.observe(counterEl);
+  // Fallback: start anyway after 4s if IntersectionObserver didn't fire
+  setTimeout(() => {
+    if (!counterRunning) {
+      counterRunning = true;
+      runCounter();
+    }
+  }, 4000);
+}
 
 // ── LIVE DEMO CHAT ──
-const demoInput  = document.getElementById('demoInput');
-const demoSend   = document.getElementById('demoSend');
 const demoMsgs   = document.getElementById('demoMsgs');
 const demoTyping = document.getElementById('demoTyping');
+let demoIsSending = false;
 
 const demoResponses = {
-  default: [
-    `Great question. Here's what I'd do for that: pull the relevant data automatically every morning, flag anything outside normal range, and send it to you in a 4-line summary. No manual work on your end.`,
-    `That's exactly the kind of thing I handle. Setup takes about 48 hours — then it runs on its own. You'd never have to touch it unless you want to change something.`,
-    `Honestly, this is one of the first things I'd automate for you. It's repetitive, predictable, and currently eating your time. Let me show you what the output looks like →`,
-  ],
-  morning: `Every morning at 6am, you'd get something like this:\n\n📊 <b>Monday Brief</b>\nRevenue yesterday: <span class="g">+12% vs last week</span>\nTop SKU: Product A · 47 units\n<span class="r">⚠ Stock alert: Item X below reorder threshold</span>\nToday's target: on track\n\nRead it in 20 seconds. Start your day with full context.`,
-  automate: `Here's what I can take off your plate right now:\n\n✅ Daily revenue & ops report (auto, 6am)\n✅ Stock alerts when threshold hit\n✅ Shift report collection from staff\n✅ Lead intake & FAQ replies (24/7)\n✅ Weekly P&L digest\n✅ Payment & renewal reminders\n\nAll wired into Telegram. No new apps.`,
-  orders: `At 2am, when a customer messages, I:\n1. Respond instantly with menu/info\n2. Qualify their request\n3. Route to the right channel\n4. Log the interaction\n\nYour competitor set this up last month. They made <span class="g">$180 in late-night orders</span> this week. You didn't.`,
-  staff: `Staff management I can handle:\n\n📝 Shift check-in/out via Telegram command\n📊 Auto-compile weekly attendance\n🔔 Alert you if someone doesn't check in\n📋 Store shift notes & incident logs\n\nHiếu types <b>/baoca</b>. I handle the rest.`,
-  cost: `Starting at <b>$99 one-time</b> for a custom agent built for your ops — live in 48 hours. Or <b>$199/month</b> to have us as your ongoing AI team. The Founder deal is $1,000 for a full year.\n\nCompare that to: <span class="r">$5,000+ dev quote · $200/hr consultant · 6 months DIY</span>.\n\n<a href="https://calendly.com/noobslearnai" target="_blank" style="color:var(--accent);">Book a free call →</a>`,
+  morning: `Every morning at 6am, you'd get something like this:\n\n📊 <b>Monday Brief</b>\nRevenue yesterday: <span class="g">+12% vs last week</span>\nTop SKU: Kare Tonkatsu · 47 units\n<span class="r">⚠ Stock alert: Udon below reorder threshold</span>\nToday's target: on track\n\nRead it in 20 seconds. Start your day with full context — before you open a single message.`,
+  automate: `Here's what I take off your plate from day one:\n\n✅ Daily revenue & ops report — auto, 6am\n✅ Stock alerts the moment threshold is hit\n✅ Shift report collection from staff via Telegram\n✅ Lead intake & FAQ replies — 24/7, no staff\n✅ Weekly P&L digest auto-compiled\n✅ Payment & renewal reminders\n\nAll wired into Telegram. No new apps. No learning curve.`,
+  orders: `At 3am, when a customer messages:\n\n1. I respond instantly with menu/pricing\n2. Qualify their order\n3. Route & log the transaction\n4. You wake up to revenue — not missed messages\n\nYour competitor set this up already. They made <span class="g">$180 in late-night orders</span> this week alone.\n<span class="r">You got $0. That gap compounds every night.</span>`,
+  staff: `Staff & shifts — fully automated:\n\n📝 Check-in/out via <b>/baoca</b> in Telegram\n📊 Weekly attendance auto-compiled\n🔔 Alert fired if someone doesn't check in\n📋 Shift notes & incidents stored automatically\n\nYour team just types a command. I handle the rest — no chasing, no manual spreadsheets.`,
+  cost: `<b>3 plans. No hidden fees:</b>\n\n🟢 <b>Newbie — $199/mo</b> · 75 credits/day · 3 support days\n🔵 <b>Runner — $369/mo</b> · 180 credits/day · 10 support days\n⭐ <b>Champion — $1,999/yr</b> · 400 credits/day · unlimited support\n\nMarket rate is $499–$899/mo. Launch pricing ends when the timer hits zero.\n\n<a href="https://t.me/Willdaolam" target="_blank" style="color:var(--accent);font-weight:700;">Book a free call — we'll build yours in 48h →</a>`,
 };
 
-function getDemoReply(input) {
-  const q = input.toLowerCase();
-  if (q.includes('morning') || q.includes('brief') || q.includes('report')) return demoResponses.morning;
-  if (q.includes('automat') || q.includes('what can') || q.includes('do for me')) return demoResponses.automate;
-  if (q.includes('order') || q.includes('3am') || q.includes('night') || q.includes('midnight')) return demoResponses.orders;
-  if (q.includes('staff') || q.includes('shift') || q.includes('employee') || q.includes('team')) return demoResponses.staff;
-  if (q.includes('cost') || q.includes('price') || q.includes('how much') || q.includes('$')) return demoResponses.cost;
-  return demoResponses.default[Math.floor(Math.random() * demoResponses.default.length)];
-}
+const chipLabels = {
+  morning:  '📊 What\'s my morning brief?',
+  automate: '🤖 What can you automate?',
+  orders:   '🌙 How do you handle 3am orders?',
+  staff:    '👥 Staff & shift reports?',
+  cost:     '💰 How much does this cost?',
+};
 
 function addDemoMsg(html, role) {
   const row = document.createElement('div');
   row.className = 'dcw-msg' + (role === 'user' ? ' out' : '');
   const av = document.createElement('div');
   av.className = 'dcw-av ' + (role === 'bot' ? 'bot' : 'usr');
-  av.textContent = '';
   av.classList.add(role === 'bot' ? 'av-agent-bg' : 'av-user-bg');
   const bbl = document.createElement('div');
   bbl.className = 'dcw-bbl ' + (role === 'bot' ? 'bot' : 'usr');
@@ -2575,41 +2810,37 @@ function addDemoMsg(html, role) {
   demoMsgs.scrollTop = demoMsgs.scrollHeight;
 }
 
-function sendDemo() {
-  const text = demoInput.value.trim();
-  if (!text) return;
-  demoInput.value = '';
-  addDemoMsg(text, 'user');
+function sendChip(key, chipEl) {
+  if (demoIsSending) return;
+  demoIsSending = true;
+  chipEl.classList.add('used');
 
-  // show typing
+  addDemoMsg(chipLabels[key], 'user');
   demoMsgs.appendChild(demoTyping);
   demoTyping.classList.add('show');
   demoMsgs.scrollTop = demoMsgs.scrollHeight;
 
   setTimeout(() => {
     demoTyping.classList.remove('show');
-    const reply = getDemoReply(text);
-    addDemoMsg(reply, 'bot');
+    addDemoMsg(demoResponses[key], 'bot');
 
-    // after 2 replies, nudge to book
-    const msgCount = demoMsgs.querySelectorAll('.dcw-msg.out').length;
-    if (msgCount >= 2) {
+    const usedCount = document.querySelectorAll('.dcw-chip.used').length;
+    if (usedCount >= 2) {
       setTimeout(() => {
-        addDemoMsg(`This is just a taste. Your real agent knows <b>your</b> business — your SKUs, your team, your ops. <a href="https://calendly.com/noobslearnai" target="_blank" style="color:var(--accent);font-weight:700;">Book a free call → we'll build yours in 48 hours.</a>`, 'bot');
-      }, 1200);
+        addDemoMsg(`Message Will on Telegram to book a free session — he'll show you exactly what your agent would do. <a href='https://t.me/Willdaolam' target='_blank' style='color:var(--accent);font-weight:700;'>💬 Message Will →</a>`, 'bot');
+      }, 1000);
     }
-  }, 1400 + Math.random() * 600);
+    demoIsSending = false;
+  }, 1200 + Math.random() * 600);
 }
 
-demoSend.addEventListener('click', sendDemo);
-demoInput.addEventListener('keydown', (e) => { if (e.key === 'Enter') sendDemo(); });
+document.querySelectorAll('.dcw-chip').forEach(chip => {
+  chip.addEventListener('click', () => sendChip(chip.dataset.key, chip));
+});
 
-// Suggested prompts auto-fill
+// Suggested prompts auto-fill (legacy — chips handle this now)
 document.querySelectorAll('[data-prompt]').forEach(el => {
-  el.addEventListener('click', () => {
-    demoInput.value = el.dataset.prompt;
-    demoInput.focus();
-  });
+  el.addEventListener('click', () => {});
 });
 
 // ── HERO AGENT VOICE LOG — stagger in on load ──
@@ -2663,6 +2894,78 @@ const tlObs = new IntersectionObserver((entries) => {
   });
 }, { threshold: 0.4 });
 document.querySelectorAll('.tl-item').forEach(el => tlObs.observe(el));
+</script>
+
+<!-- ── NOVA CAT — Spirit cat that wanders across the screen ── -->
+<div id="nova-cat">
+  <div class="cat-body">🐱</div>
+  <div class="cat-sparkle">✨</div>
+</div>
+
+<script>
+(function() {
+  const cat = document.getElementById('nova-cat');
+  let isRunning = false;
+
+  // Cat messages — Nova says something cute occasionally
+  const catQuips = [
+    '⚡', '✨', '🌟', '💫', '🐾', '⚡', '✨', '🐾'
+  ];
+
+  function runCat() {
+    if (isRunning) return;
+    isRunning = true;
+
+    // Pick direction randomly
+    const goRight = Math.random() > 0.5;
+
+    // Reset position & classes
+    cat.classList.remove('running-right', 'running-left');
+    cat.style.animation = 'none';
+    cat.style.left = '';
+    cat.style.right = '';
+    cat.style.transform = '';
+
+    // Random bottom position (between 20px and 80px)
+    const bottom = 20 + Math.floor(Math.random() * 60);
+    cat.style.bottom = bottom + 'px';
+
+    // Random sparkle
+    const sparkle = cat.querySelector('.cat-sparkle');
+    sparkle.textContent = catQuips[Math.floor(Math.random() * catQuips.length)];
+
+    // Trigger reflow then animate
+    requestAnimationFrame(() => {
+      if (goRight) {
+        cat.style.left = '-120px';
+        cat.style.right = '';
+        cat.style.transform = 'scaleX(1)';
+        cat.classList.add('running-right');
+      } else {
+        cat.style.right = '-120px';
+        cat.style.left = 'auto';
+        cat.style.transform = 'scaleX(-1)';
+        cat.classList.add('running-left');
+      }
+
+      // After run completes (6s), reset
+      setTimeout(() => {
+        cat.classList.remove('running-right', 'running-left');
+        cat.style.left = '-120px';
+        cat.style.right = '';
+        cat.style.transform = '';
+        isRunning = false;
+
+        // Schedule next run: 12–25 seconds
+        const nextIn = 12000 + Math.random() * 13000;
+        setTimeout(runCat, nextIn);
+      }, 6200);
+    });
+  }
+
+  // First run after 4 seconds on page load
+  setTimeout(runCat, 4000);
+})();
 </script>
 
 </body>
