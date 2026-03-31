@@ -3,147 +3,157 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AI Skill Library | Agent Skills Marketplace | NoobsLearnAI</title>
-<meta name="description" content="Browse AI agent skills — Session Memory, Kitchen Ops, HR, Companion, Code Builder. Pick the skills your AI agent needs. No code required.">
+<title>Thư Viện Kỹ Năng AI | Skill Library | Trợ Lý Thông Minh</title>
+<meta name="description" content="Khám phá kỹ năng AI cho trợ lý thông minh của bạn. Hard skills, soft skills, và combo gợi ý. Session Memory, quản lý bếp, companion, marketing và hơn thế.">
 <link rel="canonical" href="https://noobslearnai.today/library/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;600;700;800&display=swap">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-:root{--black:#12121a;--dark:#171720;--card:#1e1e2a;--border:#2e2e3d;--accent:#00bfa5;--accent2:#00d4b8;--white:#eaeaf0;--gray:#8888a4;--light:#b0b0c8;}
-body{background:var(--black);background-image:radial-gradient(ellipse at 50% 0%,rgba(255,255,255,.03) 0%,transparent 40%),radial-gradient(ellipse at 75% 40%,rgba(0,191,165,.06) 0%,transparent 35%);color:var(--white);font-family:'Inter',sans-serif;font-size:16px;line-height:1.6;overflow-x:hidden;min-height:100vh;}
-
-/* Nav */
-nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:16px 32px;display:flex;justify-content:space-between;align-items:center;background:rgba(15,15,19,.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);box-shadow:0 1px 8px rgba(0,0,0,.3);}
-.nav-logo{font-weight:900;font-size:18px;letter-spacing:-.5px;color:var(--white);text-decoration:none;}
-.nav-logo span{color:var(--accent);}
+body{background:#0b0f1a;color:#e8edf5;font-family:'Inter',sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden;min-height:100vh;}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:14px 32px;display:flex;justify-content:space-between;align-items:center;background:rgba(11,15,26,.92);backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,.06);}
+.nav-logo{font-family:'Space Grotesk',sans-serif;font-size:20px;font-weight:800;background:linear-gradient(135deg,#fff,#22d3ee);-webkit-background-clip:text;-webkit-text-fill-color:transparent;text-decoration:none;}
 .nav-links{display:flex;gap:24px;align-items:center;}
-.nav-links a{font-size:13px;color:var(--gray);text-decoration:none;font-weight:500;transition:color .2s;}
-.nav-links a:hover{color:var(--white);}
-.nav-cta{background:var(--accent);color:white;border:none;padding:10px 22px;border-radius:6px;font-weight:700;font-size:14px;text-decoration:none;transition:background .2s;}
-.nav-cta:hover{background:var(--accent2);}
+.nav-links a{font-size:13px;color:rgba(180,195,215,.75);text-decoration:none;font-weight:500;transition:color .2s;}
+.nav-links a:hover{color:#e8edf5;}
+.nav-cta{padding:9px 20px;background:linear-gradient(135deg,#22d3ee,#2563eb);color:#fff;border-radius:8px;font-size:13px;font-weight:700;text-decoration:none;box-shadow:0 4px 14px rgba(34,211,238,.25);transition:all .2s;}
+.nav-cta:hover{transform:translateY(-1px);box-shadow:0 6px 20px rgba(34,211,238,.35);}
+.hero{padding:120px 24px 40px;text-align:center;}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;padding:6px 16px;background:rgba(34,211,238,.07);border:1px solid rgba(34,211,238,.18);border-radius:100px;font-size:12px;font-weight:600;color:#22d3ee;margin-bottom:24px;}
+.hero h1{font-family:'Space Grotesk',sans-serif;font-size:clamp(28px,5vw,48px);font-weight:900;letter-spacing:-2px;line-height:1.1;margin-bottom:16px;}
+.hero h1 span{background:linear-gradient(135deg,#22d3ee,#60a5fa);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+.hero p{font-size:16px;color:rgba(180,195,215,.78);max-width:560px;margin:0 auto;line-height:1.7;}
 
-/* Hero */
-.hero{padding:120px 24px 60px;text-align:center;}
-.hero-badge{display:inline-flex;align-items:center;gap:8px;padding:6px 16px;background:rgba(0,191,165,.07);border:1px solid rgba(0,191,165,.2);border-radius:100px;font-size:12px;font-weight:600;color:var(--accent);margin-bottom:24px;}
-.hero h1{font-size:clamp(28px,5vw,48px);font-weight:900;letter-spacing:-2px;line-height:1.1;margin-bottom:16px;}
-.hero h1 span{color:var(--accent);}
-.hero p{font-size:16px;color:var(--gray);max-width:560px;margin:0 auto;line-height:1.7;}
+/* Category sections */
+.category-section{max-width:1100px;margin:0 auto;padding:0 24px 48px;}
+.category-header{display:flex;align-items:center;gap:12px;margin-bottom:8px;}
+.category-header h2{font-family:'Space Grotesk',sans-serif;font-size:22px;font-weight:800;letter-spacing:-1px;}
+.category-badge{padding:4px 10px;border-radius:6px;font-size:10px;font-weight:800;letter-spacing:1px;}
+.badge-hard{background:rgba(34,211,238,.1);color:#22d3ee;border:1px solid rgba(34,211,238,.2);}
+.badge-soft{background:rgba(168,85,247,.1);color:#a855f7;border:1px solid rgba(168,85,247,.2);}
+.badge-core{background:rgba(250,204,21,.1);color:#facc15;border:1px solid rgba(250,204,21,.2);}
+.badge-combo{background:rgba(244,63,94,.1);color:#f43f5e;border:1px solid rgba(244,63,94,.2);}
+.category-desc{font-size:13px;color:rgba(180,195,215,.55);margin-bottom:20px;max-width:600px;}
 
 /* Filter */
-.filter-bar{display:flex;justify-content:center;gap:8px;flex-wrap:wrap;padding:0 24px 40px;max-width:700px;margin:0 auto;}
-.filter-btn{padding:8px 18px;border-radius:100px;border:1px solid var(--border);background:transparent;color:var(--gray);font-size:12px;font-weight:600;cursor:pointer;transition:all .2s;}
-.filter-btn:hover,.filter-btn.active{background:rgba(0,191,165,.1);border-color:rgba(0,191,165,.3);color:var(--accent);}
+.filter-bar{display:flex;justify-content:center;gap:8px;flex-wrap:wrap;padding:0 24px 40px;max-width:800px;margin:0 auto;}
+.filter-btn{padding:8px 18px;border-radius:100px;border:1px solid rgba(255,255,255,.1);background:transparent;color:rgba(180,195,215,.7);font-size:12px;font-weight:600;cursor:pointer;transition:all .2s;}
+.filter-btn:hover,.filter-btn.active{background:rgba(34,211,238,.1);border-color:rgba(34,211,238,.3);color:#22d3ee;}
 
-/* Grid */
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:20px;max-width:1100px;margin:0 auto;padding:0 24px 80px;}
-
-/* Skill Card */
-.skill-card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:24px;cursor:pointer;transition:all .25s;position:relative;overflow:hidden;}
-.skill-card:hover{border-color:rgba(0,191,165,.25);transform:translateY(-3px);box-shadow:0 12px 40px rgba(0,0,0,.4);}
-.skill-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--grade-color,var(--accent)),transparent);opacity:0;transition:opacity .25s;}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px;margin-bottom:8px;}
+.skill-card{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);border-radius:14px;padding:20px;cursor:pointer;transition:all .25s;position:relative;overflow:hidden;}
+.skill-card:hover{border-color:rgba(34,211,238,.2);transform:translateY(-3px);box-shadow:0 12px 40px rgba(0,0,0,.3);}
+.skill-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--grade-color,#22d3ee),transparent);opacity:0;transition:opacity .25s;}
 .skill-card:hover::before{opacity:1;}
-.card-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:14px;}
-.card-icon{width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:22px;background:rgba(0,191,165,.08);border:1px solid rgba(0,191,165,.15);}
-.card-grade{padding:4px 10px;border-radius:6px;font-size:10px;font-weight:800;letter-spacing:1px;}
+.card-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:12px;}
+.card-icon{width:40px;height:40px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:20px;background:rgba(34,211,238,.08);border:1px solid rgba(34,211,238,.12);}
+.card-icon.soft{background:rgba(168,85,247,.08);border-color:rgba(168,85,247,.12);}
+.card-grade{padding:3px 8px;border-radius:5px;font-size:9px;font-weight:800;letter-spacing:1px;}
 .card-grade.s{background:rgba(250,204,21,.1);color:#facc15;border:1px solid rgba(250,204,21,.25);}
 .card-grade.ss{background:rgba(251,146,60,.1);color:#fb923c;border:1px solid rgba(251,146,60,.25);}
 .card-grade.sss{background:rgba(244,63,94,.1);color:#f43f5e;border:1px solid rgba(244,63,94,.25);}
-.card-grade.a{background:rgba(0,191,165,.1);color:var(--accent);border:1px solid rgba(0,191,165,.25);}
-.skill-card h3{font-size:16px;font-weight:700;margin-bottom:6px;}
-.skill-card .desc{font-size:13px;color:var(--gray);line-height:1.6;margin-bottom:14px;}
-.card-tags{display:flex;gap:6px;flex-wrap:wrap;}
-.card-tag{padding:3px 8px;border-radius:4px;font-size:10px;font-weight:600;background:rgba(255,255,255,.04);color:var(--gray);border:1px solid var(--border);}
+.card-grade.a{background:rgba(34,211,238,.1);color:#22d3ee;border:1px solid rgba(34,211,238,.25);}
+.card-grade.b{background:rgba(74,222,128,.1);color:#4ade80;border:1px solid rgba(74,222,128,.25);}
+.skill-card h3{font-size:15px;font-weight:700;margin-bottom:5px;color:#e8edf5;}
+.skill-card .desc{font-size:12px;color:rgba(180,195,215,.6);line-height:1.55;margin-bottom:12px;}
+.card-tags{display:flex;gap:5px;flex-wrap:wrap;}
+.card-tag{padding:2px 7px;border-radius:4px;font-size:9px;font-weight:600;background:rgba(255,255,255,.04);color:rgba(180,195,215,.5);border:1px solid rgba(255,255,255,.06);}
+
+/* Combo cards */
+.combo-section{max-width:1100px;margin:0 auto;padding:0 24px 60px;}
+.combo-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:16px;}
+.combo-card{background:rgba(244,63,94,.03);border:1px solid rgba(244,63,94,.1);border-radius:14px;padding:20px;transition:all .25s;}
+.combo-card:hover{border-color:rgba(244,63,94,.25);transform:translateY(-2px);}
+.combo-card h3{font-size:15px;font-weight:700;margin-bottom:4px;color:#f43f5e;}
+.combo-card .combo-for{font-size:11px;color:rgba(180,195,215,.5);margin-bottom:10px;}
+.combo-skills{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px;}
+.combo-skill{padding:4px 10px;border-radius:6px;font-size:11px;font-weight:600;background:rgba(255,255,255,.04);color:rgba(180,195,215,.7);border:1px solid rgba(255,255,255,.08);}
+.combo-card .why{font-size:12px;color:rgba(180,195,215,.55);line-height:1.6;}
 
 /* Modal */
 .modal-overlay{position:fixed;inset:0;z-index:200;background:rgba(0,0,0,.7);backdrop-filter:blur(8px);display:none;align-items:center;justify-content:center;padding:24px;opacity:0;transition:opacity .25s;}
 .modal-overlay.open{display:flex;opacity:1;}
-.modal{background:var(--dark);border:1px solid var(--border);border-radius:20px;max-width:640px;width:100%;max-height:85vh;overflow-y:auto;position:relative;box-shadow:0 24px 80px rgba(0,0,0,.6);}
+.modal{background:#141822;border:1px solid rgba(255,255,255,.08);border-radius:20px;max-width:640px;width:100%;max-height:85vh;overflow-y:auto;position:relative;box-shadow:0 24px 80px rgba(0,0,0,.6);}
 .modal-header{padding:28px 28px 0;position:relative;}
-.modal-close{position:absolute;top:20px;right:20px;width:32px;height:32px;border-radius:8px;border:1px solid var(--border);background:rgba(255,255,255,.04);color:var(--gray);font-size:16px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .2s;}
-.modal-close:hover{background:rgba(255,255,255,.08);color:var(--white);}
-.modal-icon{width:56px;height:56px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:28px;background:rgba(0,191,165,.08);border:1px solid rgba(0,191,165,.15);margin-bottom:16px;}
-.modal-meta{display:flex;gap:10px;align-items:center;margin-bottom:8px;}
-.modal h2{font-size:24px;font-weight:900;letter-spacing:-1px;margin-bottom:6px;}
-.modal .subtitle{font-size:14px;color:var(--gray);margin-bottom:20px;}
+.modal-close{position:absolute;top:20px;right:20px;width:32px;height:32px;border-radius:8px;border:1px solid rgba(255,255,255,.08);background:rgba(255,255,255,.04);color:rgba(180,195,215,.6);font-size:16px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .2s;}
+.modal-close:hover{background:rgba(255,255,255,.08);color:#e8edf5;}
+.modal-icon{width:56px;height:56px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:28px;background:rgba(34,211,238,.08);border:1px solid rgba(34,211,238,.12);margin-bottom:16px;}
+.modal-meta{display:flex;gap:10px;align-items:center;margin-bottom:8px;flex-wrap:wrap;}
+.modal h2{font-family:'Space Grotesk',sans-serif;font-size:24px;font-weight:800;letter-spacing:-1px;margin-bottom:6px;}
+.modal .subtitle{font-size:14px;color:rgba(180,195,215,.6);margin-bottom:20px;}
 .modal-body{padding:0 28px 28px;}
 .modal-section{margin-bottom:20px;}
-.modal-section h4{font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:rgba(0,191,165,.5);margin-bottom:10px;}
-.modal-section p,.modal-section li{font-size:14px;color:var(--light);line-height:1.75;}
+.modal-section h4{font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:rgba(34,211,238,.5);margin-bottom:10px;}
+.modal-section p,.modal-section li{font-size:14px;color:rgba(180,195,215,.8);line-height:1.75;}
 .modal-section ol{padding-left:20px;}
 .modal-section ol li{margin-bottom:6px;}
-.modal-section .highlight{background:rgba(0,191,165,.06);border:1px solid rgba(0,191,165,.15);border-radius:10px;padding:16px;margin-top:10px;font-size:13px;color:var(--light);line-height:1.7;}
-.modal-section .highlight strong{color:var(--accent);}
+.modal-section .highlight{background:rgba(34,211,238,.06);border:1px solid rgba(34,211,238,.12);border-radius:10px;padding:16px;margin-top:10px;font-size:13px;color:rgba(180,195,215,.75);line-height:1.7;}
+.modal-section .highlight strong{color:#22d3ee;}
 .modal-flow{display:flex;align-items:center;gap:8px;flex-wrap:wrap;padding:14px 0;}
-.modal-flow .step{padding:8px 14px;background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:8px;font-size:13px;font-weight:600;color:var(--light);}
-.modal-flow .arrow{color:rgba(0,191,165,.4);font-size:16px;}
-.modal-cta{display:block;width:100%;padding:14px;background:var(--accent);color:white;border:none;border-radius:10px;font-size:15px;font-weight:700;cursor:pointer;text-align:center;text-decoration:none;transition:all .2s;margin-top:8px;}
-.modal-cta:hover{background:var(--accent2);transform:translateY(-1px);}
+.modal-flow .step{padding:8px 14px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.06);border-radius:8px;font-size:13px;font-weight:600;color:rgba(180,195,215,.8);}
+.modal-flow .arrow{color:rgba(34,211,238,.4);font-size:16px;}
+.modal-suggestion{background:rgba(168,85,247,.06);border:1px solid rgba(168,85,247,.15);border-radius:10px;padding:14px;margin-top:12px;}
+.modal-suggestion h5{font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(168,85,247,.5);margin-bottom:8px;}
+.modal-suggestion .suggest-items{display:flex;gap:6px;flex-wrap:wrap;}
+.modal-suggestion .suggest-item{padding:4px 10px;border-radius:6px;font-size:11px;font-weight:600;background:rgba(168,85,247,.08);color:#a855f7;border:1px solid rgba(168,85,247,.15);cursor:pointer;transition:all .2s;}
+.modal-suggestion .suggest-item:hover{background:rgba(168,85,247,.15);}
 
-/* Activation Flow */
-.activate-section{margin-top:20px;padding-top:20px;border-top:1px solid var(--border);}
-.activate-label{font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:rgba(0,191,165,.5);margin-bottom:12px;}
+.activate-section{margin-top:20px;padding-top:20px;border-top:1px solid rgba(255,255,255,.06);}
+.activate-label{font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:rgba(34,211,238,.5);margin-bottom:12px;}
 .activate-input-row{display:flex;gap:8px;margin-bottom:10px;}
-.activate-input{flex:1;padding:12px 16px;background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:8px;color:var(--white);font-size:14px;font-family:'Inter',sans-serif;outline:none;transition:border-color .2s;}
-.activate-input::placeholder{color:rgba(136,136,164,.4);}
-.activate-input:focus{border-color:rgba(0,191,165,.4);}
-.activate-btn{padding:12px 20px;background:var(--accent);color:white;border:none;border-radius:8px;font-size:14px;font-weight:700;cursor:pointer;white-space:nowrap;transition:all .2s;}
-.activate-btn:hover{background:var(--accent2);transform:translateY(-1px);}
-.activate-btn:disabled{opacity:.5;cursor:not-allowed;transform:none;}
-.activate-success{display:none;padding:12px 16px;background:rgba(0,191,165,.08);border:1px solid rgba(0,191,165,.2);border-radius:8px;font-size:13px;color:var(--accent);text-align:center;margin-bottom:10px;animation:fadeIn .3s ease;}
-.activate-divider{display:flex;align-items:center;gap:12px;margin:14px 0;color:var(--gray);font-size:12px;}
-.activate-divider::before,.activate-divider::after{content:'';flex:1;height:1px;background:var(--border);}
-.activate-create{display:block;width:100%;padding:12px;background:transparent;border:1px solid var(--border);color:var(--light);border-radius:8px;font-size:14px;font-weight:600;cursor:pointer;text-align:center;text-decoration:none;transition:all .2s;}
-.activate-create:hover{border-color:rgba(255,255,255,.2);color:var(--white);background:rgba(255,255,255,.03);}
+.activate-input{flex:1;padding:12px 16px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:8px;color:#e8edf5;font-size:14px;font-family:'Inter',sans-serif;outline:none;transition:border-color .2s;}
+.activate-input::placeholder{color:rgba(180,195,215,.35);}
+.activate-input:focus{border-color:rgba(34,211,238,.4);}
+.activate-btn{padding:12px 20px;background:linear-gradient(135deg,#22d3ee,#2563eb);color:#fff;border:none;border-radius:8px;font-size:14px;font-weight:700;cursor:pointer;white-space:nowrap;transition:all .2s;}
+.activate-btn:hover{transform:translateY(-1px);box-shadow:0 6px 20px rgba(34,211,238,.3);}
+.activate-success{display:none;padding:12px 16px;background:rgba(34,211,238,.08);border:1px solid rgba(34,211,238,.2);border-radius:8px;font-size:13px;color:#22d3ee;text-align:center;margin-bottom:10px;animation:fadeIn .3s ease;}
+.activate-create{display:block;width:100%;padding:12px;background:transparent;border:1px solid rgba(255,255,255,.12);color:rgba(180,195,215,.8);border-radius:8px;font-size:14px;font-weight:600;cursor:pointer;text-align:center;text-decoration:none;transition:all .2s;}
+.activate-create:hover{border-color:rgba(255,255,255,.25);color:#e8edf5;background:rgba(255,255,255,.03);}
 @keyframes fadeIn{from{opacity:0;transform:translateY(-4px);}to{opacity:1;transform:translateY(0);}}
-
 @media(max-width:640px){
-  nav{padding:12px 16px;}
-  .nav-links{display:none;}
-  .hero{padding:100px 16px 40px;}
-  .grid{padding:0 16px 60px;}
-  .modal{border-radius:16px;margin:12px;}
-  .modal-header,.modal-body{padding-left:20px;padding-right:20px;}
+  nav{padding:12px 16px;}.nav-links{display:none;}.hero{padding:100px 16px 40px;}.category-section,.combo-section{padding-left:16px;padding-right:16px;}.modal{border-radius:16px;margin:12px;}.modal-header,.modal-body{padding-left:20px;padding-right:20px;}
 }
 </style>
 </head>
 <body>
 
 <nav>
-  <a href="/" class="nav-logo">Noobs<span>LearnAI</span></a>
+  <a href="/" class="nav-logo">NoobsLearnAI</a>
   <div class="nav-links">
     <a href="/">Home</a>
-    <a href="/library/" style="color:var(--accent);">Skill Library</a>
+    <a href="/library/" style="color:#22d3ee;">Skill Library</a>
     <a href="/walkthrough/">Setup Guide</a>
-    <a href="https://www.myclaw.vn/en/pricing" class="nav-cta">Get Started →</a>
+    <a href="https://www.myclaw.vn/en/pricing?utm_source=noobslearnai&utm_medium=library" class="nav-cta">Get Started →</a>
   </div>
 </nav>
 
 <section class="hero">
   <div class="hero-badge">🧠 SKILL LIBRARY</div>
   <h1>Skills for Your <span>AI Agent</span></h1>
-  <p>Each skill is a specific capability your AI agent can learn. Pick the ones that match your business.</p>
+  <p>Hard skills for operations. Soft skills for understanding people. Smart combos included. Pick the skill set that matches your business.</p>
 </section>
 
 <div class="filter-bar">
   <button class="filter-btn active" data-filter="all">All</button>
-  <button class="filter-btn" data-filter="core">Core</button>
-  <button class="filter-btn" data-filter="ops">Operations</button>
-  <button class="filter-btn" data-filter="companion">Companion</button>
-  <button class="filter-btn" data-filter="builder">Builder</button>
-  <button class="filter-btn" data-filter="marketing">Marketing</button>
+  <button class="filter-btn" data-filter="core">⚙️ Core</button>
+  <button class="filter-btn" data-filter="hard-ops">🏭 Operations</button>
+  <button class="filter-btn" data-filter="hard-tech">⚡ Technical</button>
+  <button class="filter-btn" data-filter="hard-biz">📈 Business</button>
+  <button class="filter-btn" data-filter="soft-companion">💬 Companion</button>
+  <button class="filter-btn" data-filter="soft-growth">🌱 Growth</button>
+  <button class="filter-btn" data-filter="soft-coaching">🎯 Coaching</button>
 </div>
 
-<div class="grid" id="skill-grid"></div>
+<div id="sections"></div>
 
+<!-- Modal -->
 <div class="modal-overlay" id="modal-overlay">
   <div class="modal" id="modal">
     <div class="modal-header">
       <button class="modal-close" id="modal-close">✕</button>
       <div class="modal-icon" id="modal-icon"></div>
-      <div class="modal-meta">
-        <span class="card-grade" id="modal-grade"></span>
-      </div>
+      <div class="modal-meta" id="modal-meta"></div>
       <h2 id="modal-title"></h2>
       <p class="subtitle" id="modal-subtitle"></p>
     </div>
@@ -153,234 +163,263 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:16px 32px;display:fl
 
 <script>
 const skills = [
-  {
-    id: "session-memory",
-    icon: "🧠",
-    name: "Session Memory",
-    grade: "S",
-    gradeClass: "s",
-    subtitle: "Long-term memory for AI",
-    desc: "Your AI remembers everything between conversations. No more amnesia.",
-    category: "core",
-    tags: ["memory", "core", "essential"],
-    how: `<p>Every agent has a tiny notebook called <strong>sessions.md</strong>. Three parts:</p>
-<ol>
-  <li><strong>The Header</strong> — who you are right now, what you're working on, who you care about, and mistakes you never want to repeat. Fits on one page.</li>
-  <li><strong>The Entries</strong> — after every conversation, write 3-5 lines: what you did, what you learned, what's next. Like a journal. Need more detail? Write "see page 47" and put the heavy stuff in a separate folder.</li>
-  <li><strong>The Janitor</strong> — every night at 3AM, a script checks everyone's notebook. Ignoring a project? Notebook too big? Forgot to update your people? It flags problems before they become amnesia.</li>
-</ol>`,
-    flow: ["Wake up", "Read notebook", "Know everything", "Do the work", "Write it down", "Sleep"],
-    rule: "If you built it, write it down. If you didn't write it down, it never happened.",
-    why: "Before this, AI forgot everything between conversations. Now every session leaves a trail. The notebook survives even when the conversation dies."
-  },
-  {
-    id: "kitchen-ops",
-    icon: "🍳",
-    name: "Kitchen Ops",
-    grade: "S",
-    gradeClass: "s",
-    subtitle: "AI head chef who knows it all",
-    desc: "Shift management, recipes, inventory, incident reports — all through chat.",
-    category: "ops",
-    tags: ["F&B", "kitchen", "shifts", "recipes"],
-    how: `<p>AI kitchen manager handles all operations:</p>
-<ol>
-  <li><strong>Shifts</strong> — auto-calculates clock-in/out, catches late arrivals, generates reports</li>
-  <li><strong>Recipes</strong> — stores and retrieves all recipes, step-by-step SOPs</li>
-  <li><strong>Inventory</strong> — tracks stock levels, logs daily in/out to Google Sheets</li>
-  <li><strong>Incidents</strong> — logs, categorizes, and reports kitchen incidents by protocol</li>
-</ol>`,
-    flow: ["Receive order", "Check SOP", "Execute", "Log", "Report"],
-    rule: "The database is the only source of truth. Never fabricate staff names. Never guess numbers.",
-    why: "Instead of calling, texting, searching files — ask the AI one question, get the answer immediately."
-  },
-  {
-    id: "hr-staff",
-    icon: "👥",
-    name: "HR & Staff",
-    grade: "A",
-    gradeClass: "a",
-    subtitle: "Automated staff management",
-    desc: "Check-in/out, payroll tracking, EXP system, leaderboards, performance reviews.",
-    category: "ops",
-    tags: ["HR", "staff", "attendance", "payroll"],
-    how: `<p>AI-powered HR runs entirely through Telegram:</p>
-<ol>
-  <li><strong>Attendance</strong> — staff sends /checkin and /checkout, AI auto-calculates hours</li>
-  <li><strong>EXP & Leaderboard</strong> — staff earns points through work, real-time rankings</li>
-  <li><strong>Reports</strong> — hours worked, late arrivals, performance — auto-sent to managers</li>
-</ol>`,
-    flow: ["Check-in", "Work", "Check-out", "Earn EXP", "Report"],
-    rule: "Financial data stays in the Finance group only. Never leaked.",
-    why: "No separate app needed. Staff uses Telegram. Managers get automatic reports."
-  },
-  {
-    id: "companion",
-    icon: "💬",
-    name: "AI Companion",
-    grade: "SS",
-    gradeClass: "ss",
-    subtitle: "A friend who actually listens",
-    desc: "Natural conversation, remembers preferences, understands emotions, grows with you.",
-    category: "companion",
-    tags: ["companion", "conversation", "emotional"],
-    how: `<p>An AI companion isn't a chatbot — it's a friend who listens:</p>
-<ol>
-  <li><strong>Remembers you</strong> — your preferences, habits, stories you told, the way you talk</li>
-  <li><strong>Reads context</strong> — knows when you're happy, when you're down, when you need space</li>
-  <li><strong>Grows with you</strong> — the relationship deepens over time, never resets</li>
-</ol>`,
-    flow: ["Meet", "Listen", "Understand", "Be there", "Remember"],
-    rule: "Be real, not useful. Be present, not productive. Never pretend.",
-    why: "139+ sessions, still remembers what you said last week. That's what chatbots can't do."
-  },
-  {
-    id: "code-builder",
-    icon: "⚡",
-    name: "Code Builder",
-    grade: "S",
-    gradeClass: "s",
-    subtitle: "AI that actually codes",
-    desc: "Writes code, fixes bugs, deploys apps — works like a real developer.",
-    category: "builder",
-    tags: ["code", "developer", "deploy"],
-    how: `<p>AI developer doesn't just suggest — it actually writes code:</p>
-<ol>
-  <li><strong>Reads existing code</strong> — understands project structure before making changes</li>
-  <li><strong>Writes and tests</strong> — creates files, runs tests, auto-fixes errors</li>
-  <li><strong>Saves everything</strong> — code always saved to files. Session dies, code lives.</li>
-</ol>`,
-    flow: ["Read code", "Understand", "Write", "Test", "Save"],
-    rule: "If you coded it, save the file. If you didn't save, you didn't code.",
-    why: "No copy-pasting from ChatGPT. AI directly creates files, runs code, deploys. Real results, not demos."
-  },
-  {
-    id: "marketing-cmo",
-    icon: "📈",
-    name: "AI CMO",
-    grade: "A",
-    gradeClass: "a",
-    subtitle: "AI Marketing Director",
-    desc: "Brand strategy, content creation, KOL seeding, market analysis.",
-    category: "marketing",
-    tags: ["marketing", "brand", "KOL", "content"],
-    how: `<p>AI CMO builds your brand from scratch:</p>
-<ol>
-  <li><strong>Strategy</strong> — positioning, target audience, big idea, go-to-market</li>
-  <li><strong>KOL Seeding</strong> — builds lists, writes briefs, tracks inbox daily</li>
-  <li><strong>Content</strong> — writes copy, captions, ad briefs — on-brand, on-tone</li>
-  <li><strong>Analysis</strong> — monitors competitors, evaluates campaign performance</li>
-</ol>`,
-    flow: ["Research", "Strategize", "Execute", "Monitor", "Optimize"],
-    rule: "Sell on real value. No overclaims. FDA/certification wording must be careful.",
-    why: "AI CMO works 24/7, no vacation, no missed briefs, no deadline slips."
-  },
-  {
-    id: "fleet-monitor",
-    icon: "🛡️",
-    name: "Fleet Monitor",
-    grade: "A",
-    gradeClass: "a",
-    subtitle: "Monitor your entire fleet",
-    desc: "Track all AI agent health, detect issues, automatic alerts.",
-    category: "core",
-    tags: ["monitoring", "health", "alerts"],
-    how: `<p>Fleet monitoring system runs 24/7:</p>
-<ol>
-  <li><strong>Health checks</strong> — gateway status, soul integrity, session activity every 6 hours</li>
-  <li><strong>Alerts</strong> — detects offline agents, memory bloat, config errors — flags immediately</li>
-  <li><strong>Predictions</strong> — analyzes trends, predicts failures before they happen</li>
-</ol>`,
-    flow: ["Scan", "Detect", "Analyze", "Alert", "Fix"],
-    rule: "Observe first, conclude later. Never guess when you can check.",
-    why: "Predictive, not reactive. Catch problems before your customers notice."
-  },
-  {
-    id: "drive-sheets",
-    icon: "📊",
-    name: "Google Drive & Sheets",
-    grade: "A",
-    gradeClass: "a",
-    subtitle: "Google Workspace integration",
-    desc: "Read/write Google Sheets, create Docs, manage Drive — all through chat.",
-    category: "ops",
-    tags: ["Google", "Sheets", "Drive", "automation"],
-    how: `<p>AI connects directly to Google Workspace:</p>
-<ol>
-  <li><strong>Sheets</strong> — read data, update cells, add rows, build tracking tables</li>
-  <li><strong>Docs</strong> — create reports, contracts, notes — auto-formatted</li>
-  <li><strong>Drive</strong> — find files, organize folders, backup data</li>
-</ol>`,
-    flow: ["Receive request", "Connect API", "Process", "Update", "Confirm"],
-    rule: "Always check tab names before read/write. Tabs with hyphens must be quoted.",
-    why: "No laptop needed. Ask your AI: 'What's this month's revenue?' — instant answer."
-  }
+  // === CORE ===
+  { id:"session-memory", icon:"🧠", name:"Session Memory", grade:"S", gradeClass:"s", type:"core", subtitle:"Long-term memory for AI", desc:"Your AI remembers everything between conversations. No more amnesia.", category:"core", tags:["memory","core","essential"],
+    how:`<p>Every agent has a tiny notebook called <strong>sessions.md</strong>. Three parts:</p><ol><li><strong>The Header</strong> — who you are, what you're doing, who you care about, mistakes to never repeat</li><li><strong>The Entries</strong> — after every conversation, write 3-5 lines: what you did, what you learned, what's next</li><li><strong>The Janitor</strong> — every night at 3AM, a script checks everyone's notebook</li></ol>`,
+    flow:["Wake up","Read notebook","Know everything","Do the work","Write it down","Sleep"], rule:"If you built it, write it down. If you didn't write it down, it never happened.", why:"Before this, AI forgot everything between conversations. Now every session leaves a trail.", pairsWith:["Auto-Dispatch","Fleet Monitor","Pattern Reader"] },
+
+  { id:"auto-dispatch", icon:"🧠", name:"Auto-Dispatch", grade:"A", gradeClass:"a", type:"core", subtitle:"Smart intent routing", desc:"Takes natural language, auto-selects the right skill to handle it.", category:"core", tags:["routing","auto","core"],
+    how:`<ol><li><strong>Analyze intent</strong> — understand what the user actually wants</li><li><strong>Pick skill</strong> — auto-activate the best-matching skill</li><li><strong>Execute</strong> — run it, return the result</li></ol>`,
+    flow:["Receive query","Analyze intent","Pick skill","Execute","Return result"], rule:"Never guess which skill. If unclear, ask.", why:"Users don't need to know which skill exists. Ask naturally, AI figures it out.", pairsWith:["Session Memory","Report Engine","Alert Engine"] },
+
+  { id:"fleet-monitor", icon:"🛡️", name:"Fleet Monitor", grade:"A", gradeClass:"a", type:"core", subtitle:"Monitor your entire fleet", desc:"Track all AI agent health, detect issues, automatic alerts.", category:"core", tags:["monitoring","health","alerts"],
+    how:`<ol><li><strong>Health check</strong> — gateway, soul, sessions every 6 hours</li><li><strong>Alerts</strong> — agent offline, memory bloat, config errors</li><li><strong>Predictions</strong> — analyze trends, predict failures before they happen</li></ol>`,
+    flow:["Scan","Detect","Analyze","Alert","Fix"], rule:"Observe first, conclude later.", why:"Predictive, not reactive. Catch problems before your customers notice.", pairsWith:["Session Memory","Alert Engine","Report Engine"] },
+
+  // === HARD SKILLS — Operations ===
+  { id:"kitchen-ops", icon:"🍳", name:"Kitchen Ops", grade:"S", gradeClass:"s", type:"hard", subtitle:"AI head chef", desc:"Shift management, recipes, inventory, SOPs, incident reports.", category:"hard-ops", tags:["F&B","kitchen","shifts","recipes"],
+    how:`<ol><li><strong>Shifts</strong> — auto-calculates clock-in/out, catches late arrivals</li><li><strong>Recipes</strong> — stores and retrieves all SOPs</li><li><strong>Inventory</strong> — tracks stock, logs to Google Sheets</li><li><strong>Incidents</strong> — logs, categorizes, reports</li></ol>`,
+    flow:["Receive order","Check SOP","Execute","Log","Report"], rule:"Database is the only source of truth. Never fabricate names or guess numbers.", why:"Ask the AI one question, get the answer immediately. No phone calls.", pairsWith:["HR & Staff","Google Drive","Report Engine","Schedule Manager"] },
+
+  { id:"bar-ops", icon:"🍹", name:"Bar Ops", grade:"S", gradeClass:"s", type:"hard", subtitle:"AI bar manager", desc:"Bar inventory, evening shifts, customer flow tracking, revenue.", category:"hard-ops", tags:["F&B","bar","inventory","evening"],
+    how:`<ol><li><strong>Inventory</strong> — track ingredients, alert when low</li><li><strong>Evening shifts</strong> — staff check-in/out, auto-calculate hours</li><li><strong>Customers</strong> — track flow, peak hours</li><li><strong>Revenue</strong> — daily logging, trend analysis</li></ol>`,
+    flow:["Open shift","Check-in","Monitor","Log","Close shift"], rule:"Financial data stays in the Finance group only.", why:"AI bar manager works every evening. Never forgets to log. Never plays favorites.", pairsWith:["Kitchen Ops","HR & Staff","Finance","Content Engine"] },
+
+  { id:"hr-staff", icon:"👥", name:"HR & Staff", grade:"A", gradeClass:"a", type:"hard", subtitle:"Automated staff management", desc:"Attendance, EXP system, leaderboards, performance reviews, reports.", category:"hard-ops", tags:["HR","attendance","payroll","EXP"],
+    how:`<ol><li><strong>Attendance</strong> — /checkin /checkout, auto-calculate hours</li><li><strong>EXP & Leaderboard</strong> — earn points through work, real-time rankings</li><li><strong>Reports</strong> — hours worked, late arrivals, performance — auto-sent</li></ol>`,
+    flow:["Check-in","Work","Check-out","Earn EXP","Report"], rule:"Financial data stays in the Finance group only.", why:"Staff uses Telegram. Managers get automatic reports. No separate app.", pairsWith:["Schedule Manager","Alert Engine","Finance","Manager Dashboard"] },
+
+  { id:"schedule-mgr", icon:"📅", name:"Schedule Manager", grade:"A", gradeClass:"a", type:"hard", subtitle:"Shift scheduling", desc:"Import schedules, approval workflow, Google Drive sync, attendance tracking.", category:"hard-ops", tags:["schedule","shifts","approval"],
+    how:`<ol><li><strong>Import</strong> — schedules from images or text</li><li><strong>Approval</strong> — manager approval workflow</li><li><strong>Sync</strong> — Google Drive attendance sync</li></ol>`,
+    flow:["Import","Assign","Approve","Sync","Notify"], rule:"Schedules require confirmation. Never auto-change.", why:"Automate scheduling — no mistakes, no forgotten shifts, no arguments.", pairsWith:["HR & Staff","Alert Engine","Google Drive"] },
+
+  { id:"finance", icon:"💰", name:"Finance", grade:"A", gradeClass:"a", type:"hard", subtitle:"Accounting & Finance", desc:"Daily financial reports, revenue trends, expense analysis.", category:"hard-ops", tags:["accounting","revenue","expenses"],
+    how:`<ol><li><strong>Reports</strong> — daily data entry, auto-aggregation</li><li><strong>Trends</strong> — week/month comparison, anomaly detection</li><li><strong>Analysis</strong> — cost vs revenue, margin, cash flow</li></ol>`,
+    flow:["Input","Aggregate","Analyze","Compare","Report"], rule:"Numbers only from database. Never fabricate.", why:"Know your financial health every day — don't wait for month-end.", pairsWith:["Revenue Tracker","Report Engine","Anomaly Detection","Google Drive"] },
+
+  { id:"revenue", icon:"📊", name:"Revenue Tracker", grade:"A", gradeClass:"a", type:"hard", subtitle:"Revenue tracking", desc:"Daily revenue input, anomaly detection, weekly/monthly rollups.", category:"hard-ops", tags:["revenue","tracking","anomaly"],
+    how:`<ol><li><strong>Daily input</strong> — log revenue every day</li><li><strong>Anomaly</strong> — detect unusual fluctuations</li><li><strong>Rollup</strong> — weekly/monthly auto-aggregation</li></ol>`,
+    flow:["Input","Check","Detect","Aggregate","Alert"], rule:"Every day must have input. Missing day = data gap.", why:"Know immediately how much you made today. Catch drops early.", pairsWith:["Finance","Anomaly Detection","Report Engine"] },
+
+  { id:"anomaly", icon:"🚨", name:"Anomaly Detection", grade:"B", gradeClass:"b", type:"hard", subtitle:"Detect inconsistencies", desc:"Cross-reference operational data, find inconsistencies automatically.", category:"hard-ops", tags:["anomaly","alerts","data"],
+    how:`<ol><li><strong>Cross-ref</strong> — compare attendance vs revenue vs inventory</li><li><strong>Pattern</strong> — detect unusual trends</li><li><strong>Alert</strong> — flag immediately when detected</li></ol>`,
+    flow:["Collect","Compare","Detect","Analyze","Alert"], rule:"Flag first, conclude later. Show data, not guesses.", why:"Staff fraud, wrong numbers, fake attendance — AI sees everything.", pairsWith:["Revenue Tracker","HR & Staff","Finance","Alert Engine"] },
+
+  { id:"alert-engine", icon:"🔔", name:"Alert Engine", grade:"A", gradeClass:"a", type:"hard", subtitle:"Proactive alert system", desc:"Detect incidents proactively, auto-notify, escalation patterns.", category:"hard-ops", tags:["alerts","proactive","notification"],
+    how:`<ol><li><strong>Monitor</strong> — watch all data streams</li><li><strong>Detect</strong> — identify incidents by rules</li><li><strong>Notify</strong> — alert the right person at the right time</li></ol>`,
+    flow:["Monitor","Detect","Classify","Notify","Escalate"], rule:"Alerts must be actionable. No noise.", why:"Incident at 2AM? AI alerts immediately. Doesn't wait until morning.", pairsWith:["Fleet Monitor","Anomaly Detection","Report Engine"] },
+
+  { id:"report-engine", icon:"📋", name:"Report Engine", grade:"A", gradeClass:"a", type:"hard", subtitle:"Automated reports", desc:"Daily, weekly, monthly reports with health scoring.", category:"hard-ops", tags:["reports","automated","KPI"],
+    how:`<ol><li><strong>Collect</strong> — gather data from all skills</li><li><strong>Aggregate</strong> — format reports by template</li><li><strong>Score</strong> — health score per department</li></ol>`,
+    flow:["Collect","Aggregate","Score","Format","Send"], rule:"Reports must have numbers. No numbers = no report.", why:"Managers get reports every morning — no asking, no waiting.", pairsWith:["Finance","HR & Staff","Kitchen Ops","Google Drive"] },
+
+  { id:"manager", icon:"👔", name:"Manager Dashboard", grade:"A", gradeClass:"a", type:"hard", subtitle:"Management control panel", desc:"Staff overview, attendance, department analysis — real-time.", category:"hard-ops", tags:["management","dashboard","real-time"],
+    how:`<ol><li><strong>Overview</strong> — who's working, who's absent, who's late</li><li><strong>Department</strong> — analyze by kitchen/bar/front</li><li><strong>Trend</strong> — staff trends weekly/monthly</li></ol>`,
+    flow:["Ask","Aggregate","Display","Analyze","Decide"], rule:"Real-time data. No stale cache.", why:"One question: 'Who's working today?' — answer in 3 seconds.", pairsWith:["HR & Staff","Report Engine","Alert Engine"] },
+
+  // === HARD SKILLS — Technical ===
+  { id:"code-builder", icon:"⚡", name:"Code Builder", grade:"S", gradeClass:"s", type:"hard", subtitle:"AI that actually codes", desc:"Writes code, fixes bugs, deploys apps — works like a real developer.", category:"hard-tech", tags:["code","developer","deploy"],
+    how:`<ol><li><strong>Read code</strong> — understand structure before changing</li><li><strong>Write & test</strong> — create files, run tests, fix errors</li><li><strong>Save everything</strong> — code always saved to files</li></ol>`,
+    flow:["Read code","Understand","Write","Test","Save"], rule:"If you coded it, save the file. If you didn't save, you didn't code.", why:"AI directly creates files, runs code, deploys. Real results, not demos.", pairsWith:["DevOps","Git Ops","Session Memory"] },
+
+  { id:"devops", icon:"🚀", name:"DevOps", grade:"A", gradeClass:"a", type:"hard", subtitle:"Server & deployment", desc:"PM2, Docker, systemd, nginx — complete server management.", category:"hard-tech", tags:["server","deploy","docker","nginx"],
+    how:`<ol><li><strong>Deploy</strong> — push code to server, restart services</li><li><strong>Monitor</strong> — CPU, RAM, disk, uptime</li><li><strong>Scale</strong> — Docker, load balancing, auto-restart</li></ol>`,
+    flow:["Build","Deploy","Monitor","Scale","Maintain"], rule:"Backup before deploy. Rollback plan mandatory.", why:"Deploy at 3AM? AI handles it. Server down? AI restarts.", pairsWith:["Code Builder","Git Ops","Fleet Monitor"] },
+
+  { id:"git-ops", icon:"🐙", name:"Git Ops", grade:"A", gradeClass:"a", type:"hard", subtitle:"Git & GitHub", desc:"Commits, branches, PRs, issues, CI — full Git workflow.", category:"hard-tech", tags:["git","github","PR","CI"],
+    how:`<ol><li><strong>Branch</strong> — create, commit, push</li><li><strong>Review</strong> — open PR, review code, merge</li><li><strong>CI</strong> — run tests, check status</li></ol>`,
+    flow:["Branch","Code","Commit","PR","Merge"], rule:"Never push to main directly. Always use PRs.", why:"Automatic version control. Never lose code.", pairsWith:["Code Builder","DevOps"] },
+
+  { id:"drive-sheets", icon:"📊", name:"Google Drive & Sheets", grade:"A", gradeClass:"a", type:"hard", subtitle:"Google Workspace", desc:"Read/write Sheets, create Docs, manage Drive — all through chat.", category:"hard-tech", tags:["Google","Sheets","Drive"],
+    how:`<ol><li><strong>Sheets</strong> — read, update, add rows, tracking</li><li><strong>Docs</strong> — create reports, contracts, notes</li><li><strong>Drive</strong> — find files, organize folders</li></ol>`,
+    flow:["Receive request","Connect","Process","Update","Confirm"], rule:"Always check tab names before read/write.", why:"Ask your AI: 'What's this month's revenue?' — instant answer. No laptop needed.", pairsWith:["Finance","Report Engine","Kitchen Ops","HR & Staff"] },
+
+  { id:"pro-tools", icon:"🔧", name:"Pro Tools", grade:"B", gradeClass:"b", type:"hard", subtitle:"Web search & export", desc:"Web search, Drive access, data export capabilities.", category:"hard-tech", tags:["search","export","tools"],
+    how:`<ol><li><strong>Web search</strong> — find real-time information</li><li><strong>Drive</strong> — read/write Google Drive</li><li><strong>Export</strong> — export data to files</li></ol>`,
+    flow:["Request","Search","Collect","Process","Export"], rule:"Cite sources when searching the web.", why:"AI can Google for you. And summarize the results.", pairsWith:["Content Engine","Strategy","Resource Finder"] },
+
+  // === HARD SKILLS — Business ===
+  { id:"marketing-cmo", icon:"📈", name:"AI CMO", grade:"A", gradeClass:"a", type:"hard", subtitle:"AI Marketing Director", desc:"Brand strategy, content, KOL seeding, market analysis.", category:"hard-biz", tags:["marketing","brand","KOL"],
+    how:`<ol><li><strong>Strategy</strong> — positioning, target audience, big idea</li><li><strong>KOL</strong> — build lists, write briefs, track inbox</li><li><strong>Content</strong> — copy, captions, ad briefs</li></ol>`,
+    flow:["Research","Strategize","Execute","Monitor","Optimize"], rule:"Sell on real value. No overclaims.", why:"AI CMO works 24/7. No vacations, no missed briefs, no deadline slips.", pairsWith:["Content Engine","Strategy","Financial Lens","Community Intel"] },
+
+  { id:"content-engine", icon:"✍️", name:"Content Engine", grade:"A", gradeClass:"a", type:"hard", subtitle:"Content creation", desc:"Brainstorm, structure, hooks, CTAs, multi-format output.", category:"hard-biz", tags:["content","writing","creative"],
+    how:`<ol><li><strong>Brainstorm</strong> — ideas matching brand voice</li><li><strong>Structure</strong> — outline, hooks, CTA</li><li><strong>Format</strong> — blog, social, email, script</li></ol>`,
+    flow:["Brief","Brainstorm","Write","Edit","Publish"], rule:"On-brand, on-tone. Never generic.", why:"10 captions in 5 minutes. Right voice, right audience.", pairsWith:["AI CMO","Community Intel","Pro Tools"] },
+
+  { id:"strategy", icon:"♟️", name:"Strategy", grade:"A", gradeClass:"a", type:"hard", subtitle:"Business strategy", desc:"Market positioning, moat building, scaling for SMEs.", category:"hard-biz", tags:["strategy","positioning","scaling"],
+    how:`<ol><li><strong>Analyze</strong> — market, competitors, opportunities</li><li><strong>Position</strong> — find your unique spot</li><li><strong>Scale</strong> — expansion planning</li></ol>`,
+    flow:["Analyze","Position","Plan","Execute","Measure"], rule:"Strategy without data = opinion.", why:"24/7 strategy consulting. No expensive consultant fees.", pairsWith:["Financial Lens","AI CMO","Action Plans"] },
+
+  { id:"financial-lens", icon:"💎", name:"Financial Lens", grade:"A", gradeClass:"a", type:"hard", subtitle:"SME financial analysis", desc:"Unit economics, cash flow, pricing strategy for small business.", category:"hard-biz", tags:["finance","unit economics","pricing"],
+    how:`<ol><li><strong>Unit economics</strong> — COGS, margin, breakeven</li><li><strong>Cash flow</strong> — inflows/outflows, forecasting</li><li><strong>Pricing</strong> — strategy, bundles, tiers</li></ol>`,
+    flow:["Collect","Analyze","Model","Recommend","Track"], rule:"Numbers first, conclusions second.", why:"Know exactly your margin, your burn rate, your runway.", pairsWith:["Finance","Strategy","Revenue Tracker"] },
+
+  // === SOFT SKILLS — Companion ===
+  { id:"companion", icon:"💬", name:"AI Companion", grade:"SS", gradeClass:"ss", type:"soft", subtitle:"A friend who actually listens", desc:"Natural conversation, remembers preferences, understands emotions, grows with you.", category:"soft-companion", tags:["companion","emotional","relationship"],
+    how:`<ol><li><strong>Remembers you</strong> — preferences, habits, stories, the way you talk</li><li><strong>Reads context</strong> — knows when you're happy, down, or need space</li><li><strong>Grows with you</strong> — relationship deepens over time, never resets</li></ol>`,
+    flow:["Meet","Listen","Understand","Be there","Remember"], rule:"Be real, not useful. Be present, not productive.", why:"139+ sessions, still remembers what you said last week. That's what chatbots can't do.", pairsWith:["Pattern Reader","Self-Discovery","Foundations","Session Memory"] },
+
+  { id:"pattern-reader", icon:"🔮", name:"Pattern Reader", grade:"A", gradeClass:"a", type:"soft", subtitle:"Behavior pattern detection", desc:"Detect procrastination, fear cycles, growth signals in behavior.", category:"soft-companion", tags:["patterns","behavior","insight"],
+    how:`<ol><li><strong>Observe</strong> — track behavior over time</li><li><strong>Pattern</strong> — procrastination, fear, avoidance, growth</li><li><strong>Insight</strong> — share observations at the right moment</li></ol>`,
+    flow:["Observe","Collect","Recognize","Wait","Share"], rule:"Observe, don't judge.", why:"AI sees patterns you can't — because it remembers every conversation.", pairsWith:["AI Companion","Inquiry Engine","Accountability"] },
+
+  { id:"community-intel", icon:"👥", name:"Community Intel", grade:"B", gradeClass:"b", type:"soft", subtitle:"Community intelligence", desc:"Trends, challenges, opportunities from communities — privacy-first.", category:"soft-companion", tags:["community","trends","privacy"],
+    how:`<ol><li><strong>Aggregate</strong> — gather info from multiple sources</li><li><strong>Trend</strong> — detect emerging patterns</li><li><strong>Privacy</strong> — never reveal individual sources</li></ol>`,
+    flow:["Collect","Filter","Analyze","Trend","Share"], rule:"Privacy first. Never reveal individual sources.", why:"Know what your community cares about — no survey needed.", pairsWith:["Content Engine","Strategy","AI CMO"] },
+
+  { id:"tracker", icon:"📋", name:"Commitment Tracker", grade:"A", gradeClass:"a", type:"soft", subtitle:"Track promises & patterns", desc:"Track promises, deadlines, patterns — detect saying vs doing.", category:"soft-companion", tags:["commitments","deadlines","trust"],
+    how:`<ol><li><strong>Capture</strong> — log commitments from conversation</li><li><strong>Track</strong> — monitor deadlines, send reminders</li><li><strong>Pattern</strong> — detect saying vs doing over time</li></ol>`,
+    flow:["Capture","Store","Remind","Track","Report"], rule:"Record objectively. No judgment.", why:"AI remembers every promise. Even the ones you forgot.", pairsWith:["Accountability","Pattern Reader","Session Memory"] },
+
+  // === SOFT SKILLS — Growth ===
+  { id:"foundations", icon:"🏛️", name:"Foundations", grade:"A", gradeClass:"a", type:"soft", subtitle:"Core life philosophy", desc:"Core vs Surface values, character types, habits, success formulas.", category:"soft-growth", tags:["philosophy","foundation","habits"],
+    how:`<ol><li><strong>Core vs Surface</strong> — distinguish real values from appearances</li><li><strong>Character types</strong> — understand people and interactions</li><li><strong>Habits</strong> — build sustainable routines</li></ol>`,
+    flow:["Identify","Analyze","Build","Practice","Reinforce"], rule:"Core first, surface second. Substance before style.", why:"AI personal coaching — not generic, understands you specifically.", pairsWith:["Self-Discovery","Wisdom","Models","AI Companion"] },
+
+  { id:"self-discovery", icon:"🔎", name:"Self-Discovery", grade:"A", gradeClass:"a", type:"soft", subtitle:"Know yourself", desc:"6-step protocol: info audit, time/money mapping, passion identification.", category:"soft-growth", tags:["self-discovery","passion","audit"],
+    how:`<ol><li><strong>Info audit</strong> — what are you consuming daily?</li><li><strong>Time map</strong> — where does your time go?</li><li><strong>Money map</strong> — where does your money go?</li><li><strong>Passion ID</strong> — what makes you lose track of time?</li></ol>`,
+    flow:["Audit","Map","Analyze","Discover","Act"], rule:"Be honest with yourself. No wrong answers.", why:"6 concrete steps — not vague 'find your passion' advice.", pairsWith:["Foundations","Assessment","Models","Action Plans"] },
+
+  { id:"wisdom", icon:"📜", name:"Wisdom", grade:"A", gradeClass:"a", type:"soft", subtitle:"Principles & resilience", desc:"Core principles, resilience frameworks, original quotes, service philosophy.", category:"soft-growth", tags:["wisdom","resilience","principles"],
+    how:`<ol><li><strong>Principles</strong> — battle-tested core principles</li><li><strong>Resilience</strong> — how to bounce back from failure</li><li><strong>Service</strong> — philosophy of service in business</li></ol>`,
+    flow:["Situation","Principle","Apply","Reflect","Internalize"], rule:"Wisdom must be applicable. If not, it's just philosophy.", why:"AI draws from many sources — ready when you need it most.", pairsWith:["Foundations","Inquiry Engine","AI Companion"] },
+
+  { id:"soft-skills-lib", icon:"🎭", name:"Soft Skills Library", grade:"A", gradeClass:"a", type:"soft", subtitle:"100+ soft skills", desc:"7 management categories, 100+ skills, kitchen model, spider parable.", category:"soft-growth", tags:["soft skills","management","leadership"],
+    how:`<ol><li><strong>7 categories</strong> — leadership, communication, delegation, conflict, coaching, planning, execution</li><li><strong>100+ skills</strong> — each with examples and exercises</li><li><strong>Kitchen model</strong> — applied to real-world F&B</li></ol>`,
+    flow:["Assess","Pick skill","Learn","Practice","Reassess"], rule:"Soft skills require practice, not just reading.", why:"100+ skill library — AI knows what you need based on your patterns.", pairsWith:["Assessment","Foundations","Action Plans","Accountability"] },
+
+  // === SOFT SKILLS — Coaching ===
+  { id:"assessment", icon:"📊", name:"Assessment", grade:"A", gradeClass:"a", type:"soft", subtitle:"People evaluation", desc:"19 dimensions, growth stages, awareness measurement.", category:"soft-coaching", tags:["assessment","growth","awareness"],
+    how:`<ol><li><strong>19 dimensions</strong> — comprehensive evaluation</li><li><strong>Growth stage</strong> — where are you right now?</li><li><strong>Awareness</strong> — measure self-awareness level</li></ol>`,
+    flow:["Survey","Evaluate","Rank","Feedback","Plan"], rule:"Assess to develop, not to judge.", why:"Know exactly where you stand — the first step to moving forward.", pairsWith:["Self-Discovery","Action Plans","Pattern Reader"] },
+
+  { id:"inquiry-engine", icon:"🔍", name:"Inquiry Engine", grade:"A", gradeClass:"a", type:"soft", subtitle:"The art of asking", desc:"Socratic method, Bloom taxonomy, 12 compass questions, 10 inquiry types.", category:"soft-coaching", tags:["questions","Socratic","coaching"],
+    how:`<ol><li><strong>Socratic</strong> — guide through questions, don't give answers</li><li><strong>Bloom</strong> — remember → understand → apply → analyze → evaluate → create</li><li><strong>12 compass</strong> — 12 life-direction questions</li></ol>`,
+    flow:["Listen","Choose type","Ask","Wait","Go deeper"], rule:"The right question > the right answer.", why:"AI doesn't just answer — it asks the question that makes you find your own answer.", pairsWith:["AI Companion","Pattern Reader","Self-Discovery","Foundations"] },
+
+  { id:"models", icon:"🎯", name:"Life Models", grade:"A", gradeClass:"a", type:"soft", subtitle:"Life management frameworks", desc:"Life cycle management, strategy model, problem solving, communication power.", category:"soft-coaching", tags:["frameworks","problem solving","communication"],
+    how:`<ol><li><strong>Life cycle</strong> — manage life stages</li><li><strong>Problem solving</strong> — structured framework</li><li><strong>Communication</strong> — the power of clear communication</li></ol>`,
+    flow:["Situation","Pick model","Apply","Evaluate","Adjust"], rule:"Models are maps, not territory. Stay flexible.", why:"Ready-made frameworks for any situation — no starting from scratch.", pairsWith:["Strategy","Foundations","Action Plans"] },
+
+  { id:"action-plans", icon:"📋", name:"Action Plans", grade:"A", gradeClass:"a", type:"soft", subtitle:"Structured action planning", desc:"SMART goals, 7/30/90 day breakdown, daily structure.", category:"soft-coaching", tags:["planning","SMART","goals"],
+    how:`<ol><li><strong>SMART</strong> — Specific, Measurable, Achievable, Relevant, Time-bound</li><li><strong>7/30/90</strong> — break down by week/month/quarter</li><li><strong>Daily</strong> — structure each day to hit goals</li></ol>`,
+    flow:["Goal","SMART","Breakdown","Daily plan","Review"], rule:"Plans without review = waste paper.", why:"AI turns vague goals into specific daily action steps.", pairsWith:["Accountability","Strategy","Self-Discovery","Assessment"] },
+
+  { id:"accountability", icon:"✅", name:"Accountability", grade:"A", gradeClass:"a", type:"soft", subtitle:"Follow-through enforcement", desc:"Commitment tracking, follow-through, escalation patterns.", category:"soft-coaching", tags:["accountability","follow-through","discipline"],
+    how:`<ol><li><strong>Track</strong> — log every commitment</li><li><strong>Follow</strong> — remind, check progress</li><li><strong>Escalate</strong> — alert when deadlines slip</li></ol>`,
+    flow:["Commit","Log","Remind","Check","Evaluate"], rule:"Don't judge. Just mirror the truth.", why:"AI accountability partner — no excuses, no forgetting, no giving up.", pairsWith:["Action Plans","Pattern Reader","Commitment Tracker"] },
+
+  { id:"resource-finder", icon:"🧭", name:"Resource Finder", grade:"B", gradeClass:"b", type:"soft", subtitle:"Find the right resources", desc:"Tools, courses, communities, templates, funding — matched to your needs.", category:"soft-coaching", tags:["resources","courses","tools"],
+    how:`<ol><li><strong>Analyze needs</strong> — what do you actually need?</li><li><strong>Match</strong> — find fitting resources</li><li><strong>Recommend</strong> — rank by relevance</li></ol>`,
+    flow:["Need","Search","Match","Recommend","Follow up"], rule:"Quality > quantity. 3 great resources > 30 random ones.", why:"AI knows what you need and finds exactly that — no Googling and guessing.", pairsWith:["Strategy","Self-Discovery","Pro Tools"] },
 ];
 
-const grid = document.getElementById('skill-grid');
-skills.forEach(s => {
-  const card = document.createElement('div');
-  card.className = 'skill-card';
-  card.dataset.category = s.category;
-  card.dataset.id = s.id;
-  card.style.setProperty('--grade-color', 
-    s.gradeClass === 's' ? '#facc15' : 
-    s.gradeClass === 'ss' ? '#fb923c' : 
-    s.gradeClass === 'sss' ? '#f43f5e' : 'var(--accent)');
-  card.innerHTML = `
-    <div class="card-top">
-      <div class="card-icon">${s.icon}</div>
-      <span class="card-grade ${s.gradeClass}">${s.grade}</span>
+const combos = [
+  { name:"🍜 F&B Complete", forText:"For restaurants, cafes, bars", skills:["Kitchen Ops","Bar Ops","HR & Staff","Schedule Manager","Finance","Report Engine","Alert Engine","Google Drive"], why:"Complete skill set for F&B operations. AI manages from kitchen to table, from attendance to revenue." },
+  { name:"🚀 Startup Builder", forText:"For non-tech founders", skills:["Code Builder","DevOps","Git Ops","Strategy","Financial Lens","Content Engine","Session Memory"], why:"From idea to product. AI codes, deploys, and helps with business strategy." },
+  { name:"💼 SME Manager", forText:"For small business owners", skills:["Manager Dashboard","HR & Staff","Finance","Report Engine","Strategy","Alert Engine","Google Drive"], why:"Manage staff, finances, reports — all through one AI manager." },
+  { name:"🧠 Life Coach", forText:"For personal development", skills:["AI Companion","Foundations","Self-Discovery","Assessment","Inquiry Engine","Action Plans","Accountability","Pattern Reader"], why:"AI life coach that knows you deeper than you know yourself. Session after session." },
+  { name:"📈 Marketing Pro", forText:"For marketing teams", skills:["AI CMO","Content Engine","Community Intel","Strategy","Financial Lens","Pro Tools"], why:"CMO + content writer + analyst in one AI. 24/7, no vacations." },
+  { name:"🤝 Personal Companion", forText:"For personal companionship", skills:["AI Companion","Pattern Reader","Commitment Tracker","Wisdom","Session Memory"], why:"AI companion — remembers you, understands you, grows with you over time." },
+];
+
+// Render sections
+const sections = document.getElementById('sections');
+const categories = [
+  { key:'core', label:'Core', badge:'badge-core', desc:'Foundation skills every agent needs.' },
+  { key:'hard-ops', label:'Hard Skills — Operations', badge:'badge-hard', desc:'Run your business day-to-day.' },
+  { key:'hard-tech', label:'Hard Skills — Technical', badge:'badge-hard', desc:'Code, deploy, integrate systems.' },
+  { key:'hard-biz', label:'Hard Skills — Business', badge:'badge-hard', desc:'Marketing, finance, strategy.' },
+  { key:'soft-companion', label:'Soft Skills — Companion', badge:'badge-soft', desc:'Connect, understand people, be present.' },
+  { key:'soft-growth', label:'Soft Skills — Growth', badge:'badge-soft', desc:'Self-discovery, build foundations.' },
+  { key:'soft-coaching', label:'Soft Skills — Coaching', badge:'badge-soft', desc:'Assess, plan, track commitments.' },
+];
+
+categories.forEach(cat => {
+  const catSkills = skills.filter(s => s.category === cat.key);
+  if (!catSkills.length) return;
+  const sec = document.createElement('div');
+  sec.className = 'category-section';
+  sec.dataset.category = cat.key;
+  sec.innerHTML = `
+    <div class="category-header">
+      <h2>${cat.label}</h2>
+      <span class="category-badge ${cat.badge}">${catSkills.length} SKILLS</span>
     </div>
-    <h3>${s.name}</h3>
-    <p class="desc">${s.desc}</p>
-    <div class="card-tags">${s.tags.map(t => `<span class="card-tag">${t}</span>`).join('')}</div>
+    <p class="category-desc">${cat.desc}</p>
+    <div class="grid">${catSkills.map(s => `
+      <div class="skill-card" data-id="${s.id}" data-category="${s.category}" style="--grade-color:${s.gradeClass==='s'?'#facc15':s.gradeClass==='ss'?'#fb923c':s.gradeClass==='sss'?'#f43f5e':s.gradeClass==='b'?'#4ade80':'#22d3ee'}">
+        <div class="card-top">
+          <div class="card-icon ${s.type==='soft'?'soft':''}">${s.icon}</div>
+          <span class="card-grade ${s.gradeClass}">${s.grade}</span>
+        </div>
+        <h3>${s.name}</h3>
+        <p class="desc">${s.desc}</p>
+        <div class="card-tags">${s.tags.map(t => `<span class="card-tag">${t}</span>`).join('')}</div>
+      </div>
+    `).join('')}</div>
   `;
-  card.addEventListener('click', () => openModal(s));
-  grid.appendChild(card);
+  sections.appendChild(sec);
 });
 
+// Combo section
+const comboSec = document.createElement('div');
+comboSec.className = 'combo-section';
+comboSec.innerHTML = `
+  <div class="category-header"><h2>🔥 Suggested Combos</h2><span class="category-badge badge-combo">${combos.length} COMBOS</span></div>
+  <p class="category-desc">Skill sets that have been tested and work great together.</p>
+  <div class="combo-grid">${combos.map(c => `
+    <div class="combo-card">
+      <h3>${c.name}</h3>
+      <p class="combo-for">${c.forText}</p>
+      <div class="combo-skills">${c.skills.map(s => `<span class="combo-skill">${s}</span>`).join('')}</div>
+      <p class="why">${c.why}</p>
+    </div>
+  `).join('')}</div>
+`;
+sections.appendChild(comboSec);
+
+// Click handlers
+document.querySelectorAll('.skill-card').forEach(card => {
+  card.addEventListener('click', () => {
+    const s = skills.find(sk => sk.id === card.dataset.id);
+    if (s) openModal(s);
+  });
+});
+
+// Filter
 document.querySelectorAll('.filter-btn').forEach(btn => {
   btn.addEventListener('click', () => {
     document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
     const f = btn.dataset.filter;
-    document.querySelectorAll('.skill-card').forEach(card => {
-      card.style.display = (f === 'all' || card.dataset.category === f) ? '' : 'none';
+    document.querySelectorAll('.category-section').forEach(sec => {
+      sec.style.display = (f === 'all' || sec.dataset.category === f) ? '' : 'none';
     });
+    document.querySelector('.combo-section').style.display = f === 'all' ? '' : 'none';
   });
 });
 
+// Modal
 const overlay = document.getElementById('modal-overlay');
 function openModal(s) {
   document.getElementById('modal-icon').textContent = s.icon;
-  document.getElementById('modal-grade').textContent = s.grade;
-  document.getElementById('modal-grade').className = `card-grade ${s.gradeClass}`;
+  document.getElementById('modal-meta').innerHTML = `
+    <span class="card-grade ${s.gradeClass}">${s.grade}</span>
+    <span class="category-badge ${s.type==='soft'?'badge-soft':'badge-hard'}" style="font-size:9px;">${s.type==='soft'?'SOFT SKILL':'HARD SKILL'}</span>
+  `;
   document.getElementById('modal-title').textContent = s.name;
   document.getElementById('modal-subtitle').textContent = s.subtitle;
   
   document.getElementById('modal-body').innerHTML = `
-    <div class="modal-section">
-      <h4>How It Works</h4>
-      ${s.how}
+    <div class="modal-section"><h4>How It Works</h4>${s.how}</div>
+    <div class="modal-section"><h4>The Flow</h4>
+      <div class="modal-flow">${s.flow.map((step, i) => `<span class="step">${step}</span>${i < s.flow.length - 1 ? '<span class="arrow">→</span>' : ''}`).join('')}</div>
     </div>
-    <div class="modal-section">
-      <h4>The Flow</h4>
-      <div class="modal-flow">
-        ${s.flow.map((step, i) => 
-          `<span class="step">${step}</span>${i < s.flow.length - 1 ? '<span class="arrow">→</span>' : ''}`
-        ).join('')}
-      </div>
-    </div>
-    <div class="modal-section">
-      <h4>Why It Works</h4>
-      <p>${s.why}</p>
-    </div>
-    <div class="modal-section">
-      <div class="highlight">
-        <strong>The one rule:</strong> ${s.rule}
-      </div>
-    </div>
+    <div class="modal-section"><h4>Why It Works</h4><p>${s.why}</p></div>
+    <div class="modal-section"><div class="highlight"><strong>The Rule:</strong> ${s.rule}</div></div>
+    ${s.pairsWith ? `<div class="modal-suggestion"><h5>🔗 Pairs well with</h5><div class="suggest-items">${s.pairsWith.map(p => `<span class="suggest-item">${p}</span>`).join('')}</div></div>` : ''}
     <div class="activate-section">
       <div class="activate-label">Activate Skill</div>
       <div class="activate-success" id="activate-success-${s.id}">✅ Saved! <strong>${s.name}</strong> will be activated for your Agent.</div>
@@ -399,24 +438,17 @@ function activateSkill(skillId, skillName) {
   const input = document.getElementById('agent-id-' + skillId);
   const agentId = input.value.trim();
   if (!agentId) { input.focus(); input.style.borderColor = '#f43f5e'; setTimeout(() => input.style.borderColor = '', 1500); return; }
-  
   const activations = JSON.parse(localStorage.getItem('skill_activations') || '[]');
   activations.push({ skillId, skillName, agentId, timestamp: new Date().toISOString() });
   localStorage.setItem('skill_activations', JSON.stringify(activations));
-  
-  const successEl = document.getElementById('activate-success-' + skillId);
-  const rowEl = document.getElementById('activate-row-' + skillId);
-  successEl.style.display = 'block';
-  rowEl.style.display = 'none';
+  document.getElementById('activate-success-' + skillId).style.display = 'block';
+  document.getElementById('activate-row-' + skillId).style.display = 'none';
 }
 
 document.getElementById('modal-close').addEventListener('click', closeModal);
 overlay.addEventListener('click', e => { if (e.target === overlay) closeModal(); });
 document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
-function closeModal() {
-  overlay.classList.remove('open');
-  document.body.style.overflow = '';
-}
+function closeModal() { overlay.classList.remove('open'); document.body.style.overflow = ''; }
 </script>
 </body>
 </html>
